@@ -1,0 +1,19 @@
+@use "./base.scss";
+
+// Tiny d10 — carry over the look of the old Obsidian Publish site
+// (EB Garamond serif, justified prose, centered rounded images).
+
+article {
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  // Center images and give them soft rounded corners, as on the old site.
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+}
