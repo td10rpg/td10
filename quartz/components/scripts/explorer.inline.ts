@@ -1,5 +1,5 @@
 import { FileTrieNode } from "../../util/fileTrie"
-import { FullSlug, resolveRelative, simplifySlug } from "../../util/path"
+import { FullSlug, resolveRelative, simplifySlug, slugifyFilePath } from "../../util/path"
 import { ContentDetails } from "../../plugins/emitters/contentIndex"
 
 type MaybeHTMLElement = HTMLElement | undefined
@@ -17,6 +17,14 @@ interface ParsedOptions {
 type FolderState = {
   path: string
   collapsed: boolean
+}
+
+// Local d10 customization: the nav tree is built from each page's VAULT FILE
+// PATH (so folder groupings like "Optional Rules" survive our flat canonical
+// URLs), while links + active-state use each page's real clean slug, stashed on
+// node.data.cleanSlug by setupExplorer. See util/path CleanUrls plugin.
+function cleanSlugOf(node: FileTrieNode): FullSlug {
+  return ((node.data as any)?.cleanSlug ?? node.slug) as FullSlug
 }
 
 let currentExplorerState: Array<FolderState>
@@ -79,16 +87,18 @@ function toggleFolder(evt: MouseEvent) {
   localStorage.setItem("fileTree", stringifiedFileTree)
 }
 
-function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElement {
+function createFileNode(currentCleanSlug: FullSlug, node: FileTrieNode): HTMLLIElement {
   const template = document.getElementById("template-file") as HTMLTemplateElement
   const clone = template.content.cloneNode(true) as DocumentFragment
   const li = clone.querySelector("li") as HTMLLIElement
   const a = li.querySelector("a") as HTMLAnchorElement
-  a.href = resolveRelative(currentSlug, node.slug)
-  a.dataset.for = node.slug
+  // Structure comes from the file path, but the link is the page's clean URL.
+  const cleanTarget = cleanSlugOf(node)
+  a.href = resolveRelative(currentCleanSlug, cleanTarget)
+  a.dataset.for = cleanTarget
   a.textContent = node.displayName
 
-  if (currentSlug === node.slug) {
+  if (currentCleanSlug === cleanTarget) {
     a.classList.add("active")
   }
 
@@ -96,7 +106,8 @@ function createFileNode(currentSlug: FullSlug, node: FileTrieNode): HTMLLIElemen
 }
 
 function createFolderNode(
-  currentSlug: FullSlug,
+  currentCleanSlug: FullSlug,
+  currentStructuralSlug: FullSlug,
   node: FileTrieNode,
   opts: ParsedOptions,
 ): HTMLLIElement {
@@ -108,10 +119,11 @@ function createFolderNode(
   const folderOuter = li.querySelector(".folder-outer") as HTMLElement
   const ul = folderOuter.querySelector("ul") as HTMLUListElement
 
+  // Folders are structural (file-path derived); state + matching use that path.
   const folderPath = node.slug
   folderContainer.dataset.folderpath = folderPath
 
-  if (currentSlug === folderPath) {
+  if (currentStructuralSlug === folderPath) {
     folderContainer.classList.add("active")
   }
 
@@ -119,7 +131,7 @@ function createFolderNode(
     // Replace button with link for link behavior
     const button = titleContainer.querySelector(".folder-button") as HTMLElement
     const a = document.createElement("a")
-    a.href = resolveRelative(currentSlug, folderPath)
+    a.href = resolveRelative(currentCleanSlug, folderPath)
     a.dataset.for = folderPath
     a.className = "folder-title"
     a.textContent = node.displayName
@@ -138,7 +150,7 @@ function createFolderNode(
   // want to open it anyways
   const simpleFolderPath = simplifySlug(folderPath)
   const folderIsPrefixOfCurrentSlug =
-    simpleFolderPath === currentSlug.slice(0, simpleFolderPath.length)
+    simpleFolderPath === currentStructuralSlug.slice(0, simpleFolderPath.length)
 
   if (!isCollapsed || folderIsPrefixOfCurrentSlug) {
     folderOuter.classList.add("open")
@@ -146,8 +158,8 @@ function createFolderNode(
 
   for (const child of node.children) {
     const childNode = child.isFolder
-      ? createFolderNode(currentSlug, child, opts)
-      : createFileNode(currentSlug, child)
+      ? createFolderNode(currentCleanSlug, currentStructuralSlug, child, opts)
+      : createFileNode(currentCleanSlug, child)
     ul.appendChild(childNode)
   }
 
@@ -178,7 +190,22 @@ async function setupExplorer(currentSlug: FullSlug) {
 
     const data = await fetchData
     const entries = [...Object.entries(data)] as [FullSlug, ContentDetails][]
-    const trie = FileTrieNode.fromEntries(entries)
+
+    // Re-key the trie by vault file path so folder groupings survive the flat
+    // canonical URLs, keeping each page's real (clean) slug on data.cleanSlug for
+    // links + active-state. New objects only — never mutate the cached data.
+    const slugMap = new Map<FullSlug, FullSlug>()
+    const remapped = entries.map(([key, d]) => {
+      const cleanSlug = d.slug as FullSlug
+      const structuralSlug = (
+        d.filePath ? slugifyFilePath(d.filePath) : cleanSlug
+      ) as FullSlug
+      slugMap.set(cleanSlug, structuralSlug)
+      return [key, { ...d, slug: structuralSlug, cleanSlug } as ContentDetails]
+    }) as [FullSlug, ContentDetails][]
+    const currentStructuralSlug = slugMap.get(currentSlug) ?? currentSlug
+
+    const trie = FileTrieNode.fromEntries(remapped)
 
     // Apply functions in order
     for (const fn of opts.order) {
@@ -213,7 +240,7 @@ async function setupExplorer(currentSlug: FullSlug) {
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
       const node = child.isFolder
-        ? createFolderNode(currentSlug, child, opts)
+        ? createFolderNode(currentSlug, currentStructuralSlug, child, opts)
         : createFileNode(currentSlug, child)
 
       fragment.appendChild(node)
