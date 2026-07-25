@@ -1,0 +1,37 @@
+button.pdf-export {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  padding: 0.4rem 0.75rem;
+  margin: 0.25rem 0 1rem;
+  background-color: var(--secondary);
+  color: var(--light);
+  border: none;
+  border-radius: 5px;
+  font-family: var(--bodyFont);
+  font-size: 0.95rem;
+  line-height: 1;
+  transition:
+    filter 0.15s ease,
+    transform 0.05s ease;
+
+  & svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+// Never show the button in the printed/exported document itself.
+@media print {
+  button.pdf-export {
+    display: none !important;
+  }
+}
