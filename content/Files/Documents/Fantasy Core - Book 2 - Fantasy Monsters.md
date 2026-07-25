@@ -1,3 +1,6 @@
+---
+slug: fantasy/monsters
+---
 # Tiny d10: Fantasy Monsters
 
 ## Introduction

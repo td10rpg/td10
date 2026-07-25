@@ -1,3 +1,6 @@
+---
+slug: fantasy/broken-light
+---
 # Tiny d10: The Broken Light
 
 *There is a cavern in the deep Beyond the sea-winds brawl; Where the hills of the sea slope high and steep, And dragons sleep And serpents creep. There is a cavern in the deep Where strange sea-creatures crawl.*

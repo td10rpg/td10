@@ -1,3 +1,6 @@
+---
+slug: fantasy/rules
+---
 # Tiny d10: Fantasy Rules
 ## Character Creation
 Use the following steps to create a character, selecting their race, class, and other relevant traits.
