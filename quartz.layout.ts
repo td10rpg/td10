@@ -1,6 +1,20 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
+// Nav menu (Explorer) sort: list standalone pages first, then folders, each
+// group alphabetical. Quartz's default is folders-first; this flips it so the
+// top-level pages read before the folders. Must stay self-contained (no outer
+// references) — Quartz serializes it via .toString() and re-evals it client-side.
+const filesBeforeFolders = (a: any, b: any) => {
+  if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+    return a.displayName.localeCompare(b.displayName, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    })
+  }
+  return !a.isFolder && b.isFolder ? -1 : 1
+}
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
@@ -42,7 +56,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({ sortFn: filesBeforeFolders }),
   ],
   right: [
     Component.Graph(),
@@ -66,7 +80,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({ sortFn: filesBeforeFolders }),
   ],
   right: [],
 }
