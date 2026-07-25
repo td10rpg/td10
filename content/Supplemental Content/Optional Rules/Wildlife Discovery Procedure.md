@@ -25,6 +25,7 @@ The sign that something has passed here.
 | 7    | A den or winter lay | Young, stores, or a hide worth taking; go to Step 2 and if successful, harvest at +1 [[Monster Hunting#Harvest Quality Table\|Quality]]. |
 | 8-9  | The beast itself    | Downwind and unaware; go to Step 2, and the party gains initiative.                                                                      |
 | 10   | An omen             | The country is wrong here; go to Step 2, then follow "The Wrong Beast".                                                                  |
+
 **Note:** If the PC possesses the *know nature* skill, they are able to determine what animal the spoor belongs to.
 ## Step 2: The Quarry
 What the sign belongs to.
@@ -51,6 +52,7 @@ Roll the **Reaction Table** and read it for a beast:
 | 7-8  | It bolts, and the meat is lost unless you pursue.   |
 | 9    | It regards you neutrally.                           |
 | 10   | It lets you approach: a clean shot and easy forage. |
+
 The animal is killed like anything else: a standard Attack roll against its Toughness. Most game possess only 1-2 Hit Points, so a single clean strike (or a 1d5 hunting arrow) puts it down; *survival* or *know nature* may grant an attack bonus.
 
 If an animal flees, it does so at its maximum speed; if a PC is of equal speed, the animal is gained (that is, within striking range) on a successful Reflex Challenge; three failed challenges and the animal successfully flees.

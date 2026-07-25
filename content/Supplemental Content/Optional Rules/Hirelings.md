@@ -14,6 +14,7 @@ Over the course of their adventures, the party may find themselves in need of hi
 | Basic           | Level 1 Warrior | 2gp          | +0              |
 | Advanced        | Level 2 Warrior | 4gp          | +1              |
 | Veteran         | Level 3 Warrior | 8gp          | +2              |
+
 Hirelings behave similarly to PCs (this is especially true of men-at-arms) and under normal circumstances follow the orders of whoever is paying their daily wages. However, like monsters, hirelings must make morale checks in combat scenarios, or otherwise dangerous situations.
 
 Generally, the first time an ally is slain, each hireling must make a morale check: on a roll of 2 or lower they will fail this check and flee; likewise, the second time an ally is slain, each hireling must make a morale check: on a roll of 5 or lower they will fail this check and flee. If half or more of the hireling's allies are slain, they will flee.

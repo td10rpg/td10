@@ -267,6 +267,7 @@ As the Crew goes about their business conducting reconnaissance, competing with 
 | Level 3: Making Waves     | +3 RP                     | +1 to all intimidation-related checks | -1 to all stealth-related checks      | _Apply Pressure_ – force a neutral faction or party to perform a minor task (Crime Master's discretion). Cost: 3 Reputation Points. |
 | Level 4: Feared & Loathed | +4 RP                     | +2 to all intimidation-related checks | -2 to all stealth-related checks      | _Coercion_ – impose a -2 roll penalty on a faction for an entire scene. Cost: 4 Reputation Points.                                  |
 | Level 5: Notorious        | +5 RP                     | +3 to all intimidation-related checks | -3 to all stealth-related checks      | _Domination_ – declare a major advantage (Crime Master's discretion) for an entire scene. Cost: 5 Reputation Points.                |
+
 The Crew begins at Level 1 (Low Profile), with their notoriety increasing based on their activity. Activities that will affect their notoriety can include, but are not limited to:
 
 - Gaining control of a portion of a rival's territory, increasing notoriety by one level.

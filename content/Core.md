@@ -261,6 +261,7 @@ Firearms feature heavily in most modern games, and the following mechanics repre
 | Pistol  | LW; 1d5 damage; range 100 ft.         |
 | Rifle   | MW; +1 attack; 1d10 damage; 300 ft.   |
 | Shotgun | MW; +2 attack; 1d5 + 5 damage; 50 ft. |
+
 Any firearm attack that inflicts 3 or more damage triggers a roll on the wound table.
 
 | Roll | Wound                                                   |

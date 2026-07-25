@@ -227,6 +227,7 @@ Here, a strange, inscrutable human male—simultaneously young and old in counte
 | _Firewater_ – gain +1 Toughness, Power, and Reflex for 10 rounds.                                                                                                                                    | 6gp  |
 | _Blinkstone_ – enables to the user to teleport to wherever the stone is thrown; each time the stone is used, roll 1d10: on a roll of 3 or below, the stone is broken on impact and no longer usable. | 10gp |
 | _Dessicating powder_ – reduces toughness of all undead entities by half (rounded up) for 5 rounds.                                                                                                   | 9sp  |
+
 The second story contains the alchemist’s living quarters and workshop, where a number of experimental concoctions can be found. The entrance to the dwelling is trapped, and if the locked door is opened, a paralytic gas (_T9; save T8; affects radius of 10ft; causes paralysis for 8 hours_) is released. Additionally, there are 369 counterfeit (T7 Intellect Check) gold pieces (having been transmuted from lead) on a workbench.
 ### 17. Butchery
 _Aromatic smoke pours from the chimney of this small and sturdy building. Comprised of thick, dark logs, the interior is densely packed with a variety of cuts of meat, and behind the woodblock counter, a makeshift iron smoker runs in perpetuity._
@@ -263,6 +264,7 @@ At any time, 5-10 valuable items are available for sale, displayed in the glass 
 | _Leather armor, boiled_ – MW; +1 toughness.                                   | 10gp  |
 | _Shield, silvered_ – LW; +1 attack, +1 toughness.                             | 50gp  |
 | _Scroll of finding_ – locates all valuables in a 50’ radius.                  | 11sp  |
+
 The entirety of the treasury’s wealth is contained in an iron-walled vault in the building’s cellar. Its iron door is magically locked, and all but impervious to destruction. Additionally, there is an incineration trap (T8 to spot, T10 to disarm; causes instant incineration; T6 Reflex Save to reduce to 1d5 damage) that is triggered upon unauthorized contact with the vault's handle.
 ### 19. Light Tower
 _This square tower reaches higher than the rest, standing some 75 feet tall. A pointed stone roof caps its peak, stood atop thin pillars that admit full view of several brazier which, in the night, bear blazing fires that guide all northbound vessels to safe shores._
@@ -308,6 +310,7 @@ Accessible only from the wall, each of armory’s three iron doors are always lo
 | _Wand of exploding_ – inflicts 1d5 damage; roll after each use: on a roll of 2 or lower, the wand explodes, inflicting 1 damage on the wielder. | First        |
 | _Falchion of swiftness_ – MW; +1 attack; on an attack roll of 8 or higher, the wielder gains another attack.                                    | Second       |
 | _Double-shot crossbow_ – MW; +1 attack; make two ranged attacks per combat turn.                                                                | Third        |
+
 In the event that the party accepts a mission from the stronghold, they may be granted access to the armory to arm both themselves and any retainers they may have hired.
 #### 24. Inner Gatehouse
 _This stout structure is built from the wall itself, and the third-story of which sits atop it. The building’s roof is flat and capped by battlements. The windows that line its length are barred by heavy iron grates. A fine courtyard, full of all manner of vines and dotted with pale-white flowers, is nestled between either side of the portcullis. The iron gate is raised._
@@ -386,6 +389,7 @@ No civilian has ever witnessed the Cells, which are located beneath the Fort str
 | 3    | Prisoners sometimes leave alive, bound for the Hinterlands… but they don't come back the same, if at all.                          |
 | 4    | The jailer sleeps in his post. He has not left the lower stronghold in years. They say his name is on no roll, and never has been. |
 | 5    | One cell is always empty, and always swept. They say it is being kept ready for someone in particular—and that whoever holds the key knows who.                  |
+
 The imprisoned either eventually face justice, meted out by military tribunal, or take their chances as conscripts in sorties in the Hinterlands—either way, they are rarely heard from again.
 ### Running the Fort
 The Fort is a critical presence on Glacia, and represents civilization’s only foothold in this wild land. It delivers supplies for frontiersman whose hard work and habitation may tame the Hinterlands yet; it provides support to prospectors who would extract the precious metals and gems from Glacia’s frozen crust; and it furnishes capable opposition to the men and monsters allied to the forces of chaos and determined to auger its destruction. And should it ever come to such dire straits, it presents a safe fallback point for those upriver and exposed to the threats of the wilds at large.
@@ -478,6 +482,7 @@ This is the most populous region of the Hinterlands and the one most directly an
 | Secure   | -1       |
 | Expand   | 0        |
 | Discover | 0        |
+
 **Resources:** river fish, milled lumber rafted downstream, trade goods (transit), modest grain
 **State (baseline):** *Functional* (3-4 operational assets, 2 Resource Dice)
 **Anchor Settlement:** Three Branches Landing

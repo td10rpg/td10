@@ -13,6 +13,7 @@ A character’s **Carry Capacity** is determined by their Power Score.
 | 3           | 50 lbs         |
 | 4           | 60 lbs         |
 | 5           | 70 lbs         |
+
 Carry Capacity represents the amount of weight a character may comfortably carry without penalty.
 # Encumbrance Levels
 A character carrying up to their Carry Capacity is unencumbered and suffers no penalties.

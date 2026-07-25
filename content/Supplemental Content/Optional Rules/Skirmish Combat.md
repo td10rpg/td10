@@ -140,6 +140,7 @@ If step 1 yielded a named combatant, every named combatant must roll 1d10 + Rank
 | Veteran    | 2    | +3    | **5**  |
 | Campaigner | 6    | +4    | **10** |
 | Warmaster  | 1    | +5    | **6**  |
+
 For multiple named casualties from one engagement, run Step 1 for each in turn. When more than one Casualty Saves are required in the same engagement, the lowest *N* totals across all rolls take them.
 
 >**Note:** If step 1 yielded an unnamed soldier, go directly to step 3.

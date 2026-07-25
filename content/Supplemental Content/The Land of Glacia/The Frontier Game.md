@@ -17,6 +17,7 @@ When an event occurs, roll 1d10 to determine how many.
 | 2-5  | 3                |
 | 6-9  | 2                |
 | 10   | 1                |
+
 Then, roll 1d10 to determine where it occurs.
 
 | Roll | Affected Region          |
@@ -26,6 +27,7 @@ Then, roll 1d10 to determine where it occurs.
 | 5-6  | The Bastion at Stonefall |
 | 7-8  | The Melttlands           |
 | 9-10 | The White March          |
+
 And finally, roll 1d10 to determine what actually happens.
 
 | Roll | Event Type           | Effect                                               |
@@ -83,6 +85,7 @@ Regional attributes correspond directly to the five actions. Each region has thr
 | Secure   | -1       |
 | Expand   | 0        |
 | Recover  | 0        |
+
 These modifiers are applied to relevant action rolls, and reflect actions that a given region is especially good or particularly poor at due to geographic features, resource availability, and more. 
 ##### Resources
 Each region generates certain resources (e.g. iron, coal, timber, food, etc.) which makes up their daily output. Resources are not amassed, and so it is not required that game masters keep the books for an ever-growing reserve—instead, they are assumed to be allocated entirely to sustaining the region, including maintenance, trade, and defense on a daily basis. 
@@ -106,6 +109,7 @@ Resource Dice can be used by regions to thwart negative events and increase the 
 | 4–6  | Edge         | +1 to roll / reduce penalty        | +1 to next action             |
 | 7–9  | Advantage    | Avoid harm / improve outcome       | Cancel or reduce event impact |
 | 10   | Breakthrough | Automatic success / negate failure | Auto-success or major shift   |
+
 Resource Dice cannot be stacked; any Resource Dice not rolled on the day they are produced are lost.
 ## Playing the Frontier Game
 A refined and extensively tested version of these mechanics will be included as an appendix in *The Hinterlands*, with all information necessary to for this style of play embedded discreetly in each section dedicated to the various regions of the frontier—meaning this style of play is entirely optional, and indeed even completely transparent to the reader without this appendix.
