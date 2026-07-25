@@ -24,6 +24,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.ConditionalRender({
+      component: Component.PdfExport(),
+      condition: (page) => page.fileData.slug === "Core",
+    }),
   ],
   left: [
     Component.PageTitle(),

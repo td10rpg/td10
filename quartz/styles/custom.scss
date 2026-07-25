@@ -17,3 +17,52 @@ article {
     border-radius: 10px;
   }
 }
+
+// Clean output for "Export to PDF" (browser print-to-PDF). Strip the site
+// chrome so the exported document is just the page content.
+@media print {
+  // Hide navigation, sidebars, search, toggles, graph, TOC, backlinks, footer.
+  .sidebar,
+  .page-footer,
+  footer,
+  .breadcrumb-container,
+  .mobile-explorer,
+  .search,
+  .darkmode,
+  .readermode {
+    display: none !important;
+  }
+
+  // Let the content span the full printable width.
+  .page > #quartz-body {
+    display: block !important;
+  }
+
+  .center {
+    margin: 0 !important;
+  }
+
+  article {
+    max-width: 100% !important;
+
+    // Justified text can leave large gaps when reflowed to paper; left-align.
+    p {
+      text-align: left;
+    }
+  }
+
+  // Avoid awkward page breaks through tables, images, and callouts.
+  table,
+  img,
+  .callout,
+  pre {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+  }
+}
