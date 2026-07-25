@@ -20,12 +20,9 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [],
-  footer: Component.Footer({
-    links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
-    },
-  }),
+  // Credit Quartz (the "Created with Quartz" line links to the Quartz site),
+  // but no links to Quartz's own GitHub / Discord.
+  footer: Component.Footer({ links: {} }),
 }
 
 // components for pages that display a single page (e.g. a single note)
