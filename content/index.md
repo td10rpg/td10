@@ -1,4 +1,5 @@
 ---
+title: Tiny d10
 permalink: home
 ---
 # Welcome to Tiny d10
