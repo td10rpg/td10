@@ -68,6 +68,9 @@ const config: QuartzConfig = {
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
+      // After CrawlLinks so its html pass rewrites already-resolved link hrefs;
+      // its markdown pass (slug override) still runs in phase 1 either way.
+      Plugin.CleanUrls(),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
