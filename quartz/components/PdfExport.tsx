@@ -7,7 +7,7 @@ import { classNames } from "../util/lang"
 const PdfExport: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
     <button
-      class={classNames(displayClass, "pdf-export")}
+      class={classNames(displayClass, "print-to-pdf")}
       type="button"
       title="Export to PDF"
       aria-label="Export this page to PDF"

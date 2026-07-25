@@ -1,4 +1,4 @@
-button.pdf-export {
+button.print-to-pdf {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -31,7 +31,7 @@ button.pdf-export {
 
 // Never show the button in the printed/exported document itself.
 @media print {
-  button.pdf-export {
+  button.print-to-pdf {
     display: none !important;
   }
 }
