@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: null,
     locale: "en-US",
-    baseUrl: "m00minpappa.github.io/td10",
+    baseUrl: "td10.pw",
     ignorePatterns: ["private", "templates", "**/Templates/**", ".obsidian"],
     defaultDateType: "modified",
     theme: {

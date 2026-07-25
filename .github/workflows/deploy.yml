@@ -29,6 +29,8 @@ jobs:
         run: npm ci
       - name: Build Quartz
         run: npx quartz build
+      - name: Add CNAME for custom domain
+        run: echo "td10.pw" > public/CNAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
