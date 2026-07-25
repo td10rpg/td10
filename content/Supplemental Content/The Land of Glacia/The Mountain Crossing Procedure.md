@@ -68,6 +68,7 @@ Certain conditions can increase or decrease the likelihood of a successful Leg:
 | 4-6  | Partial Success                             |
 | 7-9  | Success                                     |
 | 10   | Strong Success                              |
+
 The outcomes of each Leg determine the overall success or failure of the journey.
 ## Resource Dice
 If the party is:

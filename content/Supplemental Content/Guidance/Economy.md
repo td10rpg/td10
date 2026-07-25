@@ -14,4 +14,5 @@ While not perfect, it serves as a clear and intuitive frame of reference for wha
 | Chainmail | Light armor (~$800 USD)          | 16 gp              | Common       | 16-20 gp            |
 | Plate     | Level 4 body armor (~$1,500 USD) | 30 gp              | Uncommon     | 30-40 gp            |
 | Mithril   | High-end custom armor            | 120 gp             | Rare/magical | 120-150 gp          |
+
 When creating your own items (which you are strongly encouraged to do), consider using this table to align item costs to those established in the previous tables.
