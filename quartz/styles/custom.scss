@@ -18,6 +18,12 @@ article {
   }
 }
 
+// Home page: center the closing C.S. Lewis pull-quote (the paragraph after the
+// divider) instead of justifying it like body prose.
+body[data-slug="index"] article hr + p {
+  text-align: center;
+}
+
 // Clean output for "Export to PDF" (browser print-to-PDF). Strip the site
 // chrome so the exported document is just the page content.
 @media print {
