@@ -1,7 +1,6 @@
 ---
 permalink: the-fort
 ---
-# The Fort in the Hinterlands
 _In the wide and wild north, the rush is on: gold, glory, and greater still abound in this unspoiled land; but the frigid earth is reluctant to yield up her riches—and when she does, the cost is greater than most can afford._
 
 _The path to this new world carves through the Great White Sea and to the continent of Glacia, where lies old treasure and older secrets buried amidst snow-capped mountains and wind-raked pines. And clinging stubbornly to cliff edge and frozen ground is its gate: Fort Caspar, known also by hopefuls as the Fort in the Hinterlands. The haft of the spear that the realm of man has thrust into the rich but unforgiving wilds, Fort Caspar grants singular access to the almost entirely unexplored land of Glacia._
@@ -16,9 +15,9 @@ This adventure is comprised of three distinct areas:
 
 - **[[#Fort Caspar|Fort Caspar]]**, where adventurers may obtain equipment and supplies, plumb locals for resources and knowledge, and rest and heal after exploring the Hinterlands or delving the Cold Caverns;
 
-- **[[Secret/The Land of Glacia/The Fort in the Hinterlands#The Hinterlands|The Hinterlands]]**, where beasts and bandits roam, where wild men resist the ceaseless march of civilization, and the relics of lost races languish beneath moss and earth;
+- **[[The Fort in the Hinterlands#The Hinterlands|The Hinterlands]]**, where beasts and bandits roam, where wild men resist the ceaseless march of civilization, and the relics of lost races languish beneath moss and earth;
 
-- **[[Secret/The Land of Glacia/The Fort in the Hinterlands#The Cold Caverns|The Cold Caverns]]**, where a number of dangers and opportunities await adventurers, from feuding tribes of monstrous creatures to hoarded wealth and great secrets, and more still.
+- **[[The Fort in the Hinterlands#The Cold Caverns|The Cold Caverns]]**, where a number of dangers and opportunities await adventurers, from feuding tribes of monstrous creatures to hoarded wealth and great secrets, and more still.
 ## Background
 The age is one of exploration and discovery, Glacia being the most recent territory uncovered by expeditions that span the world to this very day. Fort Caspar is the gateway into this primeval realm, a land studded with modest settlements and ancient ruins, and populated by tenacious pioneers and savage tribes alike.
 
@@ -421,7 +420,7 @@ Additionally, victorious patrols and sorties will increase Fort morale, and on t
 
 Patrols and sorties represent large combat engagements and so necessarily introduce a new “subsystem” designed for engagements of 10-100 combatants per side.
 
-Patrols and sorties are resolved using the [[Index of Secrets#Skirmish Combat|Skirmish Combat]] system.
+Patrols and sorties are resolved using the [[Skirmish Combat]] system.
 #### Conflicts
 Conditions in the Fort are stable and life is, more or less, good—but grave threats loom at its periphery, and at any time, disaster could strike. The hardy people carving out a life on this harsh frontier know and live this. The pressure is greatest in three particular ways.
 ##### Barbarians at the Gates

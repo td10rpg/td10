@@ -1,7 +1,6 @@
 ---
 permalink: secret/hirelings
 ---
-# Hirelings
 Over the course of their adventures, the party may find themselves in need of hired hands. The two most common types of hirelings are:
 
 **Men-at-arms** – experienced combatants used as force multipliers.

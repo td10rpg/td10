@@ -1,7 +1,6 @@
 ---
 permalink: secret/equipment
 ---
-# Equipment & Items
 This section extends the list of equipment & items found in [[Downloads#Fantasy|Fantasy Core]].
 ## Armor
 | **Armor**       | **Class** | **Effect**                                       | **Cost** |
