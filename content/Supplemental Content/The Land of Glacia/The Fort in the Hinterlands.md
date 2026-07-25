@@ -736,5 +736,3 @@ It is patient. It will wait a generation. It does not have to.
 **The Dreamer** (*T15; HP and resources at GM's discretion; cannot be harmed by non-magical weapons; cannot be destroyed by any party, only silenced for a generation by the cumulative success of all four faction clocks resolving against it*).
 
 In the meantime, every Sunless Court cell, every coordinated raid, every haunting dream is the work of the Dreamer.
-
----
