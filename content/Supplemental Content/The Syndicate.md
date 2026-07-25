@@ -1,7 +1,6 @@
 ---
 permalink: secret/syndicate
 ---
-# The Syndicate
 *A Tabletop Role-Playing Game*
 
 **The Syndicate** is a tabletop role-playing game (TTRPG) built on the Tiny d10 system and set in Nova City—a gritty, 1960s-inspired metropolis where organized crime families vie for power, wealth, and control of the city’s underworld. Players take on the roles of ambitious members of these organizations, navigating a dangerous web of alliances and rivalries that lucratively reward loyalty and brutally punish betrayal. Whether pulling off daring heists or staying one step ahead of the competition, players must rely on their cunning and resourcefulness—and a heavy dose of luck—to rise to the top.

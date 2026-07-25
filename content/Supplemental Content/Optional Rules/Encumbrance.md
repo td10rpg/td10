@@ -1,7 +1,6 @@
 ---
 permalink: secret/encumbrance
 ---
-# Encumbrance
 A character’s **Carry Capacity** is determined by their Power Score.
 
 > **Carry Capacity = 20 lbs + (10 lbs × Power Score)**

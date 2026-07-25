@@ -2,7 +2,6 @@
 permalink: downloads
 tags: []
 ---
-# Downloads
 A small selection of Tiny d10 content is available for download in PDF format here. Check back frequently, as new material is always being added!
 
 If you're new to the system, it's recommended that you begin with Fantasy Core—and once you've familiarized yourself with the flagship game, come back and check out the zines!

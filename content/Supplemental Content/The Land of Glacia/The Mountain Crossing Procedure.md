@@ -1,7 +1,6 @@
 ---
 permalink: secret/mountains
 ---
-# The Mountain Crossing Procedure
 _The lives of mountains and people are often at odds, and the average person has no reason to challenge them—but you are not the average person._
 ![[mountain.png]]
 

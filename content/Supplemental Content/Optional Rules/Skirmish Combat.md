@@ -1,7 +1,6 @@
 ---
 permalink: secret/skirmish
 ---
-# Skirmish Combat
 Designed for engagements of 10-100 combatants per side, Tiny d10's mass combat system uses Force Toughness, Engagement Rolls, and Outcomes to rapidly resolve large combat scenarios.
 ## 1. Force Toughness (FT)
 Each side in a mass engagement is assigned a Force Toughness (FT) ranging from 1–5 and based on force size, training, and position.

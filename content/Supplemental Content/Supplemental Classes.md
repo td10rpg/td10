@@ -1,7 +1,6 @@
 ---
 permalink: secret/classes
 ---
-# Classes
 This section consists of classes currently unavailable in any publication; they are often designed by request, or sometimes contributed by Friends of the System. 
 ## ~~Bard~~ Balladeer
 **~~Bards~~** **Balladeers** are singers and storytellers, infusing subtle magic with songs that swell the hearts of the bold and unravel the resolve of the wicked. They have a toughness of 4 (T4); use lightweight weapons & below; use lightweight armor & below; and gain +3 Power Points.

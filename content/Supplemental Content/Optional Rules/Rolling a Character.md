@@ -1,7 +1,6 @@
 ---
 permalink: secret/rolling
 ---
-# Rolling a Character
 This optional rule allows you to quickly roll a random character, increasing the challenge (and often the fun) of gameplay.
 ## Race
 *Roll 1d10 to determine your race.*

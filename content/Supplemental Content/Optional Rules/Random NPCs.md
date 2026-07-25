@@ -3,7 +3,6 @@ permalink: secret/npcs
 tags:
   - random
 ---
-# Random NPCs
 A growing list of NPCs for use in your games!
 ## Friendly NPCs
 Friendly characters may be encountered in virtually any environment where a modicum of civility is found.

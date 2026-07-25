@@ -12,7 +12,7 @@ All notes live in [`content/`](content/), authored in [Obsidian](https://obsidia
 
 - **`index.md`, `About.md`, `Downloads.md`, `Resources.md`** — the main site pages.
 - **`Core.md`** — the Tiny d10 core rule system.
-- **`Secret/`** — the *Index of Secrets*: supplementary content (extra classes, GM guidance, optional rules, and the Land of Glacia setting).
+- **`Supplemental Content/`** — extra material: supplemental classes, equipment, GM guidance, optional rules, and the Land of Glacia setting.
 - **`Files/`** — PDFs, images, and templates (character sheets, zines, con kit, artwork).
 
 `publish.css` is the stylesheet from the original Obsidian Publish site, kept for reference.

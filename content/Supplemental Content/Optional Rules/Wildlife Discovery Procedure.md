@@ -1,7 +1,6 @@
 ---
 permalink: secret/wildlife
 ---
-# The Wildlife Discovery Procedure
 
 > *There's a land where the mountains are nameless, and the rivers all run God knows where.*
 > 
