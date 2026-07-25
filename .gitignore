@@ -1,0 +1,13 @@
+# Obsidian vault config (not needed for the repo/site)
+.obsidian/
+.trash/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.tmp
+*~
