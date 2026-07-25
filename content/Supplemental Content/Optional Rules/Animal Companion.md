@@ -28,10 +28,10 @@ In settlements, trained animals may be purchased or gifted from kennels, stables
 | Lesser      | hawk, raven, cat, small hound      | T3-4 | 2-3 | 1   | +0  | 1      | 25 gp  |
 | Greater     | wolf, war-dog, great owl, mastiff  | T5   | 4-6 | 2   | +1  | 1      | 75 gp  |
 | Exceptional | dire wolf, war horse, mountain cat | T6-7 | 6-8 | 2-3 | +1  | 1d5    | 200 gp |
+>**Note:** game masters may freely substitute stats from *Fantasy Monsters* (e.g., wolf, giant eagle, brown bear cub) for any companion. The tier table is a baseline; the bestiary is canon.
 
 The companion's tier may not exceed the PC's character level on first bonding. **Exceptional** companions further require Ranger or Druid level 3+, or the Wizard *Apprentice/Familiar* ability.
 
->**Note:** game masters may freely substitute stats from *Fantasy Monsters* (e.g., wolf, giant eagle, brown bear cub) for any companion. The tier table is a baseline; the bestiary is canon.
 ## Combat
 The Animal Companion acts on its PC's turn and does not have its own initiative. By default, the companion will defend itself if attacked but will not attack of its own accord.
 ### Directing the Companion
