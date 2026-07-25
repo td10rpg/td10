@@ -1,6 +1,14 @@
+# Quartz / Node build artifacts
+node_modules
+public
+.quartz-cache
+prof
+tsconfig.tsbuildinfo
+
 # Obsidian vault config (not needed for the repo/site)
 .obsidian/
 .trash/
+private/
 
 # OS cruft
 .DS_Store
