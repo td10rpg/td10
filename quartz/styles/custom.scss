@@ -24,6 +24,21 @@ body[data-slug="index"] article hr + p {
   text-align: center;
 }
 
+// Table of Contents: on long pages (e.g. The Fort in the Hinterlands) Quartz's
+// flex sizing lets the TOC's scroll area spill past the bottom of the sticky
+// right sidebar, so its last entries sit below the viewport and can't be
+// scrolled into view. Let the TOC flex item shrink to fit the space the graph
+// leaves (full shrink + min-height:0), so its own internal scroll can reach the
+// last entry. Small bottom padding keeps the final item clear of the edge.
+.sidebar.right .toc {
+  min-height: 0;
+  flex: 0 1 auto;
+}
+
+ul.toc-content.overflow {
+  padding-bottom: 0.5rem;
+}
+
 // Clean output for "Export to PDF" (browser print-to-PDF). Strip the site
 // chrome so the exported document is just the page content.
 @media print {
