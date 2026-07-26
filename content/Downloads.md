@@ -1,6 +1,5 @@
 ---
 permalink: downloads
-tags: []
 ---
 A small selection of Tiny d10 content is available for download in PDF format here. Check back frequently, as new material is always being added!
 

@@ -1,7 +1,5 @@
 ---
 permalink: core
-tags:
-  - Rules
 ---
 # Tiny d10: Core System
 The ***Core System*** powers Tiny d10 and is detailed here in the beloved System Reference Document (SRD) format. The SRD presents classes, races, and other system features in an extensible and modular genre-agnostic format, especially for use by game designers.
