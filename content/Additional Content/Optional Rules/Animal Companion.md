@@ -1,5 +1,5 @@
 ---
-permalink: secret/companion
+permalink: additional/optional-rules/companion
 ---
 Some adventurers walk the world with a beast at their side—a hawk, a hound, a wolf, a great owl. The bond between them is neither that of master and servant nor employer and hireling, but something older and stranger: struck not by coin but by spirit. The following rules cover how a player character (PC) acquires, sustains, and fights alongside an **Animal Companion**.
 

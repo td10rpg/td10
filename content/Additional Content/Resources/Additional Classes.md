@@ -1,5 +1,5 @@
 ---
-permalink: secret/classes
+permalink: additional/resources/classes
 ---
 This section consists of classes currently unavailable in any publication; they are often designed by request, or sometimes contributed by Friends of the System. 
 ## ~~Bard~~ Balladeer

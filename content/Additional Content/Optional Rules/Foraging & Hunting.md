@@ -1,5 +1,5 @@
 ---
-permalink: secret/foraging
+permalink: additional/optional-rules/foraging
 ---
 The [[Downloads#Zines|Worldwide Adventure Generator]]'s exploration loop grew out of the *ultra-light* wilderness exploration rules found in ***Fantasy Rules***, which state only that:
 

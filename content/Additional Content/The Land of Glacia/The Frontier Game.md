@@ -1,5 +1,5 @@
 ---
-permalink: secret/frontier
+permalink: additional/glacia/frontier
 ---
 As I put the final touches on *Fort Caspar*—the first of three zines describing the *Fort in the Hinterlands* setting—I am turning my eyes to the second in the series: *The Hinterlands*. Something is coming into focus here—a sort of game within a game. I have previously mentioned my desire to give game masters more ways to play with FitH, and this is a continuation of that theme (the first instance being the [Skirmish Combat](https://td10rpg.substack.com/p/new-subsystem-skirmish-combat) subsystem). 
 

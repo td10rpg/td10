@@ -1,5 +1,5 @@
 ---
-permalink: secret/hirelings
+permalink: additional/optional-rules/hirelings
 ---
 Over the course of their adventures, the party may find themselves in need of hired hands. The two most common types of hirelings are:
 

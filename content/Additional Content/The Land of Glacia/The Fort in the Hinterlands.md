@@ -1,6 +1,5 @@
 ---
-slug: supplemental/fort
-permalink: the-fort
+permalink: additional/glacia/fort
 ---
 _In the wide and wild north, the rush is on: gold, glory, and greater still abound in this unspoiled land; but the frigid earth is reluctant to yield up her riches—and when she does, the cost is greater than most can afford._
 

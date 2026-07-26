@@ -1,5 +1,5 @@
 ---
-permalink: secret/encumbrance
+permalink: additional/optional-rules/encumbrance
 ---
 A character’s **Carry Capacity** is determined by their Power Score.
 

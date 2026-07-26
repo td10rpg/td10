@@ -1,5 +1,5 @@
 ---
-permalink: secret/economy
+permalink: additional/gm/economy
 ---
 # Economy in Tiny d10
 On the "gold standard" in TTRPGs, there has been decades of spirited discussion surrounding game economies and currency value. In an attempt to sidestep this, Tiny d10 dedicates only a few sentences to currency and economy. In the spirit of OD&D, it is not necessarily meant to reflect real-world economics—instead, TD10 uses real-world economics to establish an anchor point for the value of in-game currency: the gp to USD conversion table.

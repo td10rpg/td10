@@ -1,5 +1,5 @@
 ---
-permalink: secret/npcs
+permalink: additional/resources/npcs
 tags:
   - random
 ---

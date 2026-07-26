@@ -1,5 +1,5 @@
 ---
-permalink: secret/calibration
+permalink: additional/gm/calibrating-encounters
 ---
 The design and play philosophy of Tiny d10 differs significantly from many modern tabletop games, and so balancing encounters has always been something of a mechanical challenge. That said, it is possible to calibrate a readable danger gradient that provides player characters (PCs) a fair chance to adapt, disengage, or perish using the concept of **risk envelopes**.
 

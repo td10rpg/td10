@@ -1,5 +1,5 @@
 ---
-permalink: secret/hunting
+permalink: additional/optional-rules/hunting
 ---
 After defeating a challenging or rare monster like a dragon or giant spider, PCs may wish to harvest any valuable components from its remains. Roll once on the Monster Harvest Table to determine the type of resource recovered, then roll on the Harvest Quality Table to determine the yield quality.
 
