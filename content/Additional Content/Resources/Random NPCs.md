@@ -1,7 +1,5 @@
 ---
 permalink: additional/resources/npcs
-tags:
-  - random
 ---
 A growing list of NPCs for use in your games!
 ## Friendly NPCs
