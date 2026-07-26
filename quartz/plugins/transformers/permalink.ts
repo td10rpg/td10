@@ -4,26 +4,26 @@ import { visit } from "unist-util-visit"
 import path from "path"
 
 /**
- * CleanUrls — make short, flat URLs canonical without restructuring the vault.
+ * Permalink — make a page's `permalink` frontmatter its canonical URL.
  *
- * Phase 1 (markdown): for each page, override the canonical slug with its `slug`
- * frontmatter, or (fallback) its legacy `permalink` with `secret/` rewritten to
- * `supplemental/`. The original path-based slug is kept as an alias so old links
- * redirect (AliasRedirects emits the stub), and recorded in a map.
+ * The URL "system" doesn't analyze hierarchy: each page's canonical slug is
+ * simply its `permalink` value. Because permalinks mirror the vault folders,
+ * Quartz's native nav + breadcrumbs stay hierarchical and consistent — no fork.
  *
- * Phase 2 (html): rewrite internal <a> hrefs that point at an old (aliased) slug
- * so they link DIRECTLY to the new canonical URL — no redirect hop on click.
+ * Phase 1 (markdown): set the canonical slug from `permalink`, keep the original
+ * path-based slug as an alias (AliasRedirects emits the redirect), and record
+ * the mapping.
+ * Phase 2 (html): rewrite internal <a> hrefs that resolve to an old (aliased)
+ * slug so they point DIRECTLY at the permalink URL — no redirect hop.
  *
- * Relies on Quartz running the whole markdown phase before the html phase, so
- * the alias map is complete before any link is rewritten. The homepage (slug
- * "index") is always left at "/".
+ * The homepage (slug "index") is always left at "/".
  */
-export const CleanUrls: QuartzTransformerPlugin = () => {
-  // old path-based slug (what wikilinks resolve to) -> new canonical slug
+export const Permalink: QuartzTransformerPlugin = () => {
+  // old path-based slug (what wikilinks resolve to) -> permalink slug
   const aliasToCanonical = new Map<string, FullSlug>()
 
   return {
-    name: "CleanUrls",
+    name: "Permalink",
     markdownPlugins(ctx) {
       const { allSlugs } = ctx
       return [
@@ -31,17 +31,10 @@ export const CleanUrls: QuartzTransformerPlugin = () => {
           return (_tree, file) => {
             if (file.data.slug === "index") return
             const fm = file.data.frontmatter as Record<string, unknown> | undefined
-            if (!fm) return
+            const permalink = fm?.permalink
+            if (typeof permalink !== "string" || permalink.trim() === "") return
 
-            let target: string | undefined
-            if (typeof fm.slug === "string" && fm.slug.trim() !== "") {
-              target = fm.slug
-            } else if (typeof fm.permalink === "string" && fm.permalink.trim() !== "") {
-              target = fm.permalink.replace(/^secret\//, "supplemental/")
-            }
-            if (!target) return
-
-            const newSlug = target.trim().replace(/^\/+|\/+$/g, "") as FullSlug
+            const newSlug = permalink.trim().replace(/^\/+|\/+$/g, "") as FullSlug
             const oldSlug = file.data.slug as FullSlug
             if (!newSlug || newSlug === oldSlug) return
 

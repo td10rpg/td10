@@ -53,14 +53,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({
-      sortFn: filesBeforeFolders,
-      // Folders only expand/collapse — no hyperlink (folder pages don't exist
-      // under the flat clean URLs, so the links 404).
-      folderClickBehavior: "collapse",
-      // Hide the tags meta-folder (default) and the Files/ asset directory.
-      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "Files",
-    }),
+    Component.Explorer({ sortFn: filesBeforeFolders }),
   ],
   right: [
     Component.Graph(),
@@ -84,14 +77,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({
-      sortFn: filesBeforeFolders,
-      // Folders only expand/collapse — no hyperlink (folder pages don't exist
-      // under the flat clean URLs, so the links 404).
-      folderClickBehavior: "collapse",
-      // Hide the tags meta-folder (default) and the Files/ asset directory.
-      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "Files",
-    }),
+    Component.Explorer({ sortFn: filesBeforeFolders }),
   ],
   right: [],
 }

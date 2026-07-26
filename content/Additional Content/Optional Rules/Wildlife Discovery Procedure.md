@@ -1,5 +1,5 @@
 ---
-permalink: secret/wildlife
+permalink: additional/optional-rules/wildlife
 ---
 
 > *There's a land where the mountains are nameless, and the rivers all run God knows where.*

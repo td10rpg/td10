@@ -1,5 +1,5 @@
 ---
-permalink: secret/size
+permalink: additional/optional-rules/size
 ---
 To improve the granularity and realism of combat, the optional “monster size” rule may be used. This rule increases or decreases an attacker’s odds of striking his or her target based on the size of the monster, with smaller targets generally being slightly more difficult to hit and larger targets slightly less.
 ![[monster-size.png]]

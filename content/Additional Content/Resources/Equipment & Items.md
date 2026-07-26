@@ -1,5 +1,5 @@
 ---
-permalink: secret/equipment
+permalink: additional/resources/equipment
 ---
 This section extends the list of equipment & items found in [[Downloads#Fantasy|Fantasy Core]].
 ## Armor

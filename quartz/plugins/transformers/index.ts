@@ -1,5 +1,5 @@
 export { FrontMatter } from "./frontmatter"
-export { CleanUrls } from "./cleanUrls"
+export { Permalink } from "./permalink"
 export { GitHubFlavoredMarkdown } from "./gfm"
 export { Citations } from "./citations"
 export { CreatedModifiedDate } from "./lastmod"

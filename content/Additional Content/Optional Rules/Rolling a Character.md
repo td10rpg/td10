@@ -1,5 +1,5 @@
 ---
-permalink: secret/rolling
+permalink: additional/optional-rules/rolling
 ---
 This optional rule allows you to quickly roll a random character, increasing the challenge (and often the fun) of gameplay.
 ## Race

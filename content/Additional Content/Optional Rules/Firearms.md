@@ -1,5 +1,5 @@
 ---
-permalink: secret/firearms
+permalink: additional/optional-rules/firearms
 ---
 Firearms feature heavily in most modern games, and the following mechanics represent just one method for implementing them that reflects their increased lethality over most traditional ranged weapons.
 
