@@ -39,6 +39,14 @@ ul.toc-content.overflow {
   padding-bottom: 0.5rem;
 }
 
+// Folder (listing) pages: suppress the auto-generated "Folder: <slug>" title.
+// The breadcrumb already names the folder, and the raw permalink slug reads
+// badly as a heading. Folder pages are exactly those whose slug ends in
+// "/index"; the homepage slug is just "index", so it's unaffected.
+body[data-slug$="/index"] .article-title {
+  display: none;
+}
+
 // Clean output for "Export to PDF" (browser print-to-PDF). Strip the site
 // chrome so the exported document is just the page content.
 @media print {
