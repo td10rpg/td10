@@ -1,5 +1,6 @@
 ---
 title: Adventure Generator
+permalink: additional/gm/adventure-generator
 ---
 
 The **Worldwide Adventure Generator** runs the Tiny d10 hex loop one step at a time: weather, features, signs, an encounter check, and — when something stirs — a full encounter drawn from *Fantasy Core*'s monsters (filtered to the terrain and its ecology), wrapped in tension, discovery, and a turning faction clock.
