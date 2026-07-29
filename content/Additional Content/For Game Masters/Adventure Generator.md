@@ -3,7 +3,9 @@ title: Adventure Generator
 permalink: additional/gm/adventure-generator
 ---
 
-The **Worldwide Adventure Generator** runs the Tiny d10 hex loop one step at a time: weather, features, signs, an encounter check, and — when something stirs — a full encounter drawn from *Fantasy Core*'s monsters (filtered to the terrain and its ecology), wrapped in tension, discovery, and a turning faction clock.
+The *Worldwide Adventure Generator* (WAG) is a [[Downloads|zine of genre- and system-agnostic procedures]] for improvising hexcrawl adventures on the fly. This page brings that loop online, tuned for Tiny d10 and wired to the *Fantasy Monsters* bestiary.
+
+It runs the hex loop one step at a time: weather, features, signs, an encounter check, and—when something stirs—a full encounter drawn from the monsters (filtered to the terrain and its ecology), wrapped in tension, discovery, and a turning faction clock.
 
 Set your terrain and campaign intensity, then **Enter hex**. See also the standalone [Random Monster](Monster%20Generator.md) roller.
 
