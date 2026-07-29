@@ -18,6 +18,19 @@ article {
   }
 }
 
+// Mobile: Quartz's mobile grid (variables.scss $mobileGrid) sets the single
+// content column to `grid-template-columns: auto`. An `auto` grid track takes
+// its minimum from the content's min-content and is NOT capped by the viewport,
+// so on narrow phones the column resolves wider than the screen and overflows
+// the right edge — clipping the last word of every (justified) line. Clamping
+// the track with minmax(0, 1fr) lets it shrink to the available width. Matches
+// Quartz's own $mobile breakpoint (max-width: 800px).
+@media all and (max-width: 800px) {
+  .page > #quartz-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 // Home page: center the closing C.S. Lewis pull-quote (the paragraph after the
 // divider) instead of justifying it like body prose.
 body[data-slug="index"] article hr + p {
