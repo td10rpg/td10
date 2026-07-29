@@ -64,7 +64,7 @@
 </head>
 <body>
   <h1>Worldwide Adventure Generator</h1>
-  <p class="sub">Tiny d10 · the Play Loop — one hex at a time</p>
+  <p class="sub">Tiny d10's play loop, one hex at a time</p>
 
   <div class="controls">
     <div class="field">
@@ -271,7 +271,7 @@
   }
   // Standalone builds inline the data as window.__WAG_MONSTERS__; the hosted page fetches it.
   if (window.__WAG_MONSTERS__) { initData(window.__WAG_MONSTERS__); }
-  else fetch("/Files/data/monsters.json").then(function(r){return r.json();}).then(initData)
+  else fetch("/files/data/monsters.json").then(function(r){return r.json();}).then(initData)
     .catch(function(){ document.getElementById("foot").textContent="Could not load monster data – beast encounters unavailable."; });
 
   function monstersFor(terrain, roles){

@@ -1,6 +1,6 @@
 ---
 title: Adventure Generator
-permalink: additional/gm/adventure-generator
+permalink: additional/gm/wag
 ---
 
 The *Worldwide Adventure Generator* (WAG) is a [[Downloads|zine of genre- and system-agnostic procedures]] for improvising hexcrawl adventures on the fly. This page brings that loop online, tuned for Tiny d10 and wired to the *Fantasy Monsters* bestiary.

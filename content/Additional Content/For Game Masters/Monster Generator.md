@@ -1,6 +1,6 @@
 ---
 title: Random Monster
-permalink: additional/gm/monster-generator
+permalink: additional/gm/monsters
 ---
 
 Roll a random monster from *Fantasy Core — Book 2*, filtered by Toughness and environment. Each result rolls its **number appearing** and a sample HP total; tick **Reaction roll** for a 1d10 disposition.

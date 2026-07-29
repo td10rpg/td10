@@ -14,7 +14,7 @@ import { homedir } from "node:os";
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), "..");
 const TOOL = join(REPO, "quartz", "static", "tools", "wag.html");
-const DATA = join(REPO, "content", "Files", "data", "monsters.json");
+const DATA = join(REPO, "content", "files", "data", "monsters.json");
 
 const desktop = join(homedir(), "OneDrive", "Desktop", "WAG Generator.html");
 const OUT = process.argv[2] || desktop;

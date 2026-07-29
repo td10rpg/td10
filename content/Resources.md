@@ -20,7 +20,7 @@ The contents of this section are constantly being expanded, pruned, and refined.
 ## Convention Kit
 For game masters running Tiny d10 at a convention, the following resources are recommended:
 - Six [[pregens.pdf|pre-generated characters]]
-- Blank [[Files/Con Kit/td10cs.pdf|character sheets]]
+- Blank [[files/con kit/td10cs.pdf|character sheets]]
 - Tiny d10 Logo (large) in [[td10_logo_lg.png|white]] and [[td10_logo_lg_black.png|black]]
 - A [[td10_qr_code.png|QR code]]
 - Additionally, consider purchasing [stickers](https://x.com/td10rpg/status/1983323634489012717) to share with your players!
