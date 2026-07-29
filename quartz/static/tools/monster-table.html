@@ -143,7 +143,7 @@
 
   var MONSTERS = [], POOL = [];
 
-  fetch("/Files/data/monsters.json")
+  fetch("/files/data/monsters.json")
     .then(function (r) { return r.json(); })
     .then(function (data) {
       MONSTERS = data.monsters || [];

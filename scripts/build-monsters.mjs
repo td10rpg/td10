@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Build content/Files/data/monsters.json for the Fantasy Core encounter generator.
+// Build content/files/data/monsters.json for the Fantasy Core encounter generator.
 //
 // Joins three sources, keyed on monster name:
 //   1. Book 2 body statblocks  -> T / HP / MP / PP / attributes / damage   (authoritative stats)
@@ -23,7 +23,7 @@ const VAULT =
   "C:/Users/aaron/OneDrive/Documents/Obsidian/TD10 (Dev - Newest)";
 const BOOK2 = join(VAULT, "Fantasy Core - Book 2 - Fantasy Monsters.md");
 const SEED = join(VAULT, "Working", "Fantasy Core - Encounter Data (seed).md");
-const OUT = join(REPO, "content", "Files", "data", "monsters.json");
+const OUT = join(REPO, "content", "files", "data", "monsters.json");
 
 // --- Name normalization -----------------------------------------------------
 // Body names, Appendix names, and seed names use three different conventions.

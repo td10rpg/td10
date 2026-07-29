@@ -16,7 +16,7 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "td10.pw",
     // TODO: switch to "td10.org" once DNS is moved to Unstoppable and resolves to GitHub Pages (waiting on registrar support)
-    ignorePatterns: ["private", "templates", "**/Templates/**", ".obsidian"],
+    ignorePatterns: ["private", "templates", "**/templates/**", ".obsidian"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
