@@ -166,8 +166,8 @@
       BANDS.forEach(function (b) { bandSel.appendChild(opt(b, cap(b))); });
 
       document.getElementById("foot").innerHTML =
-        POOL.length + " monsters · number-appearing values are first-pass estimates" +
-        (omitted ? " · " + omitted + " omitted (no statblock in Book 2)" : "");
+        "Source: Fantasy Monsters · " + POOL.length + " monsters" +
+        (omitted ? " · " + omitted + " omitted (no statblock in Fantasy Monsters)" : "");
     })
     .catch(function () {
       document.getElementById("result").textContent = "Could not load monster data.";
