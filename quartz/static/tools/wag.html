@@ -267,7 +267,7 @@
   function initData(data){
     POOL=(data.monsters||[]).filter(function(m){return m.statline;});
     document.getElementById("enter").disabled=false;
-    document.getElementById("foot").textContent="Source: Fantasy Monsters | Worldwide Adventure Generator | Number Appearing under review";
+    document.getElementById("foot").textContent="Source: Fantasy Monsters | Worldwide Adventure Generator";
   }
   // Standalone builds inline the data as window.__WAG_MONSTERS__; the hosted page fetches it.
   if (window.__WAG_MONSTERS__) { initData(window.__WAG_MONSTERS__); }
