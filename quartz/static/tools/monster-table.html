@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Random Monster — Fantasy Core</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
+
+  :root {
+    --bg: #faf8f8; --ink: #2b2b2b; --muted: #4e4e4e;
+    --line: #e5e5e5; --gray: #b8b8b8;
+    --accent: #284b63; --sage: #84a59d; --card: #fffdfb;
+  }
+  :root[data-theme="dark"] {
+    --bg: #161618; --ink: #ebebec; --muted: #d4d4d4;
+    --line: #393639; --gray: #646464;
+    --accent: #7b97aa; --sage: #84a59d; --card: #1d1d20;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); }
+  body {
+    font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+    color: var(--ink); font-size: 18px; line-height: 1.5;
+    padding: 1.25rem 1rem 2rem; max-width: 720px; margin: 0 auto;
+  }
+  h1 { font-size: 1.5rem; margin: 0 0 .25rem; font-weight: 600; }
+  .sub { color: var(--muted); margin: 0 0 1.25rem; font-style: italic; font-size: .95rem; }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: .75rem; align-items: end;
+    padding: 1rem; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--card); margin-bottom: 1.25rem;
+  }
+  .field { display: flex; flex-direction: column; gap: .2rem; }
+  label { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  select {
+    font-family: inherit; font-size: 1rem; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--gray); border-radius: 6px;
+    padding: .4rem .5rem; min-width: 9rem;
+  }
+  .check { flex-direction: row; align-items: center; gap: .4rem; }
+  .check label { text-transform: none; letter-spacing: 0; font-size: .95rem; color: var(--ink); }
+  button {
+    font-family: inherit; font-size: 1.05rem; font-weight: 600; cursor: pointer;
+    color: #fff; background: var(--accent); border: none; border-radius: 6px;
+    padding: .5rem 1.1rem; margin-left: auto;
+  }
+  button:hover { filter: brightness(1.08); }
+
+  .card {
+    border: 1px solid var(--line); border-left: 4px solid var(--sage);
+    border-radius: 10px; background: var(--card); padding: 1.1rem 1.25rem;
+    min-height: 5rem;
+  }
+  .card.empty { color: var(--muted); font-style: italic; display: flex; align-items: center; }
+  .count { font-size: 1.7rem; font-weight: 600; color: var(--accent); }
+  .name { font-size: 1.35rem; font-weight: 600; display: inline; }
+  .statline { font-style: italic; color: var(--muted); margin: .35rem 0 .6rem; }
+  .meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .9rem; color: var(--muted); margin-top: .5rem; }
+  .tag {
+    background: var(--highlight, rgba(143,159,169,.15));
+    border: 1px solid var(--line); border-radius: 999px; padding: .05rem .55rem;
+  }
+  .rolls { margin-top: .6rem; font-size: .95rem; }
+  .rolls b { color: var(--ink); }
+  .foot { color: var(--gray); font-size: .8rem; margin-top: 1rem; }
+  .foot code { font-family: ui-monospace, monospace; }
+</style>
+</head>
+<body>
+  <h1>Random Monster</h1>
+  <p class="sub">Tiny d10 · Fantasy Core — Book 2</p>
+
+  <div class="controls">
+    <div class="field">
+      <label for="band">Toughness</label>
+      <select id="band"></select>
+    </div>
+    <div class="field">
+      <label for="env">Environment</label>
+      <select id="env"></select>
+    </div>
+    <div class="field check">
+      <input type="checkbox" id="reaction" />
+      <label for="reaction">Reaction roll</label>
+    </div>
+    <button id="roll">Roll monster</button>
+  </div>
+
+  <div id="result" class="card empty">Set your filters and roll.</div>
+
+  <p class="foot" id="foot"></p>
+
+<script>
+(function () {
+  // --- theme sync with parent Quartz site (same-origin) --------------------
+  function syncTheme() {
+    try {
+      var t = localStorage.getItem("theme")
+        || (window.parent && window.parent !== window
+            ? window.parent.document.documentElement.getAttribute("saved-theme") : null)
+        || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", t);
+    } catch (e) { /* cross-origin or storage blocked — fall back to CSS default */ }
+  }
+  syncTheme();
+  window.addEventListener("storage", syncTheme);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncTheme);
+
+  var BANDS = ["simple", "moderate", "difficult", "extreme", "impossible"];
+  var WILDCARDS = ["most", "most wilderness", "all natural environs"];
+  var cap = function (s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; };
+
+  // --- dice -----------------------------------------------------------------
+  function rollDie(sides) { return 1 + Math.floor(Math.random() * sides); }
+  function rollExpr(expr) {
+    // supports "1", "1d5", "2d5", "1d10 + 5"
+    var total = 0, parts = [];
+    String(expr).replace(/\s+/g, "").split("+").forEach(function (term) {
+      var m = term.match(/^(\d+)d(\d+)$/i);
+      if (m) {
+        var n = +m[1], sides = +m[2], sub = 0;
+        for (var i = 0; i < n; i++) sub += rollDie(sides);
+        total += sub; parts.push(n + "d" + sides + "=" + sub);
+      } else if (/^\d+$/.test(term)) {
+        total += +term; parts.push(term);
+      }
+    });
+    return { total: total, detail: parts.join(" + ") };
+  }
+  function rollRange(v) { // hp/mp/pp stored as number or [lo,hi]
+    if (v == null) return null;
+    if (Array.isArray(v)) return v[0] + Math.floor(Math.random() * (v[1] - v[0] + 1));
+    return v;
+  }
+
+  var REACTION = [ // 1d10 monster reaction table (Fantasy Core)
+    "hostile, attacks", "hostile, attacks", "hostile, attacks", "hostile, attacks",
+    "hostile, may attack", "hostile, may attack", "unfriendly", "unfriendly",
+    "neutral", "friendly"
+  ];
+
+  var MONSTERS = [], POOL = [];
+
+  fetch("/Files/data/monsters.json")
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      MONSTERS = data.monsters || [];
+      POOL = MONSTERS.filter(function (m) { return m.statline; }); // need stats to run
+      var omitted = MONSTERS.length - POOL.length;
+
+      // build environment dropdown from real vocabulary (minus wildcards)
+      var envs = {};
+      POOL.forEach(function (m) {
+        (m.environments || []).forEach(function (e) {
+          if (WILDCARDS.indexOf(e) === -1) envs[e] = true;
+        });
+      });
+      var envSel = document.getElementById("env");
+      envSel.appendChild(opt("any", "Any"));
+      Object.keys(envs).sort().forEach(function (e) { envSel.appendChild(opt(e, cap(e))); });
+
+      var bandSel = document.getElementById("band");
+      bandSel.appendChild(opt("any", "Any"));
+      BANDS.forEach(function (b) { bandSel.appendChild(opt(b, cap(b))); });
+
+      document.getElementById("foot").innerHTML =
+        POOL.length + " monsters · number-appearing values are first-pass estimates" +
+        (omitted ? " · " + omitted + " omitted (no statblock in Book 2)" : "");
+    })
+    .catch(function () {
+      document.getElementById("result").textContent = "Could not load monster data.";
+    });
+
+  function opt(v, t) { var o = document.createElement("option"); o.value = v; o.textContent = t; return o; }
+
+  function eligible(band, env) {
+    return POOL.filter(function (m) {
+      var bandOk = band === "any" || (m.bands || []).indexOf(band) !== -1;
+      var envOk = env === "any"
+        || (m.environments || []).indexOf(env) !== -1
+        || (m.environments || []).some(function (e) { return WILDCARDS.indexOf(e) !== -1; });
+      return bandOk && envOk;
+    });
+  }
+
+  document.getElementById("roll").addEventListener("click", function () {
+    var band = document.getElementById("band").value;
+    var env = document.getElementById("env").value;
+    var pool = eligible(band, env);
+    var box = document.getElementById("result");
+
+    if (!pool.length) {
+      box.className = "card empty";
+      box.textContent = "No monsters match those filters.";
+      return;
+    }
+    var m = pool[Math.floor(Math.random() * pool.length)];
+    var na = m.numberAppearing ? rollExpr(m.numberAppearing) : null;
+    var hp = rollRange(m.hp);
+
+    var meta = [];
+    if (m.alignment) meta.push('<span class="tag">' + m.alignment + "</span>");
+    (m.bands || []).forEach(function (b) { meta.push('<span class="tag">' + cap(b) + "</span>"); });
+    (m.environments || []).forEach(function (e) { meta.push('<span class="tag">' + e + "</span>"); });
+
+    var html = "";
+    if (na) html += '<span class="count">' + na.total + "×</span> &nbsp;";
+    html += '<span class="name">' + (m.displayName || m.name) + "</span>";
+    html += '<div class="statline">(' + m.statline + ")</div>";
+    html += '<div class="rolls">';
+    if (na) html += "<b>Number appearing:</b> " +
+      (m.numberAppearing === String(na.total) ? na.total : m.numberAppearing + " → " + na.total) + "<br>";
+    if (hp != null) html += "<b>This one:</b> " + hp + " HP<br>";
+    if (document.getElementById("reaction").checked) {
+      var r = rollDie(10);
+      html += "<b>Reaction (1d10=" + r + "):</b> " + REACTION[r - 1];
+    }
+    html += "</div>";
+    html += '<div class="meta">' + meta.join("") + "</div>";
+
+    box.className = "card";
+    box.innerHTML = html;
+  });
+})();
+</script>
+</body>
+</html>

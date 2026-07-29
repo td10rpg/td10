@@ -1,0 +1,2703 @@
+{
+  "generated": "build-monsters.mjs",
+  "count": 102,
+  "monsters": [
+    {
+      "name": "Acrid Slime",
+      "displayName": "Acrid Slime",
+      "role": "monster",
+      "toughness": 3,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        1,
+        3
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T3; 1-3 HP",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Akanaa",
+      "displayName": "Akanaa",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        10
+      ],
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "power": 1,
+        "reflex": 1
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T7; 6-10 HP, 4 PP; +1 Power, +1 Reflex; +1 damage",
+      "alignment": "evil",
+      "environments": [
+        "jungle",
+        "mountains",
+        "plains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Antlion (Adult)",
+      "displayName": "Antlion (Adult)",
+      "role": "beast",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        5,
+        8
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T6; 5-8 HP; +1 damage",
+      "alignment": "neutral",
+      "environments": [
+        "forest",
+        "jungle"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Antlion (Larva)",
+      "displayName": "Antlion (Larva)",
+      "role": "beast",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        3,
+        4
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 2,
+      "casterLevel": null,
+      "statline": "T5; 3-4 HP; 1-in-2 chance to inflict +2 damage",
+      "alignment": "neutral",
+      "environments": [
+        "forest",
+        "jungle"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Apeman Brute",
+      "displayName": "Apeman Brute",
+      "role": "folk",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        8
+      ],
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T8; 6-8 HP, 3 PP; +1 Power; +1 damage",
+      "alignment": "neutral",
+      "environments": [
+        "jungle",
+        "mountains"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Apeman Elder",
+      "displayName": "Apeman Elder",
+      "role": "folk",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 6,
+      "mp": [
+        4,
+        6
+      ],
+      "pp": null,
+      "attributes": {
+        "aspect": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 6 HP, 4-6 MP; +1Aspect",
+      "alignment": "neutral",
+      "environments": [
+        "jungle",
+        "mountains"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Apeman Slaver",
+      "displayName": "Apeman Slaver",
+      "role": "folk",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        7
+      ],
+      "mp": null,
+      "pp": 2,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T7; 6-7 HP, 2 PP; +2 Power; +1 damage",
+      "alignment": "neutral",
+      "environments": [
+        "jungle",
+        "mountains"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Aurox",
+      "displayName": "Aurox",
+      "role": "beast",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        10
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 6-10HP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "plains",
+        "foothills"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Bandit",
+      "displayName": "Bandit",
+      "role": "folk",
+      "toughness": [
+        5,
+        7
+      ],
+      "bands": [
+        "simple",
+        "moderate"
+      ],
+      "hp": [
+        3,
+        8
+      ],
+      "mp": null,
+      "pp": [
+        3,
+        6
+      ],
+      "attributes": {
+        "reflex": [
+          1,
+          2
+        ]
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5-7; 3-8 HP, 3-6 PP; +1-2 Reflex",
+      "alignment": "neutral/evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Banshee",
+      "displayName": "Banshee",
+      "role": "monster",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": 5,
+      "pp": 2,
+      "attributes": {
+        "aspect": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 10 HP, 5 MP, 2 PP; +2 Aspect",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Basilisk",
+      "displayName": "Basilisk",
+      "role": "monster",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        8,
+        10
+      ],
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 8-10 HP, 3 PP; +1 Power",
+      "alignment": "evil",
+      "environments": [
+        "forest",
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Bathemoth",
+      "displayName": "Bathemoth",
+      "role": "beast",
+      "toughness": 10,
+      "bands": [
+        "difficult"
+      ],
+      "hp": [
+        14,
+        18
+      ],
+      "mp": 3,
+      "pp": 6,
+      "attributes": {
+        "aspect": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T10; 14-18HP, 3 MP, 6 PP; +1 Aspect",
+      "alignment": "evil",
+      "environments": [
+        "aquatic",
+        "coastal"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Black-ice Serpent (Adult)",
+      "displayName": "Black-ice Serpent (Adult)",
+      "role": "monster",
+      "toughness": 10,
+      "bands": [
+        "difficult"
+      ],
+      "hp": 12,
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "aspect": 1
+      },
+      "damage": 2,
+      "casterLevel": null,
+      "statline": "T10; 12 HP, 3 PP; +1 Aspect; +2 damage",
+      "alignment": "evil",
+      "environments": [
+        "semi-aquatic"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Black-iceSerpent(Hatchling)",
+      "displayName": "Black-ice Serpent (Hatchling)",
+      "role": "monster",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 6,
+      "mp": null,
+      "pp": 6,
+      "attributes": null,
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T6; 6 HP, 6 PP; +1 damage",
+      "alignment": "evil",
+      "environments": [
+        "semi-aquatic"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Blackscale Leech",
+      "displayName": "Blackscale Leech",
+      "role": "beast",
+      "toughness": 4,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        1,
+        3
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T4; 1-3 HP",
+      "alignment": "neutral",
+      "environments": [
+        "aquatic"
+      ],
+      "numberAppearing": "1d10"
+    },
+    {
+      "name": "Blood Demon",
+      "displayName": "Blood Demon",
+      "role": "monster",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        9
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 2,
+      "casterLevel": null,
+      "statline": "T8; 6-9 HP; +2 damage",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Blood Slime",
+      "displayName": "Blood Slime",
+      "role": "monster",
+      "toughness": 4,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        2,
+        5
+      ],
+      "mp": null,
+      "pp": 1,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T4; 2-5 HP, 1 PP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Boar",
+      "displayName": "Boar",
+      "role": "beast",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": 5,
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 5 HP",
+      "alignment": "neutral",
+      "environments": [
+        "forest"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Brachiosaurus",
+      "displayName": "Brachiosaurus",
+      "role": "beast",
+      "toughness": 12,
+      "bands": [
+        "extreme"
+      ],
+      "hp": [
+        20,
+        25
+      ],
+      "mp": null,
+      "pp": [
+        5,
+        8
+      ],
+      "attributes": {
+        "intellect": -1,
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T12; 20-25 HP, 5-8 PP; -1 Intellect, +2 Power",
+      "alignment": "neutral",
+      "environments": [
+        "jungle"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Brown Bear",
+      "displayName": "Brown Bear",
+      "role": "beast",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        5,
+        6
+      ],
+      "mp": null,
+      "pp": 2,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 5-6 HP, 2 PP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "arctic",
+        "forest"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Cave Bat",
+      "displayName": "Cave Bat",
+      "role": "beast",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        2,
+        4
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 2-4 HP",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1d10"
+    },
+    {
+      "name": "Cave Giant",
+      "displayName": "Cave Giant",
+      "role": "folk",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 12,
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "intellect": -2,
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 12 HP, 3 PP; -2 Intellect,+1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "mountains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Cave-crawler (Adult)",
+      "displayName": "Cave-crawler (Adult)",
+      "role": "beast",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        5,
+        6
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 5-6 HP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Cave-crawler (Nymph)",
+      "displayName": "Cave-crawler (Nymph)",
+      "role": "beast",
+      "toughness": 3,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        1,
+        2
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T3; 1-2 HP",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1d10 + 5"
+    },
+    {
+      "name": "Cave-crawler (Queen)",
+      "displayName": "Cave-crawler (Queen)",
+      "role": "beast",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 8,
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 8 HP, 4 PP; +1 Reflex",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Crystal Elemental",
+      "displayName": "Crystal Elemental",
+      "role": "monster",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 5,
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "aspect": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 5 + 1d5 HP, 4 PP; +1 Aspect",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Cultist",
+      "displayName": "Cultist",
+      "role": "folk",
+      "toughness": [
+        5,
+        8
+      ],
+      "bands": [
+        "simple",
+        "moderate"
+      ],
+      "hp": [
+        4,
+        8
+      ],
+      "mp": [
+        3,
+        8
+      ],
+      "pp": null,
+      "attributes": {
+        "intellect": 1
+      },
+      "damage": 0,
+      "casterLevel": [
+        1,
+        3
+      ],
+      "statline": "T5-8; 4-8 HP, 3-8 MP; +1 Intellect; level 1-3 caster",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Disease-fiend",
+      "displayName": "Disease-fiend",
+      "role": "monster",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": 9,
+      "pp": null,
+      "attributes": {
+        "intellect": 2
+      },
+      "damage": 0,
+      "casterLevel": 3,
+      "statline": "T8; 10 HP, 9 MP; +2 Intellect; level 3 caster",
+      "alignment": "neutral",
+      "environments": [
+        "city"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Doppelganger",
+      "displayName": "Doppelganger",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        9
+      ],
+      "mp": [
+        3,
+        6
+      ],
+      "pp": 2,
+      "attributes": {
+        "reflex": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 6-9 HP, 3-6 MP, 2 PP; +2 Reflex",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Dryad",
+      "displayName": "Dryad",
+      "role": "beast",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        5,
+        6
+      ],
+      "mp": [
+        5,
+        6
+      ],
+      "pp": null,
+      "attributes": {
+        "aspect": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 5-6 HP, 5-6 MP; +1 Aspect",
+      "alignment": "neutral",
+      "environments": [
+        "forest"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Earth Elemental",
+      "displayName": "Earth Elemental",
+      "role": "monster",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": 4,
+      "pp": null,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 10 HP, 4 MP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Feathered Serpent",
+      "displayName": "Feathered Serpent",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": null,
+      "pp": [
+        4,
+        6
+      ],
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 10HP, 4-6 PP; +1 Reflex",
+      "alignment": "neutral",
+      "environments": [
+        "jungle",
+        "mountains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Fire Elemental",
+      "displayName": "Fire Elemental",
+      "role": "monster",
+      "toughness": 10,
+      "bands": [
+        "difficult"
+      ],
+      "hp": 5,
+      "mp": 6,
+      "pp": null,
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T10; 1d10 + 1d5HP, 6 MP; +1 Reflex",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Flesh Golem",
+      "displayName": "Flesh Golem",
+      "role": "monster",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        3,
+        6
+      ],
+      "mp": null,
+      "pp": 2,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 3-6 HP, 2 PP",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Frost Hag",
+      "displayName": "Frost Hag",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        7,
+        8
+      ],
+      "mp": 6,
+      "pp": null,
+      "attributes": {
+        "intellect": 2
+      },
+      "damage": 0,
+      "casterLevel": [
+        1,
+        2
+      ],
+      "statline": "T7; 7-8 HP, 6 MP; +2 Intellect; level 1-2 caster",
+      "alignment": "evil",
+      "environments": [
+        "arctic",
+        "forest"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Gargoyle",
+      "displayName": "Gargoyle",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        8
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 6-8 HP; +1 Power",
+      "alignment": "evil",
+      "environments": [
+        "city"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Gelatinous Cube",
+      "displayName": "Gelatinous Cube",
+      "role": "monster",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 10HP; +2 Power",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Ghoul",
+      "displayName": "Ghoul",
+      "role": "monster",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": 5,
+      "mp": null,
+      "pp": 2,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 1d5HP, 2 PP",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Giant Bear",
+      "displayName": "Giant Bear",
+      "role": "beast",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 10 HP, 4 PP; +2 Power",
+      "alignment": "neutral",
+      "environments": [
+        "arctic",
+        "forest"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Giant Eagle",
+      "displayName": "Giant Eagle",
+      "role": "beast",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 9,
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "intellect": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 9 HP, 3 PP; +1 Intellect",
+      "alignment": "good",
+      "environments": [
+        "forest",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Giant Rat",
+      "displayName": "Giant Rat",
+      "role": "beast",
+      "toughness": 4,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        2,
+        3
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T4; 2-3 HP; +1 damage",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d10"
+    },
+    {
+      "name": "Glowing Slime",
+      "displayName": "Glowing Slime",
+      "role": "monster",
+      "toughness": 2,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        2,
+        4
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T2; 2-4 HP",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Goblin",
+      "displayName": "Goblin",
+      "role": "folk",
+      "toughness": [
+        3,
+        6
+      ],
+      "bands": [
+        "simple",
+        "moderate"
+      ],
+      "hp": [
+        2,
+        6
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T3-6; 2-6 HP; +1 Power orReflex",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Gold Dragon",
+      "displayName": "Gold Dragon",
+      "role": "monster",
+      "toughness": 12,
+      "bands": [
+        "extreme"
+      ],
+      "hp": [
+        18,
+        22
+      ],
+      "mp": [
+        3,
+        5
+      ],
+      "pp": [
+        9,
+        12
+      ],
+      "attributes": {
+        "power": 3
+      },
+      "damage": 0,
+      "casterLevel": 3,
+      "statline": "T12; 18-22 HP, 3-5 MP, 9-12 PP; +3 Power; level 3 caster",
+      "alignment": "neutral/evil",
+      "environments": [
+        "mountains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Goliath Crab",
+      "displayName": "Goliath Crab",
+      "role": "beast",
+      "toughness": [
+        5,
+        6
+      ],
+      "bands": [
+        "simple",
+        "moderate"
+      ],
+      "hp": [
+        4,
+        6
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5-6; 4-6 HP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "semi-aquatic"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Griffyn",
+      "displayName": "Griffyn",
+      "role": "beast",
+      "toughness": 9,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 5,
+      "mp": [
+        6,
+        9
+      ],
+      "pp": 5,
+      "attributes": {
+        "intellect": 2,
+        "reflex": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T9; 10 + 1d5 HP, 6-9 MP, 5 PP; +2 Intellect, +2 Reflex",
+      "alignment": "good",
+      "environments": [
+        "forest",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Grimalkin",
+      "displayName": "Grimalkin",
+      "role": "beast",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 9,
+      "mp": 2,
+      "pp": 2,
+      "attributes": {
+        "reflex": 2
+      },
+      "damage": 0,
+      "casterLevel": 2,
+      "statline": "T6; 9 HP, 2 MP, 2 PP; +2 Reflex; level 2 caster",
+      "alignment": "neutral/good",
+      "environments": [
+        "forest",
+        "jungle"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Half Giant",
+      "displayName": "Half Giant",
+      "role": "folk",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": null,
+      "pp": [
+        2,
+        4
+      ],
+      "attributes": {
+        "intellect": -1,
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 10 HP, 2-4 PP; -1 Intellect,+1 Power",
+      "alignment": "good",
+      "environments": [
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Harpy",
+      "displayName": "Harpy",
+      "role": "beast",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": 6,
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 6 HP, 4 PP; +1 Reflex",
+      "alignment": "evil",
+      "environments": [
+        "mountains",
+        "plains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Hill Giant",
+      "displayName": "Hill Giant",
+      "role": "folk",
+      "toughness": 9,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        10,
+        12
+      ],
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "intellect": -2,
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T9;10-12HP, 3PP; -2 Intellect, +2 Power",
+      "alignment": "evil",
+      "environments": [
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Hobgoblin",
+      "displayName": "Hobgoblin",
+      "role": "folk",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        8,
+        12
+      ],
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 8-12 HP, 4 PP; +2 Power",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Howler",
+      "displayName": "Howler",
+      "role": "beast",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        3,
+        5
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 3-5 HP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "arctic",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Imp",
+      "displayName": "Imp",
+      "role": "monster",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": 4,
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "reflex": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 4 HP; +2 Reflex; -1 to all magical spells targeting the imp",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Iron Golem",
+      "displayName": "Iron Golem",
+      "role": "monster",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": null,
+      "pp": 3,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 10 HP, 3 PP; +1 Toughness against bladed weapons",
+      "alignment": "neutral",
+      "environments": [
+        "city"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Lizardfolk Druid",
+      "displayName": "Lizardfolk Druid",
+      "role": "folk",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": 6,
+      "mp": 4,
+      "pp": 2,
+      "attributes": {
+        "aspect": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 6 HP, 4 MP, 2 PP; +1 Aspect",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Lizardfolk Ranger",
+      "displayName": "Lizardfolk Ranger",
+      "role": "folk",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        7,
+        8
+      ],
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 7-8 HP, 4 PP; +1 Reflex",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Lizardfolk Skull-splitter",
+      "displayName": "Lizardfolk Skull-splitter",
+      "role": "folk",
+      "toughness": 9,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        10,
+        12
+      ],
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T9; 10-12 HP, 3 PP; +2 Power",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Manticore",
+      "displayName": "Manticore",
+      "role": "monster",
+      "toughness": 9,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        10,
+        13
+      ],
+      "mp": null,
+      "pp": 6,
+      "attributes": {
+        "reflex": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T9; 10-13 HP, 6 PP; +2 Reflex",
+      "alignment": "evil",
+      "environments": [
+        "mountains",
+        "plains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Minotaur",
+      "displayName": "Minotaur",
+      "role": "folk",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T8; 10 HP, 4 PP; +1 Power; +1 damage",
+      "alignment": "evil/neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Miscreant",
+      "displayName": "Miscreant",
+      "role": "folk",
+      "toughness": 4,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        1,
+        3
+      ],
+      "mp": null,
+      "pp": 2,
+      "attributes": {
+        "reflex": 3
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T4; 1-3 HP, 2 PP; +3Reflex; skills: hide",
+      "alignment": "neutral/evil",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Mountain Devil",
+      "displayName": "Mountain Devil",
+      "role": "beast",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        8,
+        10
+      ],
+      "mp": null,
+      "pp": 1,
+      "attributes": {
+        "aspect": 1,
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 8-10 HP, 1 PP; +1 Aspect, +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "forest",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Muddeman",
+      "displayName": "Muddeman",
+      "role": "monster",
+      "toughness": 12,
+      "bands": [
+        "extreme"
+      ],
+      "hp": [
+        16,
+        20
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T12; 16-20HP; +2 Power",
+      "alignment": "neutral",
+      "environments": [
+        "semi-aquatic"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Mummy",
+      "displayName": "Mummy",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": null,
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; +2 Power",
+      "alignment": "evil",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Myconid",
+      "displayName": "Myconid",
+      "role": "monster",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        4,
+        6
+      ],
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "aspect": 1,
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 4-6 HP, 4 PP; +1 Aspector+1 Reflex",
+      "alignment": "good",
+      "environments": [
+        "all natural environs"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Ogre",
+      "displayName": "Ogre",
+      "role": "monster",
+      "toughness": 10,
+      "bands": [
+        "difficult"
+      ],
+      "hp": [
+        12,
+        14
+      ],
+      "mp": null,
+      "pp": [
+        2,
+        4
+      ],
+      "attributes": {
+        "power": 1
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T10; 12-14HP, 2-4 PP; +1 Power; +1 damage",
+      "alignment": "evil",
+      "environments": [
+        "forest",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Polar Bear",
+      "displayName": "Polar Bear",
+      "role": "beast",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        8
+      ],
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T6; 6-8 HP, 3 PP; +1 Power; +1 damage",
+      "alignment": "neutral",
+      "environments": [
+        "arctic",
+        "forest"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Pterosaur",
+      "displayName": "Pterosaur",
+      "role": "beast",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        8,
+        10
+      ],
+      "mp": null,
+      "pp": [
+        3,
+        5
+      ],
+      "attributes": {
+        "intellect": -1,
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 8-10 HP, 3-5 PP; -1 Intellect, +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "jungle",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Pyrocan",
+      "displayName": "Pyrocan",
+      "role": "beast",
+      "toughness": 10,
+      "bands": [
+        "difficult"
+      ],
+      "hp": 14,
+      "mp": 6,
+      "pp": 3,
+      "attributes": {
+        "intellect": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T10; 14 HP, 6 MP, 3 PP; +1 Intellect",
+      "alignment": "good",
+      "environments": [
+        "plains",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Ravenous Bird",
+      "displayName": "Ravenous Bird",
+      "role": "beast",
+      "toughness": 3,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        1,
+        2
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T3; 1-2 HP; +1 Reflex",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d10 + 10"
+    },
+    {
+      "name": "RockGolem",
+      "displayName": "Rock Golem",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        8,
+        10
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 8-10 HP; +2 Toughness against bladed weapons",
+      "alignment": "neutral",
+      "environments": [
+        "mountains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Rolang",
+      "displayName": "Rolang",
+      "role": "monster",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        4,
+        6
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 4-6 HP; +2 Power",
+      "alignment": "evil",
+      "environments": [
+        "arctic",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Sea Hag",
+      "displayName": "Sea Hag",
+      "role": "monster",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 8,
+      "mp": 5,
+      "pp": null,
+      "attributes": {
+        "intellect": 2
+      },
+      "damage": 0,
+      "casterLevel": [
+        2,
+        3
+      ],
+      "statline": "T8; 8 HP, 5 MP; +2 Intellect; level 2-3 caster",
+      "alignment": "evil",
+      "environments": [
+        "aquatic",
+        "coastal"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Shadowcat",
+      "displayName": "Shadowcat",
+      "role": "beast",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        9
+      ],
+      "mp": null,
+      "pp": 2,
+      "attributes": {
+        "reflex": 3
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 6-9 HP, 2 PP; +3 Reflex; skills: hide, sneak",
+      "alignment": "neutral",
+      "environments": [
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Shambling Horror",
+      "displayName": "Shambling Horror",
+      "role": "monster",
+      "toughness": 12,
+      "bands": [
+        "extreme"
+      ],
+      "hp": 15,
+      "mp": 3,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T12; 15 HP, 3 MP",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Shapeshifter",
+      "displayName": "Shapeshifter",
+      "role": "monster",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        9,
+        10
+      ],
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "aspect": 1,
+        "intellect": 1,
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 9-10HP, 4 PP; +1 Aspect, +1 Intellect, +1 Reflex",
+      "alignment": "neutral,evil",
+      "environments": [
+        "forest",
+        "plains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Silver Dragon",
+      "displayName": "Silver Dragon",
+      "role": "monster",
+      "toughness": 10,
+      "bands": [
+        "difficult"
+      ],
+      "hp": 15,
+      "mp": [
+        9,
+        12
+      ],
+      "pp": 4,
+      "attributes": {
+        "intellect": 3
+      },
+      "damage": 0,
+      "casterLevel": 4,
+      "statline": "T10; 15 HP, 9-12MP, 4 PP; +3 Intellect; level 4 caster",
+      "alignment": "neutral",
+      "environments": [
+        "mountains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Skeletal Warrior",
+      "displayName": "Skeletal Warrior",
+      "role": "monster",
+      "toughness": [
+        4,
+        6
+      ],
+      "bands": [
+        "simple",
+        "moderate"
+      ],
+      "hp": [
+        3,
+        8
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T4-6; 3-8 HP",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Stone Dragon",
+      "displayName": "Stone Dragon",
+      "role": "monster",
+      "toughness": 11,
+      "bands": [
+        "difficult"
+      ],
+      "hp": 20,
+      "mp": null,
+      "pp": 4,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T11; 20 HP,4 PP",
+      "alignment": "neutral,evil",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Stormbird",
+      "displayName": "Stormbird",
+      "role": "beast",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        10,
+        12
+      ],
+      "mp": 6,
+      "pp": null,
+      "attributes": {
+        "intellect": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T8; 10-12HP, 6 MP; +2 Intellect",
+      "alignment": "neutral",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Succubus",
+      "displayName": "Succubus",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        8
+      ],
+      "mp": 5,
+      "pp": null,
+      "attributes": {
+        "aspect": 1,
+        "intellect": 1,
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": 2,
+      "statline": "T7; 6-8 HP, 5 MP; +1 Aspect, +1 Intellect, +1 Reflex; level 2 caster",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Swamp Hag",
+      "displayName": "Swamp Hag",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        9
+      ],
+      "mp": 7,
+      "pp": null,
+      "attributes": {
+        "intellect": [
+          1,
+          2
+        ]
+      },
+      "damage": 0,
+      "casterLevel": [
+        2,
+        4
+      ],
+      "statline": "T7; 6-9 HP, 7 MP; +1-2 Intellect; level 2-4 caster",
+      "alignment": "evil",
+      "environments": [
+        "swamp"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Townsfolk",
+      "displayName": "Townsfolk",
+      "role": "folk",
+      "toughness": [
+        4,
+        6
+      ],
+      "bands": [
+        "simple",
+        "moderate"
+      ],
+      "hp": [
+        3,
+        8
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": null,
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T4-6; 3-8 HP",
+      "alignment": "varies",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d10"
+    },
+    {
+      "name": "Tyrannosaurus",
+      "displayName": "Tyrannosaurus",
+      "role": "beast",
+      "toughness": 10,
+      "bands": [
+        "difficult"
+      ],
+      "hp": [
+        15,
+        20
+      ],
+      "mp": null,
+      "pp": [
+        5,
+        10
+      ],
+      "attributes": {
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T10; 15-20HP, 5-10PP; +2 Power",
+      "alignment": "neutral",
+      "environments": [
+        "jungle"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Ungoliant",
+      "displayName": "Ungoliant",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 8,
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "power": 1,
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7; 8 HP, 4 PP; +1 Power, +1 Reflex",
+      "alignment": "evil",
+      "environments": [
+        "all natural environs"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Vampire (Convert)",
+      "displayName": "Vampire (Convert)",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        7,
+        10
+      ],
+      "mp": [
+        3,
+        6
+      ],
+      "pp": [
+        2,
+        4
+      ],
+      "attributes": {
+        "intellect": 1
+      },
+      "damage": 0,
+      "casterLevel": [
+        1,
+        2
+      ],
+      "statline": "T7; 7-10 HP, 3-6 MP, 2-4 PP; +1 Intellector Power; level 1-2 caster",
+      "alignment": "neutral/evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Vampire (Racial)",
+      "displayName": "Vampire (Racial)",
+      "role": "monster",
+      "toughness": [
+        9,
+        10
+      ],
+      "bands": [
+        "moderate",
+        "difficult"
+      ],
+      "hp": [
+        10,
+        14
+      ],
+      "mp": [
+        6,
+        8
+      ],
+      "pp": [
+        4,
+        6
+      ],
+      "attributes": {
+        "intellect": 2
+      },
+      "damage": 0,
+      "casterLevel": [
+        2,
+        3
+      ],
+      "statline": "T9-10; 10-14 HP, 6-8 MP, 4-6 PP; +2 Intellector Power; level 2-3 caster",
+      "alignment": "neutral/evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Wart",
+      "displayName": "Wart",
+      "role": "beast",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": [
+        4,
+        6
+      ],
+      "mp": null,
+      "pp": 1,
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5; 4-6 HP, 1 PP; +1 Reflex",
+      "alignment": "neutral/good",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Werebear",
+      "displayName": "Werebear",
+      "role": "monster",
+      "toughness": 10,
+      "bands": [
+        "difficult"
+      ],
+      "hp": 13,
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 2,
+      "casterLevel": null,
+      "statline": "T10; 13HP, 4PP; +2 Power; +2 damage",
+      "alignment": "evil",
+      "environments": [
+        "forest"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Wererat",
+      "displayName": "Wererat",
+      "role": "monster",
+      "toughness": 7,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        8,
+        10
+      ],
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "power": 1,
+        "reflex": 1
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T7; 8-10 HP; 3 PP; +1 Power, +1 Reflex; +1 damage",
+      "alignment": "neutral/evil",
+      "environments": [
+        "city"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Werewolf",
+      "displayName": "Werewolf",
+      "role": "monster",
+      "toughness": [
+        8,
+        10
+      ],
+      "bands": [
+        "moderate",
+        "difficult"
+      ],
+      "hp": [
+        9,
+        11
+      ],
+      "mp": null,
+      "pp": 5,
+      "attributes": {
+        "power": 2
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T8-10; 9-11 HP, 5PP, +2 Power; +1 damage",
+      "alignment": "neutral,evil",
+      "environments": [
+        "forest"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Wight",
+      "displayName": "Wight",
+      "role": "monster",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": 10,
+      "mp": null,
+      "pp": 2,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 10HP, 2PP; +1Power",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Wild-man",
+      "displayName": "Wild-man",
+      "role": "folk",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        5,
+        8
+      ],
+      "mp": null,
+      "pp": 1,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 5-8 HP, 1 PP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "most wilderness"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Wilderfolk Huntsman",
+      "displayName": "Wilderfolk Huntsman",
+      "role": "folk",
+      "toughness": [
+        6,
+        7
+      ],
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        6,
+        8
+      ],
+      "mp": null,
+      "pp": null,
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6-7; 6-8 HP; +1 Reflex",
+      "alignment": "varies",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Wilderfolk Shaman",
+      "displayName": "Wilderfolk Shaman",
+      "role": "folk",
+      "toughness": [
+        5,
+        6
+      ],
+      "bands": [
+        "simple",
+        "moderate"
+      ],
+      "hp": [
+        5,
+        9
+      ],
+      "mp": 4,
+      "pp": 4,
+      "attributes": {
+        "aspect": 1
+      },
+      "damage": 0,
+      "casterLevel": [
+        1,
+        2
+      ],
+      "statline": "T5-6; 5-9 HP; 4 MP, 4 PP; +1 Aspect; level 1-2 caster",
+      "alignment": "varies",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Wilderfolk Shieldmaiden",
+      "displayName": "Wilderfolk Shieldmaiden",
+      "role": "folk",
+      "toughness": [
+        7,
+        8
+      ],
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        8,
+        10
+      ],
+      "mp": null,
+      "pp": 4,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T7-8; 8-10 HP, 4 PP; +1 Power",
+      "alignment": "varies",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Windigo",
+      "displayName": "Windigo",
+      "role": "monster",
+      "toughness": 5,
+      "bands": [
+        "simple"
+      ],
+      "hp": 5,
+      "mp": 10,
+      "pp": null,
+      "attributes": {
+        "aspect": 3
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T5;5 HP,10MP; +3 Aspect",
+      "alignment": "evil",
+      "environments": [
+        "arctic",
+        "forest",
+        "tundra"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Wolf",
+      "displayName": "Wolf",
+      "role": "beast",
+      "toughness": 6,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        5,
+        8
+      ],
+      "mp": null,
+      "pp": 3,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T6; 5-8 HP, 3 PP; +1 Power",
+      "alignment": "neutral",
+      "environments": [
+        "forest",
+        "mountains",
+        "plains"
+      ],
+      "numberAppearing": "2d5"
+    },
+    {
+      "name": "Worm-of-the-Earth",
+      "displayName": "Worm-of-the-Earth",
+      "role": "monster",
+      "toughness": 13,
+      "bands": [
+        "extreme"
+      ],
+      "hp": [
+        20,
+        25
+      ],
+      "mp": null,
+      "pp": [
+        4,
+        6
+      ],
+      "attributes": {
+        "power": 3
+      },
+      "damage": 3,
+      "casterLevel": null,
+      "statline": "T13; 20-25 HP, 4-6 PP; +3 Power; +3 damage",
+      "alignment": "neutral",
+      "environments": [
+        "underground"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Yaggath",
+      "displayName": "Yaggath",
+      "role": "monster",
+      "toughness": 11,
+      "bands": [
+        "difficult"
+      ],
+      "hp": 13,
+      "mp": null,
+      "pp": [
+        8,
+        10
+      ],
+      "attributes": {
+        "reflex": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T11; 13 HP, 8-10 PP; +1 Reflex",
+      "alignment": "neutral/evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Yeti",
+      "displayName": "Yeti",
+      "role": "beast",
+      "toughness": 8,
+      "bands": [
+        "moderate"
+      ],
+      "hp": [
+        7,
+        10
+      ],
+      "mp": null,
+      "pp": 1,
+      "attributes": {
+        "power": 1
+      },
+      "damage": 1,
+      "casterLevel": null,
+      "statline": "T8; 7-10 HP, 1 PP; +1 Power; +1 damage",
+      "alignment": "neutral/evil",
+      "environments": [
+        "arctic",
+        "mountains"
+      ],
+      "numberAppearing": "1d5"
+    },
+    {
+      "name": "Zilant",
+      "displayName": "Zilant",
+      "role": "beast",
+      "toughness": 12,
+      "bands": [
+        "extreme"
+      ],
+      "hp": [
+        15,
+        20
+      ],
+      "mp": 3,
+      "pp": 2,
+      "attributes": {
+        "intellect": 3,
+        "power": 2
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T12; 15-20 HP, 3 MP, 2 PP; +3 Intellect, +2 Power",
+      "alignment": "good",
+      "environments": [
+        "mountains"
+      ],
+      "numberAppearing": "1"
+    },
+    {
+      "name": "Zombie",
+      "displayName": "Zombie",
+      "role": "monster",
+      "toughness": [
+        4,
+        7
+      ],
+      "bands": [
+        "simple",
+        "moderate"
+      ],
+      "hp": [
+        2,
+        8
+      ],
+      "mp": null,
+      "pp": [
+        4,
+        5
+      ],
+      "attributes": {
+        "power": 1
+      },
+      "damage": 0,
+      "casterLevel": null,
+      "statline": "T4-7; 2-8 HP, 4-5 PP; +1 Power",
+      "alignment": "evil",
+      "environments": [
+        "most"
+      ],
+      "numberAppearing": "1d10"
+    }
+  ]
+}
