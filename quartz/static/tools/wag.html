@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Worldwide Adventure Generator – Tiny d10</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
+  :root {
+    --bg:#faf8f8; --ink:#2b2b2b; --muted:#4e4e4e; --line:#e5e5e5; --gray:#b8b8b8;
+    --accent:#284b63; --sage:#84a59d; --card:#fffdfb; --hl:rgba(143,159,169,.15);
+  }
+  :root[data-theme="dark"] {
+    --bg:#161618; --ink:#ebebec; --muted:#d4d4d4; --line:#393639; --gray:#646464;
+    --accent:#7b97aa; --sage:#84a59d; --card:#1d1d20; --hl:rgba(143,159,169,.12);
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--bg); }
+  body {
+    font-family:"EB Garamond",Garamond,"Times New Roman",serif; color:var(--ink);
+    font-size:18px; line-height:1.5; padding:1.25rem 1rem 3rem; max-width:760px; margin:0 auto;
+  }
+  h1 { font-size:1.6rem; margin:0 0 .2rem; font-weight:600; }
+  .sub { color:var(--muted); font-style:italic; margin:0 0 1.25rem; font-size:.95rem; }
+  .controls { display:flex; flex-wrap:wrap; gap:.75rem 1rem; align-items:end;
+    padding:1rem; border:1px solid var(--line); border-radius:10px; background:var(--card); margin-bottom:1rem; }
+  .field { display:flex; flex-direction:column; gap:.2rem; }
+  label { font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  select,input[type=text] { font-family:inherit; font-size:1rem; color:var(--ink); background:var(--bg);
+    border:1px solid var(--gray); border-radius:6px; padding:.4rem .5rem; }
+  select { min-width:10rem; }
+  .checks { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; margin:.2rem 0 0; }
+  .check { display:flex; align-items:center; gap:.4rem; }
+  .check label { text-transform:none; letter-spacing:0; font-size:.95rem; color:var(--ink); }
+  .btnrow { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1rem; }
+  button { font-family:inherit; font-size:1.05rem; font-weight:600; cursor:pointer; color:#fff;
+    background:var(--accent); border:none; border-radius:6px; padding:.5rem 1.1rem; }
+  button.ghost { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+  button:hover { filter:brightness(1.08); }
+  button:disabled { opacity:.5; cursor:default; }
+
+  .faction { border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:8px;
+    background:var(--card); padding:.6rem .9rem; margin-bottom:1rem; font-size:.95rem; }
+  .faction .clk { display:inline-flex; gap:.25rem; margin-left:.5rem; vertical-align:middle; }
+  .pip { width:.7rem; height:.7rem; border-radius:50%; border:1px solid var(--accent); display:inline-block; }
+  .pip.on { background:var(--accent); }
+
+  .report { border:1px solid var(--line); border-radius:10px; background:var(--card); padding:1rem 1.25rem; }
+  .report.empty { color:var(--muted); font-style:italic; }
+  .report h2 { font-size:1.15rem; margin:.2rem 0 .8rem; border-bottom:1px solid var(--line); padding-bottom:.4rem; }
+  .step { margin:.55rem 0; }
+  .step .k { font-weight:600; color:var(--accent); }
+  .step .roll { color:var(--gray); font-size:.8rem; }
+  .encounter { border:1px solid var(--line); border-left:4px solid var(--sage); border-radius:8px;
+    background:var(--bg); padding:.7rem .9rem; margin:.6rem 0; }
+  .mon .name { font-weight:600; font-size:1.1rem; }
+  .mon .statline { font-style:italic; color:var(--muted); margin:.2rem 0; font-size:.95rem; }
+  .tags { display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.4rem; }
+  .tag { background:var(--hl); border:1px solid var(--line); border-radius:999px; padding:.03rem .5rem; font-size:.82rem; color:var(--muted); }
+  .quiet { color:var(--muted); font-style:italic; }
+  .foot { color:var(--gray); font-size:.8rem; margin-top:1.25rem; }
+  .sect { font-weight:600; color:var(--sage); text-transform:uppercase; letter-spacing:.05em; font-size:.75rem; margin:.7rem 0 .2rem; }
+</style>
+</head>
+<body>
+  <h1>Worldwide Adventure Generator</h1>
+  <p class="sub">Tiny d10 · the Play Loop — one hex at a time</p>
+
+  <div class="controls">
+    <div class="field">
+      <label for="terrain">Terrain</label>
+      <select id="terrain"></select>
+    </div>
+    <div class="field">
+      <label for="intensity">Intensity</label>
+      <select id="intensity">
+        <option value="low">Low (1-in-5)</option>
+        <option value="standard" selected>Standard (1-in-3)</option>
+        <option value="high">High (1-in-2)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="region">Region (optional)</label>
+      <input type="text" id="region" placeholder="e.g. the Hinterlands" />
+    </div>
+    <div class="checks">
+      <div class="check"><input type="checkbox" id="explore" checked /><label for="explore">Party explores (discovery)</label></div>
+      <div class="check"><input type="checkbox" id="packs" checked /><label for="packs">Use terrain packs</label></div>
+      <div class="check"><input type="checkbox" id="force" /><label for="force">Force an encounter</label></div>
+    </div>
+  </div>
+
+  <div class="btnrow">
+    <button id="enter" disabled>Enter hex</button>
+    <button id="turn" class="ghost">Turn faction clock</button>
+    <button id="newfaction" class="ghost">New faction</button>
+  </div>
+
+  <div id="factionBar" class="faction" style="display:none"></div>
+  <div id="report" class="report empty">Set your terrain and intensity, then enter a hex.</div>
+  <p class="foot" id="foot"></p>
+
+<script>
+(function () {
+  /* ---------- theme sync ---------- */
+  function syncTheme(){ try {
+    var t = localStorage.getItem("theme")
+      || (window.parent && window.parent!==window ? window.parent.document.documentElement.getAttribute("saved-theme") : null)
+      || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark":"light");
+    document.documentElement.setAttribute("data-theme", t);
+  } catch(e){} }
+  syncTheme(); window.addEventListener("storage", syncTheme);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncTheme);
+
+  /* ---------- dice ---------- */
+  function d(n){ return 1+Math.floor(Math.random()*n); }
+  function d10(){ return d(10); }
+  function pick(arr){ var r=d10(); return { v:arr[r-1], roll:r }; }        // 10-element table
+  function col(arr){ return arr[d10()-1]; }                                // independent column
+  function rollExpr(expr){ var t=0,p=[]; String(expr).replace(/\s+/g,"").split("+").forEach(function(term){
+      var m=term.match(/^(\d+)d(\d+)$/i); if(m){var n=+m[1],s=+m[2],sub=0;for(var i=0;i<n;i++)sub+=d(s);t+=sub;p.push(n+"d"+s+"="+sub);}
+      else if(/^\d+$/.test(term)){t+=+term;p.push(term);} }); return {total:t,detail:p.join(" + ")}; }
+  function rollRange(v){ if(v==null)return null; return Array.isArray(v)? v[0]+Math.floor(Math.random()*(v[1]-v[0]+1)) : v; }
+  var cap=function(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;};
+
+  /* ---------- WAG tables (each is a 10-element array, index = roll-1) ---------- */
+  var W = {
+    weather:[
+      ["Clear","good visibility"],["Overcast","flat light dulls detail at range"],
+      ["Fog or mist","visibility ≤ ¼ mile"],["Windy","affects ranged attacks & skills"],
+      ["Light rain/snow","visibility ≤ 1 mile"],["Heavy rain/snow","travel ½ speed; visibility ≤ ¼ mile"],
+      ["Thunderstorm/blizzard","Survival check if unsheltered; visibility 100 ft"],
+      ["Heatwave/cold snap","fatigue: −1 Power or −1 Reflex"],
+      ["Unnatural weather","ash, colored rain, whispers on the wind"],
+      ["Weather shift","and at the worst possible time"]],
+    feature:[
+      ["Water","spring, creek, lakelet, tidepool, cenote"],["Elevation","ridge, escarpment, mesa, terraced hills"],
+      ["Vegetation zone","ancient tree, dead grove, reed marsh, thorn scrub"],
+      ["Stone formation","hoodoos, basalt columns, granite tors, karst"],
+      ["Trackway","natural trail, old road, game path, dried riverbed"],
+      ["Natural boundary","river divide, treeline edge, dune line"],
+      ["Resource","ore seam, salt lick, resin grove, peat, clay bank"],
+      ["Landform anomaly","perfectly round hill, sunken valley, leaning strata"],
+      ["Ancient imprint","fossil bed, petrified forest, dried seabed"],
+      ["Climate feature","wind corridor, frost hollow, fog basin, lightning-prone rise"]],
+    signs:[
+      "Distant smoke columns","Echoing horns or chanting from no clear source",
+      "Fresh tracks crossing the party's path","A sudden, unnatural silence",
+      "A corpse (animal or person) with a clue","A messenger – wounded, terrified, or lost",
+      "A dropped item (map piece, charm, letter, token)","A warning sign (runes, skulls, taboo marker)",
+      "A suspicious guide mark (breadcrumbs into trouble)","A clear invitation (lit fire, fresh camp, open door)"],
+    encounter:[  // Table E
+      {t:"Predator or territorial beast",resolve:"beast"},{t:"Predator or territorial beast",resolve:"beast"},
+      {t:"Prey animal herd or migration",resolve:"herd"},{t:"Hazard",resolve:"hazard"},
+      {t:"Travelers",resolve:"npc"},{t:"Desperate folk",resolve:"desperate"},
+      {t:"Faction patrol",resolve:"faction"},{t:"Monster or unnatural entity",resolve:"monster"},
+      {t:"Discovery encounter",resolve:"discovery"},{t:"Roll twice and combine",resolve:"double"}],
+    discovery:[
+      {t:"Useful resource",ex:"food, water, herbs, ore"},{t:"Vantage point",ex:"reveals 1-3 adjacent features"},
+      {t:"Site",ex:"generate",site:true},{t:"Dungeon or underground entrance",ex:"generate",dungeon:true},
+      {t:"Lair",ex:"generate",site:true},{t:"Settlement",ex:"generate",settlement:true},
+      {t:"Local knowledge",ex:"a warning, a scrawled note, a whisper"},
+      {t:"Weird phenomenon",ex:"rocks roll uphill, delayed sound, fata morgana"},
+      {t:"Treasure (with strings attached)",ex:"cursed, marked, bait, stolen"},
+      {t:"A solid lead",ex:"",lead:true}],
+    settlement:[
+      ["Lone homestead","one family"],["Camp","1-3 families / 5-15 crew"],["Hamlet","20-80"],
+      ["Village","80-300"],["Small town","300-1,000"],["Town","1,000-5,000"],
+      ["Fortified town or stronghold","200-1,000"],["Pilgrimage site, monastery, or guildhouse","5-50"],
+      ["Company town, mine, port, or outpost","100-500"],["Hidden community","20-200"]],
+    conflict:[
+      "Someone is missing","A monster problem (sometimes not as it seems)",
+      "Faction pressure (conscription, a 'protection' racket, taxes)","Resource crisis (water, food, fuel, medicine)",
+      "A curse, haunting, or strange dreams","A crime with consequences (theft, murder, sabotage)",
+      "A bad map, false guide, or lie about the safe route","A natural disaster (sinkhole, rockslide, quake)",
+      "A bad deal was made – and payment is due","Someone is about to do something unwise (and should be stopped)"],
+    siteType:["Ruin (surface)","Tomb, barrow, or crypt","Cave system","Temple or shrine complex",
+      "Fortress or watchtower","Mine or quarry","Laboratory or odd workshop","Shipwreck or abandoned vessel",
+      "Battlefield or mass grave","'Gateway,' anomaly, or 'thin place'"],
+    siteCond:["Pristine and in-use","Maintained but tense","Decaying but inhabited","Decaying but inhabited",
+      "Ruined and picked over","Ruined and picked over","Recently disturbed or uncovered",
+      "Actively contested (2+ groups)","Trapped or warded (signs obvious)","Appears to be empty"],
+    occupants:[  // Table K
+      {t:"No occupants – just hazards",resolve:"trap"},{t:"Vermin or animal infested",resolve:"beast"},
+      {t:"Bandits or scavengers"},{t:"Cult, sect, or ritualists"},{t:"Soldiers, guards, or mercenaries"},
+      {t:"Locals, defending it fiercely"},{t:"Monster lair",resolve:"monster"},
+      {t:"Undead or ghosts",resolve:"monster"},{t:"Rival adventurers"},
+      {t:"Powerful monster presence (or a lieutenant + reinforcements)",resolve:"monster"}],
+    rewards:["Supplies (food, tools, medicine)","Coin, gems, or valuables","Trade goods (fabrics, salt, spices)",
+      "A relic (minor magic or strange object)","Armor, weapons, or combat gear","A map to another site",
+      "A favor, title, safehouse, or protection","Secret knowledge (weakness, route, ritual)",
+      "A key item (apparent importance; needed later)","Treasure that causes trouble (wanted, cursed, stolen)"],
+    tension:[
+      "Terrain slows movement (mud, gravel, collapsing ground)","Enemy reinforcements have nearly arrived",
+      "Weather/environment worsens","A third party watches from concealment",
+      "The site favors the defender (high ground, choke point)","A hidden hazard activates (trap, sinkhole, swarm)",
+      "A contested resource is nearby (two+ groups want it)","The party stands in a territorial creature's domain",
+      "An omen occurs (may force a morale check)","Roll twice and combine"],
+    hidden:["They have no hidden motive.","They have no hidden motive.","They want leverage.",
+      "They fear something greater.","They are divided internally.","They are buying time.",
+      "They are protecting a secret.","They serve someone (or something) unseen.",
+      "They need help but won't admit it.","They are lying about something important."],
+    npcRole:["Scout","Priest","Criminal","Merchant","Exile","Soldier","Scholar","Fanatic","Child","Leader"],
+    npcMotive:["Safety","Wealth","Revenge","Truth","Escape","Power","Reunion","Redemption","Survival","Control"],
+    npcFlaw:["Deceitful","Doomed","Watched","Cursed","Indebted","Sick","Hunted","Ambitious","Fearful","Disloyal"],
+    facType:["Merchant league or guild","Warrior clan or warband","Noble house or ruling family","Cult or sect",
+      "Religious order","Criminal syndicate","Explorer society","Druid circle or primal order","Military force","Secret society"],
+    facGoal:["Control trade","Expand territory","Secure secession","Fulfill a prophecy","Purify corruption",
+      "Control an illicit flow","Discover hidden knowledge","Protect the natural balance","Maintain control","Prepare for a looming threat"],
+    facMethod:["Economic pressure","Open violence","Political maneuvering","Ritual & secrecy","Moral authority",
+      "Coercion & bribery","Expedition & excavation","Subtle interference","Patrol & enforcement","Manipulation & misdirection"],
+    facDisp:["Lawful","Aggressive","Calculating","Fanatical","Pragmatic","Ruthless","Curious","Watchful","Suspicious","Secretive"],
+    traps:[["Deadfall","T3-8"],["Hidden pit","T4-6"],["Poison dart","T5-6"],["Snare","T4-8"],["Collapsing floor","T6"],
+      ["Gas vent","T7"],["Alarm ward","T6"],["Rolling boulder","T5"],["Execution mechanism","T4-7"],["Warding sigil","T4-8"]],
+    dsize:[["Tiny","3-5 areas"],["Tiny","3-5 areas"],["Tiny","3-5 areas"],["Small","6-10 areas"],["Small","6-10 areas"],
+      ["Small","6-10 areas"],["Medium","12-18 areas"],["Medium","12-18 areas"],["Large","20+ areas"],["Mega-site fragment","50+ areas"]]
+  };
+
+  /* terrain-specific packs: 10-element arrays of {t, resolve?} */
+  function P(t,r){ return {t:t,resolve:r||null}; }
+  var PACKS = {
+    "plains":[P("Territorial predator","beast"),P("Territorial predator","beast"),P("Monster or aberration","monster"),
+      P("Monster or aberration","monster"),P("Grass fire – slow or fast-moving"),P("Survivor(s) with a warning","npc"),
+      P("Broken wagon or supply cache"),P("Nomad camp – evil, neutral, or good","npc"),
+      P("Migrating herd (valuable; dangerous to spook)","herd"),P("Riders at speed, or scouts watching from afar")],
+    "forest":[P("Predator stalking silently","beast"),P("Predator stalking silently","beast"),P("Monster or aberration","monster"),
+      P("Monster or aberration","monster"),P("Monster or aberration","monster"),P("A snare line or primitive trap","trap"),
+      P("Old game path swallowed by roots"),P("Hunting party (1-in-5 they're bandits in disguise)","npc"),
+      P("Sudden terrain hazard (falling tree, ravine, mudslide)"),P("Territorial spirits or beast-gods","monster")],
+    "hills":[P("Predators encircling the party","beast"),P("Predators encircling the party","beast"),P("Monster or aberration","monster"),
+      P("Monster or aberration","monster"),P("Monster or aberration","monster"),P("A mine entrance (1-in-3 fresh prints)","site"),
+      P("Avalanche or rockslide risk"),P("A sudden change in the weather"),
+      P("Hermit, exile, or oracle (1-in-2 a prophecy)","npc"),P("Something spotted in the distance")],
+    "desert":[P("Predator stalking from a distance","beast"),P("Monster or aberration","monster"),P("Monster or aberration","monster"),
+      P("A mirage (mountains, oasis, marching army)"),P("Scouts testing defenses","npc"),P("Scouts testing defenses","npc"),
+      P("The sands shift unnaturally"),P("A sinkhole into a subterranean structure","dungeon"),
+      P("A sinkhole into a subterranean structure","dungeon"),P("A picked-over caravan (1-in-2 something valuable left)")],
+    "swamp":[P("Predator lurking beneath the water","beast"),P("Predator lurking beneath the water","beast"),P("Predator lurking beneath the water","beast"),
+      P("Monster or aberration","monster"),P("Monster or aberration","monster"),P("Monster or aberration","monster"),P("Monster or aberration","monster"),
+      P("A swarm (leeches, insects, birds)","swarm"),P("The still water stirs"),P("Spirit lights")]
+  };
+
+  /* terrain -> monster environments + which pack + flavor tint */
+  var TERRAINS = [
+    {key:"forest", label:"Forest or Jungle", envs:["forest","jungle"], pack:"forest",
+      tint:"Native tribes and apex predators stalk lost trails, old growth, and hidden cities."},
+    {key:"hills", label:"Hills or Mountains", envs:["mountains","foothills"], pack:"hills",
+      tint:"Hardy folk and hardier beasts weather rockfalls, narrow passes, and thin air."},
+    {key:"plains", label:"Plains", envs:["plains"], pack:"plains",
+      tint:"Horse lords tend herds under big skies, following rains and grasses."},
+    {key:"desert", label:"Desert", envs:["plains"], pack:"desert", desert:true,
+      tint:"Fierce clans populate a harsh land of deadly beasts, mirages, and sand."},
+    {key:"swamp", label:"Swamp or Wetlands", envs:["swamp","semi-aquatic"], pack:"swamp",
+      tint:"Fetid lands haunted by things that shun the light; death traps and snapping jaws."},
+    {key:"coast", label:"Ocean or Coast", envs:["aquatic","semi-aquatic","coastal"], pack:null,
+      tint:"Pirates and sailors haunt salty shores, reefs, squalls, and hungry tides."},
+    {key:"tundra", label:"Tundra", envs:["arctic","tundra"], pack:null,
+      tint:"Nomads and outposts cling to survival beneath vast skies and lethal cold."},
+    {key:"urban", label:"Urban", envs:["city"], pack:null,
+      tint:"Crowded cities roil with factions, markets, and no shortage of intrigue."}
+  ];
+  var WILDCARDS = ["most","most wilderness","all natural environs"];
+  var CHECK = { low:5, standard:3, high:2 };
+
+  /* ---------- monster data ---------- */
+  var POOL=[];
+  function initData(data){
+    POOL=(data.monsters||[]).filter(function(m){return m.statline;});
+    document.getElementById("enter").disabled=false;
+    document.getElementById("foot").textContent=POOL.length+" monsters loaded · WAG tables transcribed from the zine · number-appearing & roles are first-pass estimates";
+  }
+  // Standalone builds inline the data as window.__WAG_MONSTERS__; the hosted page fetches it.
+  if (window.__WAG_MONSTERS__) { initData(window.__WAG_MONSTERS__); }
+  else fetch("/Files/data/monsters.json").then(function(r){return r.json();}).then(initData)
+    .catch(function(){ document.getElementById("foot").textContent="Could not load monster data – beast encounters unavailable."; });
+
+  function monstersFor(terrain, roles){
+    return POOL.filter(function(m){
+      var envOk = !terrain || terrain.envs.some(function(e){return (m.environments||[]).indexOf(e)!==-1;})
+        || (m.environments||[]).some(function(e){return WILDCARDS.indexOf(e)!==-1;});
+      var roleOk = !roles || roles.indexOf(m.role)!==-1;
+      return envOk && roleOk;
+    });
+  }
+  var REACTION=["hostile, attacks","hostile, attacks","hostile, attacks","hostile, attacks",
+    "hostile, may attack","hostile, may attack","unfriendly","unfriendly","neutral","friendly"];
+
+  function rollMonster(terrain, mode){
+    // mode: beast | herd | monster | swarm
+    var roles = (mode==="monster") ? ["monster"] : ["beast"];
+    var pool = monstersFor(terrain, roles);
+    if(!pool.length) pool = monstersFor(terrain, null);       // fallback: ignore role
+    if(!pool.length) pool = POOL;                              // fallback: ignore terrain
+    if(mode==="herd"){ var herds=pool.filter(function(m){return /d/.test(String(m.numberAppearing||""));}); if(herds.length)pool=herds; }
+    var m = pool[Math.floor(Math.random()*pool.length)];
+    var na = m.numberAppearing? rollExpr(m.numberAppearing):null;
+    var hp = rollRange(m.hp), react = d10();
+    return { m:m, na:na, hp:hp, reaction:REACTION[react-1], reactionRoll:react };
+  }
+  function monsterCard(res, header){
+    var m=res.m, meta=[];
+    if(m.role) meta.push(m.role);
+    if(m.alignment) meta.push(m.alignment);
+    (m.bands||[]).forEach(function(b){meta.push(cap(b));});
+    (m.environments||[]).forEach(function(e){meta.push(e);});
+    var h='<div class="encounter mon">';
+    if(header) h+='<div class="sect">'+header+'</div>';
+    var count = res.na? res.na.total+"× " : "";
+    h+='<div class="name">'+count+(m.displayName||m.name)+'</div>';
+    h+='<div class="statline">('+m.statline+')</div>';
+    if(res.na) h+='<div><b>Number appearing:</b> '+(m.numberAppearing===String(res.na.total)?res.na.total:m.numberAppearing+" → "+res.na.total)+'</div>';
+    if(res.hp!=null) h+='<div><b>Sample HP:</b> '+res.hp+'</div>';
+    h+='<div><b>Reaction (1d10='+res.reactionRoll+'):</b> '+res.reaction+'</div>';
+    h+='<div class="tags">'+meta.map(function(x){return '<span class="tag">'+x+'</span>';}).join("")+'</div>';
+    return h+'</div>';
+  }
+
+  /* ---------- sub-generators ---------- */
+  function npc(){ return col(W.npcRole)+" · "+col(W.npcMotive)+" · "+col(W.npcFlaw); }
+  function trap(){ var t=pick(W.traps); return t.v[0]+" ("+t.v[1]+")"; }
+  function newFaction(){
+    return { type:col(W.facType), goal:col(W.facGoal), method:col(W.facMethod), disp:col(W.facDisp), stage:0 };
+  }
+  function dungeon(){
+    var sz=pick(W.dsize);
+    var occ=pick(W.occupants);
+    var out='<div class="sect">Dungeon (Appendix V)</div>';
+    out+='<div><b>Size:</b> '+sz.v[0]+' ('+sz.v[1]+')</div>';
+    out+='<div><b>Entry occupants:</b> '+occ.v.t+'</div>';
+    if(occ.v.resolve){ var terr={envs:["underground"]}; out+=monsterCard(rollMonster(terr, occ.v.resolve==="monster"?"monster":"beast"),"Lurking within"); }
+    out+='<div class="quiet" style="margin-top:.3rem">Generate areas as needed: doors, passages, rooms, obstacles.</div>';
+    return out;
+  }
+  function siteBlock(kind){
+    var out='<div class="sect">'+(kind||"Site")+'</div>';
+    out+='<div><b>Type:</b> '+pick(W.siteType).v+'</div>';
+    out+='<div><b>Condition:</b> '+col(W.siteCond)+'</div>';
+    var occ=pick(W.occupants);
+    out+='<div><b>Occupants:</b> '+occ.v.t+'</div>';
+    if(occ.v.resolve==="monster"||occ.v.resolve==="beast") out+=monsterCard(rollMonster(currentTerrain(), occ.v.resolve),"Occupant");
+    else if(occ.v.resolve==="trap") out+='<div><b>Hazard:</b> '+trap()+'</div>';
+    out+='<div><b>Reward:</b> '+pick(W.rewards).v+'</div>';
+    return out;
+  }
+  function settlementBlock(){
+    var s=pick(W.settlement);
+    var out='<div class="sect">Settlement</div>';
+    out+='<div><b>Size:</b> '+s.v[0]+' ('+s.v[1]+')</div>';
+    out+='<div><b>Hook:</b> '+pick(W.conflict).v+'</div>';
+    out+='<div><b>Hidden motive:</b> '+pick(W.hidden).v+'</div>';
+    return out;
+  }
+
+  /* ---------- encounter resolution ---------- */
+  function resolveEncounter(entry, depth){
+    var terr=currentTerrain();
+    switch(entry.resolve){
+      case "beast":  return monsterCard(rollMonster(terr,"beast"),"Predator / territorial beast");
+      case "herd":   return monsterCard(rollMonster(terr,"herd"),"Prey herd / migration");
+      case "monster":return monsterCard(rollMonster(terr,"monster"),"Monster / unnatural entity");
+      case "swarm":  return monsterCard(rollMonster(terr,"beast"),"Swarm");
+      case "hazard": return '<div class="encounter"><div class="sect">Hazard</div><div>'+trap()+' – or a terrain/weather peril.</div></div>';
+      case "trap":   return '<div class="encounter"><div class="sect">Trap</div><div>'+trap()+'</div></div>';
+      case "npc":    return '<div class="encounter"><div class="sect">Travelers</div><div><b>NPC:</b> '+npc()+'</div><div><b>Hidden motive:</b> '+pick(W.hidden).v+'</div></div>';
+      case "desperate": return '<div class="encounter"><div class="sect">Desperate folk</div><div><b>NPC:</b> '+npc()+'</div><div class="quiet">Fleeing, hungry, injured, or lost.</div></div>';
+      case "faction":{ var f=faction||newFaction(); return '<div class="encounter"><div class="sect">Faction patrol</div><div>'+f.type+' – '+f.goal+' <span class="quiet">('+f.method+', '+f.disp+')</span></div><div><b>Hidden motive:</b> '+pick(W.hidden).v+'</div></div>'; }
+      case "discovery": return '<div class="encounter">'+discoveryBlock()+'</div>';
+      case "double": {
+        if(depth>1) return resolveEncounter(W.encounter[0],depth+1);
+        var a=pick(W.encounter), b=pick(W.encounter);
+        return '<div class="encounter"><div class="sect">Two, combined</div></div>'+resolveEncounter(a.v,depth+1)+resolveEncounter(b.v,depth+1);
+      }
+      default: return '<div class="encounter"><div class="sect">'+entry.t+'</div></div>';
+    }
+  }
+
+  function discoveryBlock(){
+    var dz=pick(W.discovery), e=dz.v;
+    var out='<div class="sect">Discovery – '+e.t+'</div>';
+    if(e.ex && e.ex!=="generate") out+='<div class="quiet">'+e.ex+'</div>';
+    if(e.dungeon) out+=dungeon();
+    else if(e.site) out+=siteBlock("Site / Lair");
+    else if(e.settlement) out+=settlementBlock();
+    else if(e.lead){ out+='<div><b>Hook:</b> '+pick(W.conflict).v+'</div><div><b>Site:</b> '+pick(W.siteType).v+'</div>'; }
+    return out;
+  }
+
+  /* ---------- faction clock state ---------- */
+  var faction=null;
+  var STAGES=["– (dormant)","Stage 1: Pressure – rumors swirl, scouts afoot","Stage 2: Action – raids, seizures, rituals begin","Stage 3: Consequence – open confrontation"];
+  function renderFaction(){
+    var bar=document.getElementById("factionBar");
+    if(!faction){ bar.style.display="none"; return; }
+    bar.style.display="block";
+    var pips=""; for(var i=1;i<=3;i++) pips+='<span class="pip'+(i<=faction.stage?" on":"")+'"></span>';
+    bar.innerHTML='<b>Faction:</b> '+faction.type+' – '+faction.goal+' <span class="quiet">('+faction.method+', '+faction.disp+')</span>'
+      +'<span class="clk">'+pips+'</span><br><span class="quiet">'+STAGES[faction.stage]+'</span>';
+  }
+  function turnClock(){
+    if(!faction) faction=newFaction();
+    var r=d10();
+    if(r<=3 && faction.stage<3) faction.stage++;
+    renderFaction();
+    var box=document.getElementById("report");
+    var note=document.createElement("div"); note.className="step";
+    note.innerHTML='<span class="k">Faction clock</span> (1d10='+r+'): '+(r<=3?"advances → "+STAGES[faction.stage]:"no change");
+    if(box.classList.contains("empty")){ box.classList.remove("empty"); box.innerHTML=""; }
+    box.prepend(note);
+  }
+
+  function tensionText(){
+    var t=pick(W.tension);
+    if(t.roll!==10) return t.v+' <span class="roll">(1d10='+t.roll+')</span>';
+    function one(){ var x; do{ x=pick(W.tension); }while(x.roll===10); return x.v; }
+    return one()+' + '+one()+' <span class="roll">(1d10=10, combined)</span>';
+  }
+
+  /* ---------- the play loop ---------- */
+  function currentTerrain(){ return TERRAINS.find(function(t){return t.key===document.getElementById("terrain").value;}); }
+  function step(k, v, roll){ return '<div class="step"><span class="k">'+k+'</span> '+v+(roll?' <span class="roll">(1d10='+roll+')</span>':'')+'</div>'; }
+
+  function enterHex(){
+    var terr=currentTerrain();
+    var region=document.getElementById("region").value.trim();
+    var usePacks=document.getElementById("packs").checked;
+    var explore=document.getElementById("explore").checked;
+    var force=document.getElementById("force").checked;
+    var intensity=document.getElementById("intensity").value;
+    if(!faction) faction=newFaction(), renderFaction();
+
+    var h='<h2>'+(region?region+" – ":"")+terr.label+' hex</h2>';
+    h+='<div class="quiet" style="margin-bottom:.6rem">'+terr.tint+'</div>';
+
+    // 1. Weather
+    var wx=pick(W.weather); h+=step("Weather", wx.v[0]+' – '+wx.v[1], wx.roll);
+    // 2. Feature
+    var ft=pick(W.feature); h+=step("Feature", ft.v[0]+' – '+ft.v[1], ft.roll);
+    // 3. Sign (1-in-2)
+    if(d(2)===1){ var sg=pick(W.signs); h+=step("Sign / omen", sg.v, sg.roll); }
+    // 4. Encounter check
+    var chk=d(CHECK[intensity]);
+    var occurs = force || chk===1;
+    h+=step("Encounter check", occurs?("<b>encounter!</b>"+(force?" (forced)":"")):"quiet – nothing stirs", force?null:chk);
+    if(occurs){
+      var pack = usePacks && terr.pack ? PACKS[terr.pack] : null;
+      var entry = pack ? pick(pack) : pick(W.encounter);
+      h+=step("Encounter type", entry.v.t, entry.roll);
+      h+=resolveEncounter(entry.v, 0);
+      // tension (resolve the "roll twice and combine" result)
+      h+='<div class="step"><span class="k">Tension</span> '+tensionText()+'</div>';
+    }
+    // 5. Discovery (if exploring)
+    if(explore){
+      var made = d(5)===1; // ~2-hour effort, 1-in-5
+      if(made){ h+='<div class="step"><span class="k">Discovery</span></div><div class="encounter">'+discoveryBlock()+'</div>'; }
+      else h+=step("Discovery", "a two-hour search turns up nothing");
+    }
+    // 6. Faction clock (turns on entering)
+    var r=d10(); if(r<=3 && faction.stage<3) faction.stage++;
+    h+=step("Faction clock", r<=3?"advances → "+STAGES[faction.stage]:"no change", r);
+    renderFaction();
+
+    var box=document.getElementById("report");
+    box.className="report"; box.innerHTML=h;
+  }
+
+  /* ---------- wiring ---------- */
+  var tsel=document.getElementById("terrain");
+  TERRAINS.forEach(function(t){ var o=document.createElement("option"); o.value=t.key; o.textContent=t.label; tsel.appendChild(o); });
+  document.getElementById("enter").addEventListener("click", enterHex);
+  document.getElementById("turn").addEventListener("click", turnClock);
+  document.getElementById("newfaction").addEventListener("click", function(){ faction=newFaction(); renderFaction(); });
+})();
+</script>
+</body>
+</html>
