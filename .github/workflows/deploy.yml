@@ -30,6 +30,7 @@ jobs:
       - name: Build Quartz
         run: npx quartz build
       - name: Add CNAME for custom domain
+        # TODO: switch to td10.org once DNS is ready (waiting on registrar support)
         run: echo "td10.pw" > public/CNAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
