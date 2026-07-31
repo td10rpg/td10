@@ -94,6 +94,7 @@
     <button id="enter" disabled>Enter hex</button>
     <button id="turn" class="ghost">Turn faction clock</button>
     <button id="newfaction" class="ghost">New faction</button>
+    <button id="copy" class="ghost" disabled>Copy Markdown</button>
   </div>
 
   <div id="factionBar" class="faction" style="display:none"></div>
@@ -406,6 +407,7 @@
     note.innerHTML='<span class="k">Faction clock</span> (1d10='+r+'): '+(r<=3?"advances → "+STAGES[faction.stage]:"no change");
     if(box.classList.contains("empty")){ box.classList.remove("empty"); box.innerHTML=""; }
     box.prepend(note);
+    enableCopy();
   }
 
   function tensionText(){
@@ -462,7 +464,74 @@
 
     var box=document.getElementById("report");
     box.className="report"; box.innerHTML=h;
+    enableCopy();
   }
+
+  /* ---------- copy report as Markdown ---------- */
+  function txt(el){ return el ? el.textContent.replace(/\s+/g," ").trim() : ""; }
+  // Walk the rendered report and re-express it as Markdown, faithful to what the
+  // reader sees. Steps become bullets, encounter/site blocks become sub-sections.
+  function serializeReport(node){
+    var out=[];
+    [].forEach.call(node.childNodes, function(ch){
+      if(ch.nodeType===3){ var t=ch.textContent.replace(/\s+/g," ").trim(); if(t) out.push(t); return; }
+      if(ch.nodeType!==1) return;
+      var cl=ch.classList;
+      if(ch.tagName==="H2"){ out.push(""); out.push("# "+txt(ch)); out.push(""); return; }
+      if(cl.contains("step")){
+        var k=ch.querySelector(".k"); var key=k?txt(k):"";
+        var full=txt(ch); var rest = key && full.indexOf(key)===0 ? full.slice(key.length).trim() : full;
+        out.push(key ? ("- **"+key+":**"+(rest?" "+rest:"")) : ("- "+full));
+        return;
+      }
+      if(cl.contains("encounter")){ out.push(""); serializeReport(ch).forEach(function(l){out.push(l);}); out.push(""); return; }
+      if(cl.contains("sect")){ out.push("**"+txt(ch)+"**"); return; }
+      if(cl.contains("name")){ out.push("**"+txt(ch)+"**"); return; }
+      if(cl.contains("statline")){ out.push("_"+txt(ch).replace(/^\(/,"").replace(/\)$/,"")+"_"); return; }
+      if(cl.contains("tags")){ var tg=[].map.call(ch.querySelectorAll(".tag"),txt); if(tg.length) out.push("_"+tg.join(" · ")+"_"); return; }
+      if(cl.contains("quiet")){ var q=txt(ch); if(q) out.push("_"+q+"_"); return; }
+      if(ch.tagName==="DIV"){
+        if(ch.querySelector(".encounter,.sect,.name,.step,.statline,.tags")){ serializeReport(ch).forEach(function(l){out.push(l);}); return; }
+        var b=ch.querySelector("b"); var f=txt(ch);
+        if(b){ var bt=txt(b); var val=f.indexOf(bt)===0?f.slice(bt.length).trim():f; out.push("- **"+bt+"** "+val); }
+        else if(f) out.push(f);
+        return;
+      }
+      serializeReport(ch).forEach(function(l){out.push(l);});
+    });
+    return out;
+  }
+  function reportMarkdown(){
+    var rep=document.getElementById("report");
+    if(rep.classList.contains("empty")) return "";
+    var lines=serializeReport(rep);
+    if(faction){
+      lines.push("");
+      lines.push("**Faction:** "+faction.type+" – "+faction.goal+" ("+faction.method+", "+faction.disp+")");
+      lines.push("_"+STAGES[faction.stage].replace(/^–\s*/,"")+"_");
+    }
+    var md=lines.join("\n").replace(/\n{3,}/g,"\n\n").trim();
+    var foot=txt(document.getElementById("foot"));
+    if(foot) md+="\n\n---\n_"+foot+"_";
+    return md;
+  }
+  function flashCopy(msg){ var b=document.getElementById("copy"); b.textContent=msg; setTimeout(function(){ b.textContent="Copy Markdown"; },1400); }
+  function copyFallback(md){
+    try{
+      var ta=document.createElement("textarea"); ta.value=md;
+      ta.style.position="fixed"; ta.style.top="-1000px"; ta.style.opacity="0";
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      var ok=document.execCommand("copy"); document.body.removeChild(ta);
+      flashCopy(ok?"Copied!":"Copy failed");
+    }catch(e){ flashCopy("Copy failed"); }
+  }
+  function copyMarkdown(){
+    var md=reportMarkdown(); if(!md) return;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(md).then(function(){ flashCopy("Copied!"); }, function(){ copyFallback(md); });
+    } else copyFallback(md);
+  }
+  function enableCopy(){ document.getElementById("copy").disabled=false; }
 
   /* ---------- wiring ---------- */
   var tsel=document.getElementById("terrain");
@@ -470,6 +539,7 @@
   document.getElementById("enter").addEventListener("click", enterHex);
   document.getElementById("turn").addEventListener("click", turnClock);
   document.getElementById("newfaction").addEventListener("click", function(){ faction=newFaction(); renderFaction(); });
+  document.getElementById("copy").addEventListener("click", copyMarkdown);
 })();
 </script>
 </body>
