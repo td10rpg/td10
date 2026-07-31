@@ -60,6 +60,8 @@
   .quiet { color:var(--muted); font-style:italic; }
   .foot { color:var(--gray); font-size:.8rem; margin-top:1.25rem; }
   .sect { font-weight:600; color:var(--sage); text-transform:uppercase; letter-spacing:.05em; font-size:.75rem; margin:.7rem 0 .2rem; }
+  .exportbar { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; margin-top:1rem; }
+  .exportlabel { text-transform:uppercase; letter-spacing:.05em; font-size:.72rem; color:var(--muted); margin-right:.2rem; }
 </style>
 </head>
 <body>
@@ -94,11 +96,17 @@
     <button id="enter" disabled>Enter hex</button>
     <button id="turn" class="ghost">Turn faction clock</button>
     <button id="newfaction" class="ghost">New faction</button>
-    <button id="copy" class="ghost" disabled>Copy Markdown</button>
   </div>
 
   <div id="factionBar" class="faction" style="display:none"></div>
   <div id="report" class="report empty">Set your terrain and intensity, then enter a hex.</div>
+
+  <div class="exportbar">
+    <span class="exportlabel">Export this hex</span>
+    <button id="copyMd" class="ghost" disabled>Copy Markdown</button>
+    <button id="copyTxt" class="ghost" disabled>Copy Plaintext</button>
+  </div>
+
   <p class="foot" id="foot"></p>
 
 <script>
@@ -467,71 +475,96 @@
     enableCopy();
   }
 
-  /* ---------- copy report as Markdown ---------- */
+  /* ---------- export the report ---------- */
   function txt(el){ return el ? el.textContent.replace(/\s+/g," ").trim() : ""; }
-  // Walk the rendered report and re-express it as Markdown, faithful to what the
-  // reader sees. Steps become bullets, encounter/site blocks become sub-sections.
-  function serializeReport(node){
+
+  // Two output formats share one DOM walk. Each formatter maps a report node to
+  // zero or more lines; the walk handles ordering and block spacing so the two
+  // stay in lockstep as the report structure grows.
+  var MD = {
+    h1:   function(t){ return ["", "# "+t, ""]; },
+    step: function(key, rest){ return [key ? ("- **"+key+":**"+(rest?" "+rest:"")) : ("- "+rest)]; },
+    sect: function(t){ return ["**"+t+"**"]; },
+    name: function(t){ return ["**"+t+"**"]; },
+    stat: function(t){ return ["_"+t+"_"]; },
+    tags: function(a){ return ["_"+a.join(" · ")+"_"]; },
+    quiet:function(t){ return ["_"+t+"_"]; },
+    label:function(b, v){ return ["- **"+b+"** "+v]; },
+    line: function(t){ return [t]; },
+    faction: function(f){ return ["**Faction:** "+f.type+" – "+f.goal+" ("+f.method+", "+f.disp+")", "_"+STAGES[f.stage].replace(/^–\s*/,"")+"_"]; },
+    foot: function(t){ return "\n\n---\n_"+t+"_"; }
+  };
+  var TXT = {
+    h1:   function(t){ return [t, t.replace(/[^]/g,"="), ""]; },
+    step: function(key, rest){ return [key ? (key+": "+rest) : rest]; },
+    sect: function(t){ return [t]; },
+    name: function(t){ return [t]; },
+    stat: function(t){ return [t]; },
+    tags: function(a){ return ["Tags: "+a.join(", ")]; },
+    quiet:function(t){ return [t]; },
+    label:function(b, v){ return [b+" "+v]; },
+    line: function(t){ return [t]; },
+    faction: function(f){ return ["Faction: "+f.type+" – "+f.goal+" ("+f.method+", "+f.disp+")", STAGES[f.stage].replace(/^–\s*/,"")]; },
+    foot: function(t){ return "\n\n— "+t; }
+  };
+
+  function walk(node, fmt){
     var out=[];
     [].forEach.call(node.childNodes, function(ch){
       if(ch.nodeType===3){ var t=ch.textContent.replace(/\s+/g," ").trim(); if(t) out.push(t); return; }
       if(ch.nodeType!==1) return;
       var cl=ch.classList;
-      if(ch.tagName==="H2"){ out.push(""); out.push("# "+txt(ch)); out.push(""); return; }
+      if(ch.tagName==="H2"){ out.push.apply(out, fmt.h1(txt(ch))); return; }
       if(cl.contains("step")){
         var k=ch.querySelector(".k"); var key=k?txt(k):"";
         var full=txt(ch); var rest = key && full.indexOf(key)===0 ? full.slice(key.length).trim() : full;
-        out.push(key ? ("- **"+key+":**"+(rest?" "+rest:"")) : ("- "+full));
-        return;
+        out.push.apply(out, fmt.step(key, rest)); return;
       }
-      if(cl.contains("encounter")){ out.push(""); serializeReport(ch).forEach(function(l){out.push(l);}); out.push(""); return; }
-      if(cl.contains("sect")){ out.push("**"+txt(ch)+"**"); return; }
-      if(cl.contains("name")){ out.push("**"+txt(ch)+"**"); return; }
-      if(cl.contains("statline")){ out.push("_"+txt(ch).replace(/^\(/,"").replace(/\)$/,"")+"_"); return; }
-      if(cl.contains("tags")){ var tg=[].map.call(ch.querySelectorAll(".tag"),txt); if(tg.length) out.push("_"+tg.join(" · ")+"_"); return; }
-      if(cl.contains("quiet")){ var q=txt(ch); if(q) out.push("_"+q+"_"); return; }
+      if(cl.contains("encounter")){ out.push(""); walk(ch,fmt).forEach(function(l){out.push(l);}); out.push(""); return; }
+      if(cl.contains("sect")){ out.push.apply(out, fmt.sect(txt(ch))); return; }
+      if(cl.contains("name")){ out.push.apply(out, fmt.name(txt(ch))); return; }
+      if(cl.contains("statline")){ out.push.apply(out, fmt.stat(txt(ch).replace(/^\(/,"").replace(/\)$/,""))); return; }
+      if(cl.contains("tags")){ var tg=[].map.call(ch.querySelectorAll(".tag"),txt); if(tg.length) out.push.apply(out, fmt.tags(tg)); return; }
+      if(cl.contains("quiet")){ var q=txt(ch); if(q) out.push.apply(out, fmt.quiet(q)); return; }
       if(ch.tagName==="DIV"){
-        if(ch.querySelector(".encounter,.sect,.name,.step,.statline,.tags")){ serializeReport(ch).forEach(function(l){out.push(l);}); return; }
+        if(ch.querySelector(".encounter,.sect,.name,.step,.statline,.tags")){ walk(ch,fmt).forEach(function(l){out.push(l);}); return; }
         var b=ch.querySelector("b"); var f=txt(ch);
-        if(b){ var bt=txt(b); var val=f.indexOf(bt)===0?f.slice(bt.length).trim():f; out.push("- **"+bt+"** "+val); }
-        else if(f) out.push(f);
+        if(b){ var bt=txt(b); var val=f.indexOf(bt)===0?f.slice(bt.length).trim():f; out.push.apply(out, fmt.label(bt, val)); }
+        else if(f) out.push.apply(out, fmt.line(f));
         return;
       }
-      serializeReport(ch).forEach(function(l){out.push(l);});
+      walk(ch,fmt).forEach(function(l){out.push(l);});
     });
     return out;
   }
-  function reportMarkdown(){
+
+  function renderReport(fmt){
     var rep=document.getElementById("report");
     if(rep.classList.contains("empty")) return "";
-    var lines=serializeReport(rep);
-    if(faction){
-      lines.push("");
-      lines.push("**Faction:** "+faction.type+" – "+faction.goal+" ("+faction.method+", "+faction.disp+")");
-      lines.push("_"+STAGES[faction.stage].replace(/^–\s*/,"")+"_");
-    }
-    var md=lines.join("\n").replace(/\n{3,}/g,"\n\n").trim();
+    var lines=walk(rep, fmt);
+    if(faction){ lines.push(""); lines.push.apply(lines, fmt.faction(faction)); }
+    var s=lines.join("\n").replace(/\n{3,}/g,"\n\n").trim();
     var foot=txt(document.getElementById("foot"));
-    if(foot) md+="\n\n---\n_"+foot+"_";
-    return md;
+    if(foot) s+=fmt.foot(foot);
+    return s;
   }
-  function flashCopy(msg){ var b=document.getElementById("copy"); b.textContent=msg; setTimeout(function(){ b.textContent="Copy Markdown"; },1400); }
-  function copyFallback(md){
-    try{
-      var ta=document.createElement("textarea"); ta.value=md;
-      ta.style.position="fixed"; ta.style.top="-1000px"; ta.style.opacity="0";
-      document.body.appendChild(ta); ta.focus(); ta.select();
-      var ok=document.execCommand("copy"); document.body.removeChild(ta);
-      flashCopy(ok?"Copied!":"Copy failed");
-    }catch(e){ flashCopy("Copy failed"); }
-  }
-  function copyMarkdown(){
-    var md=reportMarkdown(); if(!md) return;
+
+  function copyText(str, btn, label){
+    if(!str) return;
+    function done(ok){ btn.textContent=ok?"Copied!":"Copy failed"; setTimeout(function(){ btn.textContent=label; },1400); }
+    function fb(){
+      try{
+        var ta=document.createElement("textarea"); ta.value=str;
+        ta.style.position="fixed"; ta.style.top="-1000px"; ta.style.opacity="0";
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        var ok=document.execCommand("copy"); document.body.removeChild(ta); done(ok);
+      }catch(e){ done(false); }
+    }
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(md).then(function(){ flashCopy("Copied!"); }, function(){ copyFallback(md); });
-    } else copyFallback(md);
+      navigator.clipboard.writeText(str).then(function(){ done(true); }, fb);
+    } else fb();
   }
-  function enableCopy(){ document.getElementById("copy").disabled=false; }
+  function enableCopy(){ document.getElementById("copyMd").disabled=false; document.getElementById("copyTxt").disabled=false; }
 
   /* ---------- wiring ---------- */
   var tsel=document.getElementById("terrain");
@@ -539,7 +572,8 @@
   document.getElementById("enter").addEventListener("click", enterHex);
   document.getElementById("turn").addEventListener("click", turnClock);
   document.getElementById("newfaction").addEventListener("click", function(){ faction=newFaction(); renderFaction(); });
-  document.getElementById("copy").addEventListener("click", copyMarkdown);
+  document.getElementById("copyMd").addEventListener("click", function(){ copyText(renderReport(MD), this, "Copy Markdown"); });
+  document.getElementById("copyTxt").addEventListener("click", function(){ copyText(renderReport(TXT), this, "Copy Plaintext"); });
 })();
 </script>
 </body>
