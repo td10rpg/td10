@@ -131,6 +131,7 @@
       else if(/^\d+$/.test(term)){t+=+term;p.push(term);} }); return {total:t,detail:p.join(" + ")}; }
   function rollRange(v){ if(v==null)return null; return Array.isArray(v)? v[0]+Math.floor(Math.random()*(v[1]-v[0]+1)) : v; }
   var cap=function(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s;};
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
 
   /* ---------- WAG tables (each is a 10-element array, index = roll-1) ---------- */
   var W = {
@@ -295,7 +296,7 @@
     "hostile, may attack","hostile, may attack","unfriendly","unfriendly","neutral","friendly"];
 
   function rollMonster(terrain, mode){
-    // mode: beast | herd | monster | swarm
+    // mode: beast | herd | monster  (swarm resolves as a beast at the call site)
     var roles = (mode==="monster") ? ["monster"] : ["beast"];
     var pool = monstersFor(terrain, roles);
     if(!pool.length) pool = monstersFor(terrain, null);       // fallback: ignore role
@@ -374,6 +375,8 @@
       case "desperate": return '<div class="encounter"><div class="sect">Desperate folk</div><div><b>NPC:</b> '+npc()+'</div><div class="quiet">Fleeing, hungry, injured, or lost.</div></div>';
       case "faction":{ var f=faction||newFaction(); return '<div class="encounter"><div class="sect">Faction patrol</div><div>'+f.type+' – '+f.goal+' <span class="quiet">('+f.method+', '+f.disp+')</span></div><div><b>Hidden motive:</b> '+pick(W.hidden).v+'</div></div>'; }
       case "discovery": return '<div class="encounter">'+discoveryBlock()+'</div>';
+      case "site":   return '<div class="encounter">'+siteBlock("Site / Lair")+'</div>';
+      case "dungeon":return '<div class="encounter">'+dungeon()+'</div>';
       case "double": {
         if(depth>1) return resolveEncounter(W.encounter[0],depth+1);
         var a=pick(W.encounter), b=pick(W.encounter);
@@ -405,14 +408,21 @@
     bar.innerHTML='<b>Faction:</b> '+faction.type+' – '+faction.goal+' <span class="quiet">('+faction.method+', '+faction.disp+')</span>'
       +'<span class="clk">'+pips+'</span><br><span class="quiet">'+STAGES[faction.stage]+'</span>';
   }
+  // Roll the clock: on 1-3 it advances one stage (capped at 3). Returns the roll
+  // and whether a stage was actually gained, so callers can label it honestly.
+  function advanceClock(){
+    var r=d10(), adv = r<=3 && faction.stage<3;
+    if(adv) faction.stage++;
+    return { r:r, adv:adv };
+  }
+  function clockText(c){ return c.adv ? "advances → "+STAGES[faction.stage] : "no change"; }
   function turnClock(){
     if(!faction) faction=newFaction();
-    var r=d10();
-    if(r<=3 && faction.stage<3) faction.stage++;
+    var c=advanceClock();
     renderFaction();
     var box=document.getElementById("report");
     var note=document.createElement("div"); note.className="step";
-    note.innerHTML='<span class="k">Faction clock</span> (1d10='+r+'): '+(r<=3?"advances → "+STAGES[faction.stage]:"no change");
+    note.innerHTML='<span class="k">Faction clock</span> (1d10='+c.r+'): '+clockText(c);
     if(box.classList.contains("empty")){ box.classList.remove("empty"); box.innerHTML=""; }
     box.prepend(note);
     enableCopy();
@@ -431,7 +441,7 @@
 
   function enterHex(){
     var terr=currentTerrain();
-    var region=document.getElementById("region").value.trim();
+    var region=esc(document.getElementById("region").value.trim());
     var usePacks=document.getElementById("packs").checked;
     var explore=document.getElementById("explore").checked;
     var force=document.getElementById("force").checked;
@@ -456,8 +466,8 @@
       var entry = pack ? pick(pack) : pick(W.encounter);
       h+=step("Encounter type", entry.v.t, entry.roll);
       h+=resolveEncounter(entry.v, 0);
-      // tension (resolve the "roll twice and combine" result)
-      h+='<div class="step"><span class="k">Tension</span> '+tensionText()+'</div>';
+      // tension (tensionText already resolves the "roll twice and combine" result)
+      h+=step("Tension", tensionText());
     }
     // 5. Discovery (if exploring)
     if(explore){
@@ -466,8 +476,8 @@
       else h+=step("Discovery", "a two-hour search turns up nothing");
     }
     // 6. Faction clock (turns on entering)
-    var r=d10(); if(r<=3 && faction.stage<3) faction.stage++;
-    h+=step("Faction clock", r<=3?"advances → "+STAGES[faction.stage]:"no change", r);
+    var c=advanceClock();
+    h+=step("Faction clock", clockText(c), c.r);
     renderFaction();
 
     var box=document.getElementById("report");
