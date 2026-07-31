@@ -584,6 +584,24 @@
   document.getElementById("newfaction").addEventListener("click", function(){ faction=newFaction(); renderFaction(); });
   document.getElementById("copyMd").addEventListener("click", function(){ copyText(renderReport(MD), this, "Copy Markdown"); });
   document.getElementById("copyTxt").addEventListener("click", function(){ copyText(renderReport(TXT), this, "Copy Plaintext"); });
+
+  /* ---------- auto-fit the embed to content (same-origin iframe only) ---------- */
+  // The page embeds this tool in a fixed-height iframe; sizing the frame to our
+  // own content removes the dead space before a hex is entered and grows it as
+  // reports appear. No feedback loop: body height is content-driven, independent
+  // of the iframe's height. Standalone (no frameElement) is a no-op.
+  function fitFrame(){
+    var fe=window.frameElement; if(!fe) return;
+    // Measure the body box, not documentElement.scrollHeight: the latter is
+    // floored to the iframe's viewport height, so once grown it can never shrink.
+    var h=Math.ceil(document.body.getBoundingClientRect().height);
+    if(Math.abs((parseInt(fe.style.height,10)||0)-h)>1) fe.style.height=h+"px";
+  }
+  if(window.frameElement){
+    if(window.ResizeObserver) new ResizeObserver(fitFrame).observe(document.body);
+    window.addEventListener("load", fitFrame);
+    fitFrame();
+  }
 })();
 </script>
 </body>
