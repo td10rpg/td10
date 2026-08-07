@@ -27,6 +27,14 @@ jobs:
           node-version: 22
       - name: Install Dependencies
         run: npm ci
+      - name: Fetch the ATLAS app (single source: td10rpg/atlas)
+        run: |
+          rm -rf quartz/static/tools/atlas atlas-src
+          git clone --depth 1 https://github.com/td10rpg/atlas.git atlas-src
+          mkdir -p quartz/static/tools/atlas
+          cp atlas-src/*.js atlas-src/*.html atlas-src/*.css quartz/static/tools/atlas/
+          rm -rf atlas-src
+          echo "ATLAS files:" && ls quartz/static/tools/atlas
       - name: Build Quartz
         run: npx quartz build
       - name: Add CNAME for custom domain

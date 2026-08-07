@@ -19,3 +19,6 @@ desktop.ini
 .vscode/
 *.tmp
 *~
+
+# ATLAS app is fetched from td10rpg/atlas at build time (see deploy.yml)
+quartz/static/tools/atlas/
