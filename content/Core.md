@@ -340,6 +340,6 @@ The following table shows the equivalent difficulty of three different rating sy
 This table can be used to convert to Tiny d10 any monsters designed using either HD or CR concepts.
 
 -------
-This completes the **Tiny d10: Core System** SRD. If you would like to contribute to Tiny d10, please review the [[Resources|resources]] provided here—and thanks, in advance, for your time!
+This completes the **Tiny d10: Core System** SRD. If you would like to contribute to Tiny d10, please review the [[About|resources]] provided here—and thanks, in advance, for your time!
 
 Additionally, if you have any feedback, questions, or requests, please contact me on [X.com](https://x.com/td10rpg) or at aaron@td10.org.
