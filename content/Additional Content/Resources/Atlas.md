@@ -1,5 +1,5 @@
 ---
-title: ATLAS
+title: Atlas
 permalink: atlas
 ---
 
