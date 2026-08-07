@@ -1,5 +1,5 @@
 import { QuartzTransformerPlugin } from "../types"
-import { FullSlug, resolveRelative } from "../../util/path"
+import { FullSlug, SimpleSlug, resolveRelative, simplifySlug } from "../../util/path"
 import { visit } from "unist-util-visit"
 import path from "path"
 
@@ -21,6 +21,9 @@ import path from "path"
 export const Permalink: QuartzTransformerPlugin = () => {
   // old path-based slug (what wikilinks resolve to) -> permalink slug
   const aliasToCanonical = new Map<string, FullSlug>()
+  // same mapping, simplified on both sides, for remapping stored link slugs
+  // (file.data.links is SimpleSlug[], populated by CrawlLinks pre-permalink)
+  const aliasToCanonicalSimple = new Map<SimpleSlug, SimpleSlug>()
 
   return {
     name: "Permalink",
@@ -48,6 +51,7 @@ export const Permalink: QuartzTransformerPlugin = () => {
             if (!allSlugs.includes(newSlug)) allSlugs.push(newSlug)
             if (!allSlugs.includes(oldSlug)) allSlugs.push(oldSlug)
             aliasToCanonical.set(oldSlug, newSlug)
+            aliasToCanonicalSimple.set(simplifySlug(oldSlug), simplifySlug(newSlug))
           }
         },
       ]
@@ -58,6 +62,16 @@ export const Permalink: QuartzTransformerPlugin = () => {
           return (tree, file) => {
             const curSlug = file.data.slug as FullSlug
             const curDir = path.posix.dirname(curSlug)
+
+            // Remap this page's outgoing links (resolved by CrawlLinks against
+            // the pre-permalink slugs) onto their canonical permalink, so the
+            // graph and backlinks — which key nodes by canonical slug — match.
+            if (Array.isArray(file.data.links)) {
+              file.data.links = (file.data.links as SimpleSlug[]).map(
+                (l) => aliasToCanonicalSimple.get(l) ?? l,
+              )
+            }
+
             visit(tree, "element", (node: any) => {
               if (node.tagName !== "a" || !node.properties) return
               const href = node.properties.href
