@@ -27,7 +27,7 @@ jobs:
           node-version: 22
       - name: Install Dependencies
         run: npm ci
-      - name: Fetch the ATLAS app (single source: td10rpg/atlas)
+      - name: Fetch the ATLAS app from td10rpg/atlas
         run: |
           rm -rf quartz/static/tools/atlas atlas-src
           git clone --depth 1 https://github.com/td10rpg/atlas.git atlas-src
