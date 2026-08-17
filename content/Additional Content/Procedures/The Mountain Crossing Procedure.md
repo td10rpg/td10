@@ -1,7 +1,9 @@
 ---
-permalink: additional/glacia/mountains
+permalink: additional/procedures/mountains
+aliases:
+  - additional/glacia/mountains
 ---
-_The lives of mountains and people are often at odds, and the average person has no reason to challenge them—but you are not the average person._
+>_The lives of mountains and people are often at odds, and the average person has no reason to challenge them—but you are not the average person._
 ![[mountain.png]]
 
 During their adventures, the party may find it necessary to cross a mountain or mountain range, rather than taking the long way around. Doing so can be accomplished using the **Mountain Crossing Procedure**, which compresses the journey into 3-to-5 “legs,” with each leg representing a major push through a pass, over a ridge, into a valley, or up a cliff, and each of which is roughly equivalent to a full day’s travel.
