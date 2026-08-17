@@ -5,7 +5,7 @@ permalink: additional/procedures/river-travel
 > 
 > – Mark Twain, _Life on the Mississippi_ (1883)
 
-The **River Travel Procedure** hangs directly off the Worldwide Adventure Generator loop and introduces rules that support a dynamic mode of travel, encouraging game masters and players to take to the waterways of their worlds!
+The **River Travel Procedure** hangs directly off the [[Downloads#Zines|Worldwide Adventure Generator]] loop and introduces rules that support a dynamic mode of travel, encouraging game masters and players to take to the waterways of their worlds!
 
 While the party is underway, the river confers a number of advantages, including:
 
