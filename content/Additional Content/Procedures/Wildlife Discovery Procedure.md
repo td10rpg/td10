@@ -1,7 +1,8 @@
 ---
-permalink: additional/optional-rules/wildlife
+permalink: additional/procedures/wildlife
+aliases:
+  - additional/optional-rules/wildlife
 ---
-
 > *There's a land where the mountains are nameless, and the rivers all run God knows where.*
 > 
 > – Robert W. Service, *The Spell of the Yukon*
