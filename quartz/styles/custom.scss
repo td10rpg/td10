@@ -31,20 +31,6 @@ article {
   }
 }
 
-// Same overflow bug at tablet/desktop: $tabletGrid and $desktopGrid also size
-// the CENTER column with an `auto` track, whose minimum is the content's
-// min-content width and is not capped by the viewport. A page with wide tables
-// (e.g. the River Travel Procedure) therefore resolves the column wider than
-// the screen, pushing justified prose past the right edge where the page's
-// `overflow-x: hidden` clips it — mid-paragraph, so lines appear to lose their
-// last words. Zeroing the min-size floor on the center column lets the track
-// shrink to the available width; the wide tables then scroll inside their own
-// `.table-container` (overflow-x: auto), which is the intended behavior.
-.center,
-.center > article {
-  min-width: 0;
-}
-
 // Home page: center the closing C.S. Lewis pull-quote (the paragraph after the
 // divider) instead of justifying it like body prose.
 body[data-slug="index"] article hr + p {

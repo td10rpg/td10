@@ -1,7 +1,5 @@
 ---
 permalink: additional/procedures/rivers
-aliases:
-  - additional/procedures/river-travel
 ---
 > _The face of the water, in time, became a wonderful book._
 > 
@@ -85,11 +83,11 @@ Whether putting in to investigate a sighting or make camp for the evening, landi
 - **Portaging** – depending on the nature of the vessel (e.g. the heavy dugouts common to South American tribes or the light cedar canoes of the North American), portaging speeds will vary. A good rule of thumb is **an hour per mile, per trip.** Count how many trips the [[Encumbrance|load demands]], then spend an hour of daylight for each mile of each one.
 	- **Fatigue Check**: Each PC should conduct a daily fatigue check; if failed, they suffer fatigue the following day (-1 Reflex or Power).
 - **Tinting** – a temperate river is riddled with snags and timber drives; a jungle river is plagued by fever and a closed canopy; an icy river will force an Aspect Save before a swim on any PCs tossed overboard; an underground or enchanted river has Table C carrying more weight than Table B. Doing this on the fly requires that the GM has a solid foundation of River Adventure Stories, the best of which include: 
-	- *Life on the Mississippi* (1883) by Mark Twain
-	- *Through the Brazilian Wilderness* (1914) by Theodore Roosevelt
-	- *Voyages from Montreal* (1801) by Alexander Mackenzie
-	- *The Willows* (1907) by Algernon Blackwood
-	- *A Week on the Concord and Merrimack Rivers* (1849) by Henry David Thoreau
+	- [*Life on the Mississippi*](https://www.gutenberg.org/ebooks/245) (1883) by Mark Twain
+	- [*Through the Brazilian Wilderness*](https://www.gutenberg.org/ebooks/11746) (1914) by Theodore Roosevelt
+	- [*Voyages from Montreal*](https://www.gutenberg.org/ebooks/35658) (1801) by Alexander Mackenzie
+	- [*The Willows*](https://www.gutenberg.org/ebooks/11438) (1907) by Algernon Blackwood
+	- [*A Week on the Concord and Merrimack Rivers*](https://www.gutenberg.org/ebooks/4232) (1849) by Henry David Thoreau
 
 #### To-Do
 - List of rivercraft (weight, speed, durability, etc.)
