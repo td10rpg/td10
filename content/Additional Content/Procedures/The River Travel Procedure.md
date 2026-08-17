@@ -1,5 +1,7 @@
 ---
-permalink: additional/procedures/river-travel
+permalink: additional/procedures/rivers
+aliases:
+  - additional/procedures/river-travel
 ---
 > _The face of the water, in time, became a wonderful book._
 > 
