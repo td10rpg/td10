@@ -34,8 +34,6 @@ A Fevered PC suffers: **-1 to all rolls**; cannot recover Power Points by rest; 
 Fever is not a wound and does not respond to standard healing. Only magical healing can cure it: a cleric's divine magic; a wizard's healing spells; a potion, elixir, or herbal concoction.
 ## Step 4: The Morning Save
 Each morning, a fevered PC makes a **T8 Aspect Save** to break the fever; on a successful save, the bout ends immediately and with no lasting mark.
-
-A natural 10 always breaks the fever, regardless of Toughness. However far a bout has worsened, the door is never fully shut.
 ## Step 5: Worsening
 Count the days a bout of illness has run unbroken; every five days, it worsens.
 
