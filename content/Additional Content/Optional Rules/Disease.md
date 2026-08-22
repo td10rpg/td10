@@ -6,7 +6,7 @@ title: Disease Checks
 > 
 > – Job 30:30
 
-This procedure hangs off the [[Downloads#Zines|Worldwide Adventure Generator]] hex loop and introduces the survival pressure of disease. Combat encounters kill quickly and visibly; fever does not. It instead takes a strong party and makes it a slow one, then a weak one, and it does so sooner than anyone expected and while the party is far upstream of anywhere that could help.
+This procedure hangs off the [[Downloads#Zines|Worldwide Adventure Generator]] hex loop and introduces the survival pressure of disease. Combat encounters kill quickly and visibly; fever does not. Instead, it takes a strong party and makes it a weak one, then a slow one: and it does so sooner than anyone expected, and while far upstream of anywhere that could help.
 
 >**Note:** The tint presented here is Glacia's river country; reskin the Miasma Table for jungle, fen, or delta and it, as always, will go anywhere.
 
@@ -33,7 +33,9 @@ A Fevered PC suffers: **-1 to all rolls**; cannot recover Power Points by rest; 
 
 Fever is not a wound and does not respond to standard healing. Only magical healing can cure it: a cleric's divine magic; a wizard's healing spells; a potion, elixir, or herbal concoction.
 ## Step 4: The Morning Save
-Each morning, a fevered PC makes a **T8 Aspect Save** to break the fever. Success ends the bout with no lasting mark
+Each morning, a fevered PC makes a **T8 Aspect Save** to break the fever; on a successful save, the bout ends immediately and with no lasting mark.
+
+A natural 10 always breaks the fever, regardless of Toughness. However far a bout has worsened, the door is never fully shut.
 ## Step 5: Worsening
 Count the days a bout of illness has run unbroken; every five days, it worsens.
 
