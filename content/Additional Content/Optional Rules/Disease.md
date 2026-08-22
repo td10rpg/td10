@@ -19,30 +19,30 @@ At the close of each day, every character in the hex makes an **Aspect Save** ag
 | None     | Upland, open steppe, high tundra          | Cold, dry, and moving air; the country is trying to kill you some other way. | –              |
 | Low      | River bank, wet woodland, thawing bog     | Standing water in the hollows; the mosquitoes descend at dusk.               | T4             |
 | Moderate | Marsh, fen, flooded forest, portage flats | Water that does not move, and a smell that seeps into everything.            | T6             |
-| High     | Standing swamp, fetid delta, warm slough  | Air thick enough to chew; the locals will not camp here.                    | T8             |
+| High     | Standing swamp, fetid delta, warm slough  | Air thick enough to chew; the locals will not camp here.                     | T8             |
 
 >**Note:** A dry camp on high ground, a smudge fire, or netting each grant a +1 bonus to the Save, for a maximum of +2.
 ## Step 2: Wounds
-Any PC who took damage during a day in Low Miasma conditions or worse makes a second **Aspect Save** at the same Toughness before resting; on a failed save, the wound begins to fester, and the character is **Fevered**.
+Any character who took damage during a day in Low Miasma conditions or worse makes a second **Aspect Save** at the same Toughness before resting; on a failed save, the wound begins to fester, and the character is **Fevered**.
 
 >**Note:** A wound washed and dressed by a character with the *heal* skill grants +2 to this Save.
 
 A festering wound and a fever run on the same track. A character already Fevered does not take a second bout; rather, his existing bout worsens by one stage instead (Step 5).
 ## Step 3: Fevered
-A Fevered PC suffers: **-1 to all rolls**; cannot recover Power Points by rest; and moves at a slower pace.
+A Fevered character suffers: **-1 to all rolls**; cannot recover Power Points by rest; and moves at a slower pace.
 
 Fever is not a wound and does not respond to standard healing. Only magical healing can cure it: a cleric's divine magic; a wizard's healing spells; a potion, elixir, or herbal concoction.
 ## Step 4: The Morning Save
-Each morning, a fevered PC makes a **T8 Aspect Save** to break the fever; on a successful save, the bout ends immediately and with no lasting mark.
+Each morning, a fevered character makes a **T8 Aspect Save** to break the fever; on a successful save, the bout ends immediately and with no lasting mark.
 ## Step 5: Worsening
 Count the days a bout of illness has run unbroken; every five days, it worsens.
 
 | Stage  | Days  | Effect                                                                | Save Toughness |
 | ------ | ----- | --------------------------------------------------------------------- | -------------- |
 | First  | 1-5   | -1 to all rolls; no PP recovery.                                      | T6             |
-| Second | 6-10  | -2 to all rolls; lose 1 HP per day; cannot bear a heavy load.        | T8             |
+| Second | 6-10  | -2 to all rolls; lose 1 HP per day; cannot bear a heavy load.         | T8             |
 | Third  | 11-15 | -3 to all rolls; lose 1 HP per day, restored only by magical healing. | T9             |
-| Fourth | 16+   | -4 to all rolls; lose 2 HP per day; the PC must be carried.           | T10            |
+| Fourth | 16+   | -4 to all rolls; lose 2 HP per day; the character must be carried.    | T10            |
 
 >**Note:** A character reduced to 0 HP by fever is dying, and expires in 1d5 days rather than 1d5 rounds.
 ## Notes
