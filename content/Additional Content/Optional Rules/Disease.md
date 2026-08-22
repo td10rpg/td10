@@ -6,7 +6,7 @@ title: Disease Checks
 > 
 > – Job 30:30
 
-This procedure hangs off the [[Downloads#Zines|Worldwide Adventure Generator]] hex loop and introduces the survival pressure of disease. Combat encounters kill quickly and visibly; fever does not. Instead, it takes a strong party and makes it a weak one, then a slow one: and it does so sooner than anyone expected, and while far upstream of anywhere that could help.
+This procedure hangs off the [[Downloads#Zines|Worldwide Adventure Generator]] hex loop and introduces the survival pressure of disease. Combat encounters kill quickly; fever does not. Instead, it takes a strong party and makes it a weak one, then a slow one: and it does so sooner than anyone expected, and while far upstream of anywhere that could help.
 
 >**Note:** The tint presented here is Glacia's river country; reskin the Miasma Table for jungle, fen, or delta and it, as always, will go anywhere.
 
