@@ -27,7 +27,7 @@ Any character who took damage during a day in Low Miasma conditions or worse mak
 
 >**Note:** A wound washed and dressed by a character with the *heal* skill grants +2 to this Save.
 
-A festering wound and a fever run on the same track. A character already Fevered does not take a second bout; rather, his existing bout worsens by one stage instead (Step 5).
+A festering wound and a fever run on the same track. A character already Fevered does not take a second bout; rather, his existing bout worsens by one stage instead (Step 4).
 ## Step 3: Fevered
 A Fevered character suffers: **-1 to all rolls**; cannot recover Power Points by rest; and moves at a slower pace.
 
