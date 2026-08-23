@@ -11,7 +11,7 @@ This procedure hangs off the [[Downloads#Zines|Worldwide Adventure Generator]] h
 >**Note:** The tint presented here is Glacia's river country; reskin the Miasma Table for jungle, fen, or delta and it, as always, will go anywhere.
 
 Reach for this procedure at the end of any day spent in a hex with a Miasma rating.
-## The Evening Save
+## Conducting the Disease Check
 At the close of each day, every character in the hex who is not already Fevered makes an **Aspect Save** against the hex's Miasma Toughness. On a failed save, the character becomes **Fevered**. A natural 1 always fails, no matter the total result.
 
 | Miasma   | Terrain                                   | Description                                                                  | Save Toughness |
@@ -45,4 +45,4 @@ Each morning, a fevered character makes an **Aspect Save** against the stage's T
 >**Note:** A character reduced to 0 HP by fever is dying, and expires in 1d5 days rather than 1d5 rounds.
 ## Notes
 - There is no distinction between fevers: the marsh ague, the bloody flux, and a festering wound all manifest identically on these tables. That is by design for now—a table of named diseases with distinct symptoms and cures is a to-do item.
-- Similarly, no rule yet covers a survivor's immunity. The veteran who has had the fever and lived should probably carry a standing +1 to the Evening Save.
+- Similarly, no rule yet covers a survivor's immunity. The veteran who has had the fever and lived should probably carry a standing +1 to the Disease Check.
