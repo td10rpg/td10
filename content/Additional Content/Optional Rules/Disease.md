@@ -11,8 +11,8 @@ This procedure hangs off the [[Downloads#Zines|Worldwide Adventure Generator]] h
 >**Note:** The tint presented here is Glacia's river country; reskin the Miasma Table for jungle, fen, or delta and it, as always, will go anywhere.
 
 Reach for this procedure at the end of any day spent in a hex with a Miasma rating.
-## Step 1: The Evening Save
-At the close of each day, every character in the hex makes an **Aspect Save** against the hex's Miasma Toughness. On a failure the character is **Fevered** (Step 3). A natural 1 always fails, no matter the total result.
+## The Evening Save
+At the close of each day, every character in the hex makes an **Aspect Save** against the hex's Miasma Toughness. On a failure the character becomes **Fevered**. A natural 1 always fails, no matter the total result.
 
 | Miasma   | Terrain                                   | Description                                                                  | Save Toughness |
 | -------- | ----------------------------------------- | ---------------------------------------------------------------------------- | -------------- |
@@ -22,17 +22,17 @@ At the close of each day, every character in the hex makes an **Aspect Save** ag
 | High     | Standing swamp, fetid delta, warm slough  | Air thick enough to chew; the locals will not camp here.                     | T8             |
 
 >**Note:** A dry camp on high ground, a smudge fire, or netting each grant a +1 bonus to the Save, for a maximum of +2.
+## Step 1: Fevered
+A Fevered character suffers: **-1 to all rolls**; cannot recover Power Points by rest; and moves at a slower pace.
+
+Fever is not a wound and does not respond to standard healing. Only magical healing can cure it: a cleric's divine magic; a wizard's healing spells; a potion, elixir, or herbal concoction.
 ## Step 2: Wounds
 Any character who took damage during a day in Low Miasma conditions or worse makes a second **Aspect Save** at the same Toughness before resting; on a failed save, the wound begins to fester, and the character is **Fevered**.
 
 >**Note:** A wound washed and dressed by a character with the *heal* skill grants +2 to this Save.
 
-A festering wound and a fever run on the same track. A character already Fevered does not take a second bout; rather, his existing bout worsens by one stage instead (Step 4).
-## Step 3: Fevered
-A Fevered character suffers: **-1 to all rolls**; cannot recover Power Points by rest; and moves at a slower pace.
-
-Fever is not a wound and does not respond to standard healing. Only magical healing can cure it: a cleric's divine magic; a wizard's healing spells; a potion, elixir, or herbal concoction.
-## Step 4: The Morning Save
+A festering wound and a fever run on the same track. A character already Fevered does not take a second bout; rather, his existing bout worsens by one stage instead (Step 3).
+## Step 3: The Morning Save
 Each morning, a fevered character makes an **Aspect Save** against the stage's Toughness to break the fever; on a successful save, the bout ends immediately and with no lasting mark. On a failed save, the fever and effects remain. Additionally, count the days a bout of illness has run unbroken; every five days, it worsens.
 
 | Stage  | Days  | Effect                                                                | Save Toughness |
