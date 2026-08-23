@@ -25,7 +25,7 @@ At the close of each day, every character in the hex who is not already Fevered 
 ## Step 1: Fevered
 A Fevered character suffers: **-1 to all rolls**; cannot recover Power Points by rest; and moves at a slower pace.
 
-Fever is not a wound and does not respond to standard healing. Only magical healing can cure it: a cleric's divine magic; a wizard's healing spells; a potion, elixir, or herbal concoction.
+Fever is not a wound and does not respond to standard healing: only a cleric's Bless can cure it, and only the appropriate medicinals (e.g. a potion, elixir, or herbal concoction) may treat it.
 ## Step 2: Wounds
 Any character who took damage during a day in Low Miasma conditions or worse makes a second **Aspect Save** at the same Toughness before resting; on a failed save, the wound begins to fester, and the character is **Fevered**.
 
@@ -38,8 +38,8 @@ Each morning, a fevered character makes an **Aspect Save** against the stage's T
 | Stage  | Days  | Effect                                                                | Save Toughness |
 | ------ | ----- | --------------------------------------------------------------------- | -------------- |
 | First  | 1-5   | -1 to all rolls; no PP recovery.                                      | T6             |
-| Second | 6-10  | -2 to all rolls; lose 1 HP per day; cannot bear a heavy load.         | T8             |
-| Third  | 11-15 | -3 to all rolls; lose 2 HP per day, restored only by magical healing. | T9             |
+| Second | 6-10  | -2 to all rolls; lose 1 HP per day, restored only by magical healing. | T8             |
+| Third  | 11-15 | -3 to all rolls; lose 2 HP per day; cannot bear a heavy load.         | T9             |
 | Fourth | 16+   | -4 to all rolls; lose 3 HP per day; the character must be carried.    | T10            |
 
 >**Note:** A character reduced to 0 HP by fever is dying, and expires in 1d5 days rather than 1d5 rounds.
