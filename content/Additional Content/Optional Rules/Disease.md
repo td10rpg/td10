@@ -12,7 +12,7 @@ This procedure hangs off the [[Downloads#Zines|Worldwide Adventure Generator]] h
 
 Reach for this procedure at the end of any day spent in a hex with a Miasma rating.
 ## The Evening Save
-At the close of each day, every character in the hex makes an **Aspect Save** against the hex's Miasma Toughness. On a failure the character becomes **Fevered**. A natural 1 always fails, no matter the total result.
+At the close of each day, every character in the hex who is not already Fevered makes an **Aspect Save** against the hex's Miasma Toughness. On a failed save, the character becomes **Fevered**. A natural 1 always fails, no matter the total result.
 
 | Miasma   | Terrain                                   | Description                                                                  | Save Toughness |
 | -------- | ----------------------------------------- | ---------------------------------------------------------------------------- | -------------- |
