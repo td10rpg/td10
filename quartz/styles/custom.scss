@@ -18,6 +18,16 @@ article {
   }
 }
 
+// Quartz's base.scss bumps in-body H1s (`.page article > h1`) to 2rem, which is
+// LARGER than the 1.75rem article title rendered directly above them. A page
+// that uses H1 for its top-level sections therefore shows several competing
+// titles, with the subordinate ones biggest. Size them between the article
+// title (1.75rem) and h2 (1.4rem) so the hierarchy reads in the intended order.
+// Same selector as base's, declared later, so it wins on source order.
+.page article > h1 {
+  font-size: 1.6rem;
+}
+
 // Mobile: Quartz's mobile grid (variables.scss $mobileGrid) sets the single
 // content column to `grid-template-columns: auto`. An `auto` grid track takes
 // its minimum from the content's min-content and is NOT capped by the viewport,
