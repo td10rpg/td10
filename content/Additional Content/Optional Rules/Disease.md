@@ -33,7 +33,7 @@ A Fevered character suffers: **-1 to all rolls**; cannot recover Power Points by
 
 Fever is not a wound and does not respond to standard healing. Only magical healing can cure it: a cleric's divine magic; a wizard's healing spells; a potion, elixir, or herbal concoction.
 ## Step 4: The Morning Save
-Each morning, a fevered character makes an **Aspect Save** to break the fever; on a successful save, the bout ends immediately and with no lasting mark. On a failed save, the fever and effects remain. Additionally, count the days a bout of illness has run unbroken; every five days, it worsens.
+Each morning, a fevered character makes an **Aspect Save** against the stage's toughness to break the fever; on a successful save, the bout ends immediately and with no lasting mark. On a failed save, the fever and effects remain. Additionally, count the days a bout of illness has run unbroken; every five days, it worsens.
 
 | Stage  | Days  | Effect                                                                | Save Toughness |
 | ------ | ----- | --------------------------------------------------------------------- | -------------- |
