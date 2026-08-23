@@ -35,12 +35,12 @@ A festering wound and a fever run on the same track. A character already Fevered
 ## Step 3: The Morning Save
 Each morning, a fevered character makes an **Aspect Save** against the stage's Toughness to break the fever; on a successful save, the bout ends immediately and with no lasting mark. On a failed save, the fever and effects remain. Additionally, count the days a bout of illness has run unbroken; every five days, it worsens.
 
-| Stage  | Days  | Effect                                                                | Save Toughness |
-| ------ | ----- | --------------------------------------------------------------------- | -------------- |
-| First  | 1-5   | -1 to all rolls; no PP recovery.                                      | T6             |
-| Second | 6-10  | -2 to all rolls; lose 1 HP per day, restored only by magical healing. | T8             |
-| Third  | 11-15 | -3 to all rolls; lose 2 HP per day; cannot bear a heavy load.         | T9             |
-| Fourth | 16+   | -4 to all rolls; lose 3 HP per day; the character must be carried.    | T10            |
+| Stage  | Days  | Effect                                                                      | Save Toughness |
+| ------ | ----- | --------------------------------------------------------------------------- | -------------- |
+| First  | 1-5   | -1 to all rolls; no PP recovery.                                            | T6             |
+| Second | 6-10  | -2 to all rolls; lose 1 HP per day; cannot bear a heavy load.               | T8             |
+| Third  | 11-15 | -3 to all rolls; lose 2 HP per day, healing possible only by magical means. | T9             |
+| Fourth | 16+   | -4 to all rolls; lose 3 HP per day; the character must be carried.          | T10            |
 
 >**Note:** A character reduced to 0 HP by fever is dying, and expires in 1d5 days rather than 1d5 rounds.
 ## Notes
