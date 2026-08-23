@@ -22,7 +22,7 @@ This section consists of all media and styles used across the Tiny d10 system, s
 - [The Knight](https://archive.org/details/paullacroix/page/n122/mode/1up) – Albrecht Durer, c. 1515
 ## Fonts
 - [Garamond](https://learn.microsoft.com/en-us/typography/font-list/garamond) (Body: 10pt, Headings: Varied)
-### License
+## License
 Tiny d10 is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Please note that when creating content for Tiny d10, all published work must meet two simple criteria:
 
 1. **Attribution** – indicate that your work is built on the Tiny d10 Core system;
