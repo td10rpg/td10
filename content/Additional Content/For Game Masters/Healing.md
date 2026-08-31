@@ -18,7 +18,7 @@ Magical healing is performed through a wide variety of magic types and correspon
 
 >**Note:** The Divine Medicine spell is an exception to this rule, however, as Divine Magic possesses the power to heal both the body and the soul.
 ## Healing Concoctions
-In a world of grave dangers and mortal wounds, there is mercifully a wide variety of herbs, teas, tinctures, potions, elixirs, and more that can enhance the healing process. Whether purchased or pilfered, foraged or found, it is strongly recommended that parties invest their time and coin in obtaining healing concoctions—examples of which can be found in *Fantasy Core* and *The Little Book of Primal Magics*.
+In a world of grave dangers and mortal wounds, there is mercifully a wide variety of herbs, teas, tinctures, potions, elixirs, and more that can enhance the healing process. Whether purchased or pilfered, foraged or found, it is strongly recommended that parties invest their time and coin in obtaining healing concoctions—examples of which can be found in *[[Downloads|Fantasy Core]]* and *[[Downloads|The Little Book of Primal Magics]]*.
 
 
 

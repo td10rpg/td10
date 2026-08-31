@@ -25,7 +25,7 @@ At the close of each day, every character in the hex who is not already Fevered 
 ## Step 1: Fevered
 A Fevered character suffers: **-1 to all rolls**; cannot recover Power Points by rest; and moves at a slower pace.
 
-Fever is not a wound and does not respond to standard healing: only a cleric's Bless can cure it, and only the appropriate medicinals (e.g. a potion, elixir, or herbal concoction) may treat it.
+Fever is not a wound and does not respond to [[Healing|standard healing]]: only a cleric's Bless can cure it, and only the appropriate medicinals (e.g. a potion, elixir, or herbal concoction) may treat it.
 ## Step 2: Wounds
 Any character who took damage during a day in Low Miasma conditions or worse makes a second **Aspect Save** at the same Toughness before resting; on a failed save, the wound begins to fester, and the character is **Fevered**.
 
