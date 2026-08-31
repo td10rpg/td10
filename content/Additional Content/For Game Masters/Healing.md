@@ -10,7 +10,7 @@ A character may treat as many patients as there are time and resources available
 ## The Healing Process
 There are generally two kinds of healing: standard and magical.
 ### Standard Healing
-Standard healing is conducted as an Intellect Check (+1 bonus with the *heal* skill) against an average Toughness of 5. Standard healing is a knowledge-based art, akin to first aid, and may be performed both on others and one's self.
+Standard healing is conducted as an Intellect Check (+1 bonus with the *heal* skill) against an average Toughness of 6. Standard healing is a knowledge-based art, akin to first aid, and may be performed both on others and one's self.
 
 Standard healing typically requires a successful heal check and usually restores Magic Points and Power Points in addition to Hit Points. This type of healing is restorative in nature and represents such actions as stanching the bleeding, applying a field dressing, washing the wound, etc. Mending the body allows Magic and Power Points to be restored alongside Hit Points, in accordance with Tiny d10's [[Magic|Theory of Magic]].
 ### Magical Healing
