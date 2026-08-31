@@ -12,7 +12,7 @@ There are generally two kinds of healing: standard and magical.
 ### Standard Healing
 Standard healing is conducted as an Intellect Check (+1 bonus with the *heal* skill) against an average Toughness of 5. Standard healing is a knowledge-based art, akin to first aid, and may be performed both on others and one's self.
 
-Standard healing typically requires a successful heal check and usually restores Magic Points and Power Points in addition to Hit Points. This type of healing is restorative in nature and represents such actions as stanching the bleeding, applying a field dressing, washing the wound, etc. Mending the body allows Magic and Power Points to be restored alongside Hit Points, in accordance with Tiny d10's Theory of Magic.
+Standard healing typically requires a successful heal check and usually restores Magic Points and Power Points in addition to Hit Points. This type of healing is restorative in nature and represents such actions as stanching the bleeding, applying a field dressing, washing the wound, etc. Mending the body allows Magic and Power Points to be restored alongside Hit Points, in accordance with Tiny d10's [[The Magic System|Theory of Magic]].
 ### Magical Healing
 Magical healing is performed through a wide variety of magic types and spells of varying potency. Magical healing typically automatically succeeds but rarely restores Magic Points and Power Points. This type of healing works by magical means and only approximates health, rather than truly restoring it, and so grants only Hit Points without the corresponding vitality.
 
