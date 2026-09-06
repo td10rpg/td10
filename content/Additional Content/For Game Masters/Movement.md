@@ -8,6 +8,7 @@ In Tiny d10, there are three different layers at which movement occurs:
 | Combat                     | Feet per 10 seconds | Brisk walk to run      |
 | Exploration (Dungeon)      | Feet per 10 minutes | Stealthy to cautious   |
 | Exploration (Overland)[^1] | Miles per hour      | Careful to quick march |
+
 Every layer is abstracted to a different turn length, but still centered around the same `feet per second/minute` and `miles per hour` math, with 1-10 mph being the "operational" range for most classes.
 
 >It should be noted that the only thing the rules are doing here is *establishing turn length*, which is completely flexible to the table's needs.
@@ -31,5 +32,4 @@ Considering that the maximum sprint speed for a reasonably fit adult is 15-20 mp
 ### Considerations
 - When it comes to dungeon crawling, the turn exists primarily to signal to GMs when they should check for wandering monsters, or advance any plots being executed by the dungeon's denizens.
 
----
 [^1]: In the interest of brevity, overland travel is averaged at 2 mph in Fantasy Core; with the addition of [[Encumbrance]] and the [[Downloads|Worldwide Adventure Generator]], travel guidance has been updated.
