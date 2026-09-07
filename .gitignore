@@ -1,6 +1,7 @@
 # Quartz / Node build artifacts
 node_modules
 public
+quartz/static/tools/atlas
 .quartz-cache
 prof
 tsconfig.tsbuildinfo

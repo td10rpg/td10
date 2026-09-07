@@ -15,6 +15,19 @@ const filesBeforeFolders = (a: any, b: any) => {
   return !a.isFolder && b.isFolder ? -1 : 1
 }
 
+// Nav menu (Explorer) filter: Quartz's default hides the tags folder; this also
+// hides the range pages under atlas/, which are pack-in supplements to the
+// printed hex cards, reached from the URL on the card rather than from site
+// navigation. The Explorer builds its tree from slugs, so this keys off the
+// slug, not the content folder. atlas/index is the ATLAS app itself and stays.
+// Must stay self-contained (no outer references) — Quartz serializes it via
+// .toString() and re-evals it client-side.
+const hideUnlisted = (node: any) => {
+  if (node.slugSegment === "tags") return false
+  const slug = node.data?.slug ?? ""
+  return !(slug.startsWith("atlas/") && slug !== "atlas/index")
+}
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
@@ -52,7 +65,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({ sortFn: filesBeforeFolders }),
+    Component.Explorer({ sortFn: filesBeforeFolders, filterFn: hideUnlisted }),
   ],
   right: [
     Component.Graph(),
@@ -76,7 +89,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({ sortFn: filesBeforeFolders }),
+    Component.Explorer({ sortFn: filesBeforeFolders, filterFn: hideUnlisted }),
   ],
   right: [],
 }
