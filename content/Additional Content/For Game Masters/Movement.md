@@ -11,7 +11,9 @@ In Tiny d10, there are three different layers at which movement occurs:
 
 Every layer is abstracted to a different turn length, but still centered around the same `feet per second/minute` and `miles per hour` math, with 1-10 mph being the "operational" range for most classes.
 
->It should be noted that the only thing the rules are doing here is *establishing turn length*, which is completely flexible to the table's needs.
+>**Note:** Movement rates may have "bands" indicating a range of speed, e.g. "moderate speed is 60-80 ft. per combat round." These bands allow for conditions that may affect speed but aren't necessarily penalties: terrain, maneuvering, or other factors at the GM's discretion.
+
+Additionally, it should be noted that the only thing the rules are doing here is *establishing turn length*, which is completely flexible to the table's needs.
 ## Determining A Creature's Movement Rate
 Simply take the creature's average rate of speed in miles per hour (mph) and multiply it by 15: this produces its movement rate in feet per 10 seconds (for use in combat scenarios); feet per minute (as necessary) can be easily derived.
 
