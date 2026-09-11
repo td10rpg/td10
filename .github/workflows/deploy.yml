@@ -33,7 +33,7 @@ jobs:
           git clone --depth 1 https://github.com/td10rpg/atlas.git atlas-src
           mkdir -p quartz/static/tools/atlas
           cp atlas-src/*.js atlas-src/*.html atlas-src/*.css quartz/static/tools/atlas/
-          cp -r atlas-src/ranges quartz/static/tools/atlas/   # published ranges (?range=<slug>)
+          cp -r atlas-src/ranges quartz/static/tools/atlas/
           rm -rf atlas-src
           echo "ATLAS files:" && ls quartz/static/tools/atlas
       - name: Build Quartz
