@@ -565,7 +565,7 @@ The White March is the rim of the world, austere and watchful. The True Faith ma
 | Expand   | 0        |
 | Recover  | 0        |
 
-**Resources:** rare alchemical reagents (hoarbloom), rare arcane components (glacite), mountain ores, hides, blessed waters
+**Resources:** rare alchemical reagents (hoarbloom), rare arcane components (glacite), precious stones, hides, blessed waters
 **State (baseline):** *Functional* (3-4 assets, 2 Resource Dice)
 **Anchor Settlement:** Mons Albus (a chapter-house mission village of approximately 120, including the resident clergy and the friendly wilderfolk who have settled around it)
 
