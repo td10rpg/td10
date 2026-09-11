@@ -29,6 +29,6 @@ After defeating a challenging or rare monster like a dragon or giant spider, PCs
 | -------------- | ----------------------------------- | ----------------------------- |
 | Dragon         | Structural Material + Extraordinary | Enough scales for elite armor |
 | Giant Spider   | Utility Material + Common           | Several bundles of silk       |
-| Ghoul          | Arcane Component + Rare             | Preserved necrotic gland      |
+| Ghoul          | Alchemical Reagent + Rare           | Preserved necrotic gland      |
 | Stone Golem    | Structural Material + Excellent     | Rune-inscribed stone plates   |
-| Fire Elemental | Alchemical Reagent + Rare           | Bottled ember essence         |
+| Fire Elemental | Arcane Component + Rare             | Bottled ember essence         |
