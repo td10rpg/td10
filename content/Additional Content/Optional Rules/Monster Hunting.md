@@ -10,7 +10,7 @@ After defeating a challenging or rare monster like a dragon or giant spider, PCs
 | --- | ------------------- | ---------------------------------------------- |
 | 1   | Structural Material | Bone, scales, hide, chitin, shell, horn        |
 | 2   | Alchemical Reagent  | Blood, bile, venom, glands, spores             |
-| 3   | Arcane Component    | Eyes, hearts, brains, crystal growths, essence |
+| 3   | Arcane Component    | Eyes, hearts, brains, crystals, essence        |
 | 4   | Utility Material    | Fat, sinew, fur, feathers, ink, oil            |
 | 5   | Trophy or Curiosity | Teeth, claws, skulls, talons, preserved organs |
 ## Harvest Quality Table
