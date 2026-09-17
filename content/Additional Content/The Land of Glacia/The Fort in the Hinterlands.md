@@ -502,7 +502,7 @@ The Pine Expanse is the most *productive* region of the Hinterlands and the one 
 | Expand   | 0        |
 | Recover  | 0        |
 
-**Resources:** lumber, pelts, charcoal, surface iron, occasional aetherium seam
+**Resources:** lumber, pelts, charcoal, surface iron, pine amber
 **State (baseline):** *Functional* (3-4 assets, 2 Resource Dice)
 **Anchor Settlement:** Hollowpine
 
