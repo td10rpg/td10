@@ -19,7 +19,7 @@ If you're new to the system, it's recommended that you begin with Fantasy Core�
 
 ***[[td10cs-generic-fillable.pdf|Character Sheet (Generic – Fillable)]]*** – a simple, fillable character sheet suitable for all styles of play.
 
-***Reference Sheets*** – a four-page, print-at-home reference for each *Fantasy Core* class, gathering its abilities, spells, character creation, combat, and advancement in one place, backed by the fantasy character sheet [^1].
+***Reference Sheets*** – four-page, print-at-home references for each *Fantasy Core* class, gathering its abilities, spells, character creation, combat, and advancement in one place, backed by the fantasy character sheet [^1].
 - *[[td10ref-cleric.pdf|Cleric Class Reference Sheet]]*
 - *[[td10ref-rogue.pdf|Rogue Class Reference Sheet]]*
 - *[[td10ref-warrior.pdf|Warrior Class Reference Sheet]]*
