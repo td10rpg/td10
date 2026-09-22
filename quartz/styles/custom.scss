@@ -47,6 +47,12 @@ body[data-slug="index"] article hr + p {
   text-align: center;
 }
 
+// Downloads: product titles are bold italic, their bulleted child items are
+// italic only. Links are semibold site-wide, so reset them in the bullets.
+body[data-slug="downloads"] article li a {
+  font-weight: normal;
+}
+
 // Table of Contents: on long pages (e.g. The Fort in the Hinterlands) Quartz's
 // flex sizing lets the TOC's scroll area spill past the bottom of the sticky
 // right sidebar, so its last entries sit below the viewport and can't be
