@@ -12,6 +12,8 @@ If you're new to the system, it's recommended that you begin with Fantasy Core�
 ***The Little Book of Primal Magics*** – a 20-page ([[td10pm-zine.pdf|print-at-home]] or [[td10pm.pdf|electronic PDF]]) zine that introduces two new classes, eight new races, additional rules, and more!
 
 ***The Worldwide Adventure Generator*** – a 22-page ([[td10wag-zine.pdf|print-at-home]] or [[td10wag.pdf|electronic PDF]]) zine that presents a collection of genre- and system-agnostic procedures and tables for powering adventures across the [6-Mile Hex Atlas of Earth](https://idraluna-archives.itch.io/6-mile-hex-atlas-of-earth) on the fly! An [[Adventure Generator|interactive Tiny d10 version]] is also available on the site.
+## Ranges
+***[[td10-range-cauldron.pdf|The Cauldron]]*** – a two-page, 19-hex range: a bowl of black mountains ringing a country lost in time, with six points of interest and three factions to contend with! The range can also be explored [[The Cauldron|in ATLAS]].
 ## Miscellaneous
 ***[[files/documents/td10cs.pdf|Character Sheet (Fantasy)]]*** – an elegant character sheet best suited for fantasy-style play [^1].
 
