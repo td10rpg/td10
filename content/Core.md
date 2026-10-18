@@ -126,7 +126,7 @@ Tiny d10 dedicates only a few sentences to currency. In the spirit of Original D
 
 Value equivalency helps game masters to better conceptualize wealth and so make on-the-fly decisions about equipment costs that are more or less agreeable to everyone at the table, as prices are (more or less) derived from their modern equivalent. This approach also makes effortless "retexturing" currency to support other genres and settings.
 ##### Generating Starting Wealth
-There is one primary method for generating starting wealth: Roll 1d10 for **gold** (gp), **silver** (sp), and **copper** pieces (cp), multiplying each result by 10.
+There is one primary method for generating starting wealth: Roll two d10s and multiply them together for **gold** (gp); then roll 1d10 each for **silver** (sp) and **copper** pieces (cp), multiplying each result by 10.
 ## Game Rules
 ### Checks
 When attempting to do something that could result in failure, a check should be made. To make a check, roll 1d10 and add the relevant attribute score (aspect, intellect, power, or reflex) and any relevant skill bonuses. *There are two types of checks:*
