@@ -100,7 +100,7 @@ _Splash-effect_ – modifies an attack spell, causing it to inflict equal damage
 There are two primary methods for assigning attribute scores:
 
  1. **Direct point assignment:** Divide 3 points between the following attributes.
- 2. **Rolling for point assignment:** Roll 1d10 for each attribute: On a roll of 1-6, the score is 0; on a roll of 7-9, the score is 1; on a roll of 10, the score is 2.
+ 2. **Rolling for point assignment:** Roll 1d10 for each attribute, in order from aspect to reflex: on a roll of 1-4, the score is 0; on a roll of 5-7, the score is 1; on a roll of 8-9, the score is 2; on a roll of 10, the score is 3.
 #### Hit Points & Power Points
 **Hit Points (HP)** represent the amount of damage a creature can suffer before dying. 
 
@@ -108,7 +108,7 @@ There are two primary methods for assigning attribute scores:
 ##### Assigning Hit Points & Power Points
 There is one primary method for assigning hits points and Power Points: divide 10 points between the two.
 
->An alternative method—likely to produce outcomes of bewildering variety and unexpected enjoyment—is to roll 1d10 for each and keep the results, whether they be 1 or 10. 
+>An alternative method—likely to produce outcomes of bewildering variety and unexpected enjoyment—is to roll 2d5 for each and keep the results, whatever they may be. 
 #### Magic Points
 **Magic points (MP)** represent an entity’s magical stamina, and are expended when casting spells.
 ##### Generating Magic Points
