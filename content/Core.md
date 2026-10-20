@@ -35,6 +35,8 @@ Races confer certain characteristics in a formulaic way. New races can be easily
 >These archetypes are built around four key heroic profiles and are by no means exhaustive. There are many additional archetypes found throughout literature and history, and designers are encouraged to research and implement them to make Tiny d10 their own.
 #### Classes
 ##### Fantasy Classes
+Additionally, each character chooses any two skills—to suit their class, to shore up a weakness, or simply for flavor.
+
 **Clerics** are mighty battle priests, possessing divine magic and powerful healing abilities. They have a Toughness of 5 (T5); use middleweight weapons & below (no bladed weapons); use middleweight armor & below; and gain +1 magic point and +2 Power Points. Clerics begin with the following class ability:
 
 _Spell-casting (divine)_ – start with 2 spells and cast divine spells for their cost in magic points; may not use any other type of spells.
@@ -141,7 +143,7 @@ To determine a check’s Toughness (T), consider the following:
 | ---------- | ---------------------------------------------------------------------------------------------------- |
 | **T2-5**   | *Simple Toughness* - pulling an ally up from a ledge, or climbing a wall with large handholds.       |
 | **T6-9**   | *Moderate Toughness* - surprising unaware opponents, or fighting a strong current.                   |
-| **T10-11** | *Difficult Toughness* - surprising watchful opponents, or picking an expertly-crafted lock.          |
+| **T10-11** | *Difficult Toughness* - detecting a cleverly hidden trap, or picking an expertly crafted lock.          |
 | **T12-13** | *Extreme Toughness* - leaping across a massive chasm, or scaling a sheer and smooth stone precipice. |
 | **T14-15** | *Impossible Toughness* - controlling a ship during a gale, or mounting and flying a wild dragon.     |
 ### Saves
@@ -151,7 +153,7 @@ When two entities attempt the same thing at the same time, a challenge should be
 ### Combat
 Combat begins according to reflex scores: highest first, lowest last. Ties should be settled with a roll. Attack rolls work like action or perception checks. Roll 1d10 and add the relevant attribute score: if the result is equal to or higher than the target’s Toughness, the attack is successful.
 #### Simplified Combat Rules
-1) One combat round consists of all combatants' turns; each turn represents roughly 5 seconds.
+1) One combat round consists of all combatants' turns; each turn represents roughly 10 seconds.
 2) Only one attack/ability/spell per turn (unless otherwise noted).
 3) Only one movement sequence per turn (if standing up after being knocked prone, movement range is reduced by half).
 4) Less significant actions may be done freely.
@@ -162,11 +164,11 @@ During combat, all classes are moderate in speed (unless otherwise specified) an
 
 | Slow      | Moderate  | Fast     |
 | --------- | --------- | -------- |
-| 20-40 ft. | 40-60 ft. | 60-80ft. |
+| 40-60 ft. | 60-80 ft. | 80-100 ft. |
 #### Combat Advantage
-When in an advantageous position (e.g. catching opponents unawares), a character may receive a bonus (e.g. +1 attack). However, if their attempt does not succeed, a negative condition should be imposed (e.g. the character is knocked down, suffering -1 Toughness while prone).
+When in an advantageous position (e.g. catching opponents unawares), a character may receive a bonus (e.g. +1 attack). However, if their attempt fails, a negative condition should be imposed (e.g. the character is knocked prone).
 #### Non-lethal Combat
-During combat, non-lethal damage may be inflicted by making an unarmed attack, or by using the blunt edge or flat side of bladed weapons, or similar nonlethal means. Successful non-lethal attacks deal 1 damage; when an enemy has been reduced to 0 Hit Points by a non-lethal blow, they are knocked unconscious, instead of killed.
+During combat, non-lethal damage may be inflicted by making an unarmed attack, or by using the blunt edge or flat side of bladed weapons, or similar nonlethal means. Successful non-lethal attacks deal 1 damage; when an enemy has been reduced to 0 Hit Points by a non-lethal blow, they are knocked unconscious for 1d5 minutes, instead of killed.
 
 A non-lethal or unarmed attack requires a successful attack roll against to strike the creature, in addition to a successful power challenge to damage it. If both rolls succeed, non-lethal damage is inflicted – otherwise, the target is simply struck, not injured.
 #### Monsters in Combat
@@ -177,17 +179,17 @@ A monster’s Toughness in based on a number of components: Hit Points, damage b
 
 | Toughness  | Difficulty Level                                                                                             |
 | ---------- | ------------------------------------------------------------------------------------------------------------ |
-| **T2-5**   | *Simple Toughness* - 1-5 HP; these monsters sometimes have bonuses, abilities, or skills, and rarely spells. |
-| **T6-9**   | *Moderate Toughness* - 6-12 HP; these monsters sometimes have bonuses, abilities and/or spells, and skills.  |
-| **T10-11** | *Difficult Toughness* - 10-20 HP; these monsters often have bonuses, abilities and/or spells, and skills.    |
-| **T12-13** | *Extreme Toughness* - 15-30 HP; these monsters often have bonuses, abilities and/or spells, and skills.      |
-| **T14-15** | *Impossible Toughness* - 20-30+ HP; these monsters always have bonuses, abilities and/or spells, and skills. |
+| **T2-5**   | *Simple Toughness* - 1-4 HP; these monsters sometimes have bonuses or skills, and rarely abilities or spells. |
+| **T6-9**   | *Moderate Toughness* - 5-10 HP; these monsters sometimes have bonuses, skills, abilities, and/or spells.  |
+| **T10-11** | *Difficult Toughness* - 10-20 HP; these monsters often have bonuses, skills, abilities, and/or spells.    |
+| **T12-13** | *Extreme Toughness* - 15-30 HP; these monsters often have bonuses, skills, abilities, and/or spells.      |
+| **T14-15** | *Impossible Toughness* - 20-30+ HP; these monsters always have bonuses, skills, abilities, and/or spells. |
 ### Healing
-At 0 Hit Points, characters are considered immobilized and dying, and will expire after 5 combat rounds.
+At 0 Hit Points, characters are considered immobilized and dying, and will expire after 1d5 combat rounds.
 
-Standard healing restores 1-2 Hit Points, magic points, and Power Points per successful T6 intellect check (if the character possesses the *heal* skill, healing is an automatic success). Magical healing generally does not restore magic or Power Points (unless otherwise specified).
+Standard healing restores 1-2 Hit Points, magic points, and Power Points per successful T5 intellect check (if the character possesses the *heal* skill, healing is an automatic success). Magical healing generally does not restore magic or Power Points (unless otherwise specified).
 
-During combat, an entire turn must be forfeit to heal (or to make a heal check). Out of combat, characters may make 1 heal check per every 4 in-game hours, or spend an entire day resting to restore 1d5 + 2 Hit Points, magic points, and Power Points.
+During combat, an entire turn must be forfeit to heal (or to make a heal check). Out of combat, characters may make 1 heal check per every 4 in-game hours, or spend an entire day resting to restore 1d5 + your level Hit Points, magic points, and Power Points.
 ### Class Abilities
 Class abilities are special class-specific feats and tactics that enhance a character’s proficiencies, and sometimes require the use of Power Points to invoke. Unless otherwise specified, *class abilities that target opponents require an attack roll versus Toughness* (as relevant).
 ### Skills
@@ -197,9 +199,9 @@ Skills are specific competencies and can only be used in specific scenarios. For
 | ---------------------------- | ----------------------------------------- | ----------- | --------------- |
 | Charm                        | Craft                                     | Athletics   | Acrobatics      |
 | Detect (*magic* or *motive*) | Detect trap                               | Brute force | Disarm trap     |
-| Heal                         | Know (*history*, *nature*, or *religion*) | Climb       | Hide            |
+| Heal                         | Know (*history* or *nature*) | Climb       | Hide            |
 | Intimidate                   | Listen                                    | Hold        | Pick lock       |
-| Persuade                     | Magic user                                | Lift        | Sleight-of-hand |
+| Persuade                     | Magic use                                 | Lift        | Sleight-of-hand |
 | Survival                     | Spot                                      | Resist      | Sneak           |
 ### Magic
 Magic is conjured using magic points (MP). Typically, only characters that possess the spell-casting class ability can use magic. Unless otherwise specified, spells are an automatic success.
@@ -233,13 +235,13 @@ Some spells allow the target to make a save before having an effect. Each spell-
 ### Leveling Up
 Characters begin as level 1 explorers, and gain levels by earning experience points (XP), which is accomplished by: slaying or defeating opponents (usually earning between 1-5 XP per opponent), obtaining treasures and riches (usually earning 1 XP per 10gp), or succeeding checks in spectacular and heroic ways (usually earning 1 XP). Experience points are lost upon advancement and must be gained anew.
 #### Level 2: Adventurer
-*Experience has honed a capable adventurer* (**50 XP**). You gain: a class ability; one skill; +2 Hit Points; +1 to any attribute; +2 Power Points or +2 magic points; and +1 Toughness ==or== 2 spells (if applicable).
+*Experience has honed a capable adventurer* (**50 XP**). You gain: a class ability; two skills; +2 Hit Points; +1 to any attribute ==or== +1 Toughness; +2 Power Points or +2 magic points; and 1 spell (if applicable).
 #### Level 3: Hero
-*Victory has shaped a prosperous hero* (**100 XP**). You gain: a class ability; one skill; +2 Hit Points ==or== +1 Toughness; +1 to any attribute; +1 Power Point or +2 magic points; and 1 spell (if applicable).
+*Victory has shaped a prosperous hero* (**100 XP**). You gain: a class ability; +1 to any attribute ==or== +1 Toughness; one skill; +2 Hit Points ==or== +1 Power Point ==or== +2 magic points; and 2 spells (if applicable).
 #### Level 4: Champion
-*Immeasurable odds have forged a true champion* (**200 XP**). You gain: a class ability; one skill; +2 Hit Points; +1 Toughness; +1 to any attribute ==or== 1 spell (if applicable). Additionally, gain the *champion’s resolve* ability (re-roll once any time the result is 1). 
+*Immeasurable odds have forged a true champion* (**200 XP**). You gain: a class ability; one skill; +2 Hit Points ==or== +1 Toughness; +1 to any attribute ==or== 1 spell (if applicable). Additionally, gain the *champion’s resolve* ability (re-roll once any time the result is 1). 
 #### Level 5: Legend
-*Dangers inconceivable have affirmed an everlasting legend* (**400 XP**). +2 to any attribute. Additionally, gain the *legendary presence* ability (the first time an opponent attacks you in combat, conduct an aspect challenge; if they fail, they suffer -2 to their attack).
+*Dangers inconceivable have affirmed an everlasting legend* (**400 XP**). +1 to any attribute. Additionally, gain the *legendary presence* ability (the first time an opponent attacks you in combat, conduct an aspect challenge; if they fail, they suffer -2 to their attack).
 ### Equipment
 Equipment can augment a character’s abilities, enabling them to inflict additional damage, increasing their Hit Points and/or Toughness, or granting other unique bonuses. There are four classes of equipment: featherweight (FW), lightweight (LW), middleweight (MW), and heavyweight (HW).
 
