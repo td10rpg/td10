@@ -20,3 +20,6 @@ desktop.ini
 *.tmp
 *~
 
+
+# ATLAS is fetched from td10rpg/atlas at build time
+quartz/static/tools/atlas/
