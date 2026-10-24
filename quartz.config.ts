@@ -73,7 +73,8 @@ const config: QuartzConfig = {
       // hrefs to the permalink-canonical URL (its slug override runs in phase 1).
       Plugin.Permalink(),
       Plugin.Description(),
-      Plugin.Latex({ renderEngine: "katex" }),
+      // Latex (KaTeX) disabled: no content uses math, and remark-math treated
+      // currency like "$1 | 1sp = $10" as an inline formula.
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [
