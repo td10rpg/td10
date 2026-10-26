@@ -155,7 +155,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T6; 6 HP, 4-6 MP; +1Aspect",
+      "statline": "T6; 6 HP, 4-6 MP; +1 Aspect",
       "alignment": "neutral",
       "environments": [
         "jungle",
@@ -209,7 +209,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T6; 6-10HP; +1 Power",
+      "statline": "T6; 6-10 HP; +1 Power",
       "alignment": "neutral",
       "environments": [
         "plains",
@@ -269,7 +269,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T6; 10 HP, 5 MP, 2 PP; +2 Aspect",
+      "statline": "T6*; 10 HP, 5 MP, 2 PP; +2 Aspect",
       "alignment": "evil",
       "environments": [
         "most"
@@ -322,7 +322,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T10; 14-18HP, 3 MP, 6 PP; +1 Aspect",
+      "statline": "T10; 14-18 HP, 3 MP, 6 PP; +1 Aspect",
       "alignment": "evil",
       "environments": [
         "aquatic",
@@ -355,7 +355,7 @@
       "numberAppearing": "1"
     },
     {
-      "name": "Black-iceSerpent(Hatchling)",
+      "name": "Black-ice Serpent (Hatchling)",
       "displayName": "Black-ice Serpent (Hatchling)",
       "role": "monster",
       "toughness": 6,
@@ -572,7 +572,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T8; 12 HP, 3 PP; -2 Intellect,+1 Power",
+      "statline": "T8; 12 HP, 3 PP; -2 Intellect, +1 Power",
       "alignment": "neutral",
       "environments": [
         "mountains"
@@ -834,7 +834,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T7; 10HP, 4-6 PP; +1 Reflex",
+      "statline": "T7; 10 HP, 4-6 PP; +1 Reflex",
       "alignment": "neutral",
       "environments": [
         "jungle",
@@ -964,7 +964,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T6; 10HP; +2 Power",
+      "statline": "T6; 10 HP; +2 Power",
       "alignment": "neutral",
       "environments": [
         "underground"
@@ -985,7 +985,7 @@
       "attributes": null,
       "damage": 0,
       "casterLevel": null,
-      "statline": "T5; 1d5HP, 2 PP",
+      "statline": "T5; 1d5 HP, 2 PP",
       "alignment": "evil",
       "environments": [
         "most"
@@ -1111,7 +1111,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T3-6; 2-6 HP; +1 Power orReflex",
+      "statline": "T3-6; 2-6 HP; +1 Power or Reflex",
       "alignment": "evil",
       "environments": [
         "most"
@@ -1253,7 +1253,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T7; 10 HP, 2-4 PP; -1 Intellect,+1 Power",
+      "statline": "T7; 10 HP, 2-4 PP; -1 Intellect, +1 Power",
       "alignment": "good",
       "environments": [
         "mountains"
@@ -1304,7 +1304,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T9;10-12HP, 3PP; -2 Intellect, +2 Power",
+      "statline": "T9; 10-12 HP, 3 PP; -2 Intellect, +2 Power",
       "alignment": "evil",
       "environments": [
         "mountains"
@@ -1554,7 +1554,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T4; 1-3 HP, 2 PP; +3Reflex; skills: hide",
+      "statline": "T4; 1-3 HP, 2 PP; +3 Reflex; skills: hide",
       "alignment": "neutral/evil",
       "environments": [
         "underground"
@@ -1608,7 +1608,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T12; 16-20HP; +2 Power",
+      "statline": "T12; 16-20 HP; +2 Power",
       "alignment": "neutral",
       "environments": [
         "semi-aquatic"
@@ -1658,7 +1658,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T5; 4-6 HP, 4 PP; +1 Aspector+1 Reflex",
+      "statline": "T5; 4-6 HP, 4 PP; +1 Aspect or +1 Reflex",
       "alignment": "good",
       "environments": [
         "all natural environs"
@@ -1687,7 +1687,7 @@
       },
       "damage": 1,
       "casterLevel": null,
-      "statline": "T10; 12-14HP, 2-4 PP; +1 Power; +1 damage",
+      "statline": "T10; 12-14 HP, 2-4 PP; +1 Power; +1 damage",
       "alignment": "evil",
       "environments": [
         "forest",
@@ -1805,7 +1805,7 @@
       "numberAppearing": "1d10 + 10"
     },
     {
-      "name": "RockGolem",
+      "name": "Rock Golem",
       "displayName": "Rock Golem",
       "role": "monster",
       "toughness": 7,
@@ -1954,7 +1954,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T8; 9-10HP, 4 PP; +1 Aspect, +1 Intellect, +1 Reflex",
+      "statline": "T8; 9-10 HP, 4 PP; +1 Aspect, +1 Intellect, +1 Reflex",
       "alignment": "neutral,evil",
       "environments": [
         "forest",
@@ -2059,7 +2059,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T8; 10-12HP, 6 MP; +2 Intellect",
+      "statline": "T8; 10-12 HP, 6 MP; +2 Intellect",
       "alignment": "neutral",
       "environments": [
         "most"
@@ -2236,7 +2236,7 @@
         1,
         2
       ],
-      "statline": "T7; 7-10 HP, 3-6 MP, 2-4 PP; +1 Intellector Power; level 1-2 caster",
+      "statline": "T7; 7-10 HP, 3-6 MP, 2-4 PP; +1 Intellect or Power; level 1-2 caster",
       "alignment": "neutral/evil",
       "environments": [
         "most"
@@ -2325,7 +2325,7 @@
       },
       "damage": 2,
       "casterLevel": null,
-      "statline": "T10; 13HP, 4PP; +2 Power; +2 damage",
+      "statline": "T10; 13 HP, 4 PP; +2 Power; +2 damage",
       "alignment": "evil",
       "environments": [
         "forest"
@@ -2352,7 +2352,7 @@
       },
       "damage": 1,
       "casterLevel": null,
-      "statline": "T7; 8-10 HP; 3 PP; +1 Power, +1 Reflex; +1 damage",
+      "statline": "T7; 8-10 HP, 3 PP; +1 Power, +1 Reflex; +1 damage",
       "alignment": "neutral/evil",
       "environments": [
         "city"
@@ -2406,7 +2406,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T6; 10HP, 2PP; +1Power",
+      "statline": "T6; 10 HP, 2 PP; +1 Power",
       "alignment": "evil",
       "environments": [
         "most"
@@ -2494,7 +2494,7 @@
         1,
         2
       ],
-      "statline": "T5-6; 5-9 HP; 4 MP, 4 PP; +1 Aspect; level 1-2 caster",
+      "statline": "T5-6; 5-9 HP, 4 MP, 4 PP; +1 Aspect; level 1-2 caster",
       "alignment": "varies",
       "environments": [
         "most"
@@ -2546,7 +2546,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T5;5 HP,10MP; +3 Aspect",
+      "statline": "T5*; 5 HP, 10 MP; +3 Aspect",
       "alignment": "evil",
       "environments": [
         "arctic",
