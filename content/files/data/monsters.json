@@ -69,10 +69,12 @@
       ],
       "mp": null,
       "pp": null,
-      "attributes": null,
+      "attributes": {
+        "reflex": 1
+      },
       "damage": 1,
       "casterLevel": null,
-      "statline": "T6; 5-8 HP; +1 damage",
+      "statline": "T6; 5-8 HP; +1 Reflex; +1 damage",
       "alignment": "neutral",
       "environments": [
         "forest",
@@ -94,10 +96,12 @@
       ],
       "mp": null,
       "pp": null,
-      "attributes": null,
+      "attributes": {
+        "reflex": 1
+      },
       "damage": 2,
       "casterLevel": null,
-      "statline": "T5; 3-4 HP; 1-in-2 chance to inflict +2 damage",
+      "statline": "T5; 3-4 HP; +1 Reflex; 1-in-2 chance to inflict +2 damage",
       "alignment": "neutral",
       "environments": [
         "forest",
@@ -338,11 +342,12 @@
       "mp": null,
       "pp": 3,
       "attributes": {
-        "aspect": 1
+        "aspect": 1,
+        "reflex": 1
       },
       "damage": 2,
       "casterLevel": null,
-      "statline": "T10; 12 HP, 3 PP; +1 Aspect; +2 damage",
+      "statline": "T10; 12 HP, 3 PP; +1 Aspect, +1 Reflex; +2 damage",
       "alignment": "evil",
       "environments": [
         "semi-aquatic"
@@ -360,10 +365,12 @@
       "hp": 6,
       "mp": null,
       "pp": 6,
-      "attributes": null,
+      "attributes": {
+        "reflex": 1
+      },
       "damage": 1,
       "casterLevel": null,
-      "statline": "T6; 6 HP, 6 PP; +1 damage",
+      "statline": "T6; 6 HP, 6 PP; +1 Reflex; +1 damage",
       "alignment": "evil",
       "environments": [
         "semi-aquatic"
@@ -536,10 +543,12 @@
       ],
       "mp": null,
       "pp": null,
-      "attributes": null,
+      "attributes": {
+        "reflex": 2
+      },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T5; 2-4 HP",
+      "statline": "T5; 2-4 HP; +2 Reflex",
       "alignment": "neutral",
       "environments": [
         "underground"
@@ -841,7 +850,10 @@
       "bands": [
         "difficult"
       ],
-      "hp": 5,
+      "hp": [
+        6,
+        15
+      ],
       "mp": 6,
       "pp": null,
       "attributes": {
@@ -849,7 +861,7 @@
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T10; 1d10 + 1d5HP, 6 MP; +1 Reflex",
+      "statline": "T10; 1d10 + 5 HP, 6 MP; +1 Reflex",
       "alignment": "neutral",
       "environments": [
         "most"
@@ -1127,11 +1139,12 @@
         12
       ],
       "attributes": {
-        "power": 3
+        "power": 3,
+        "reflex": 1
       },
       "damage": 0,
       "casterLevel": 3,
-      "statline": "T12; 18-22 HP, 3-5 MP, 9-12 PP; +3 Power; level 3 caster",
+      "statline": "T12; 18-22 HP, 3-5 MP, 9-12 PP; +3 Power, +1 Reflex; level 3 caster",
       "alignment": "neutral/evil",
       "environments": [
         "mountains"
@@ -1385,10 +1398,12 @@
       "hp": 10,
       "mp": null,
       "pp": 3,
-      "attributes": null,
+      "attributes": {
+        "power": 1
+      },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T8; 10 HP, 3 PP; +1 Toughness against bladed weapons",
+      "statline": "T8; 10 HP, 3 PP; +1 Power; +1 Toughness against bladed weapons",
       "alignment": "neutral",
       "environments": [
         "city"
@@ -1750,11 +1765,12 @@
       "mp": 6,
       "pp": 3,
       "attributes": {
-        "intellect": 1
+        "intellect": 1,
+        "reflex": 2
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T10; 14 HP, 6 MP, 3 PP; +1 Intellect",
+      "statline": "T10; 14 HP, 6 MP, 3 PP; +1 Intellect, +2 Reflex",
       "alignment": "good",
       "environments": [
         "plains",
@@ -1802,10 +1818,12 @@
       ],
       "mp": null,
       "pp": null,
-      "attributes": null,
+      "attributes": {
+        "power": 1
+      },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T7; 8-10 HP; +2 Toughness against bladed weapons",
+      "statline": "T7; 8-10 HP; +1 Power; +2 Toughness against bladed weapons",
       "alignment": "neutral",
       "environments": [
         "mountains"
@@ -1903,10 +1921,12 @@
       "hp": 15,
       "mp": 3,
       "pp": null,
-      "attributes": null,
+      "attributes": {
+        "power": 2
+      },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T12; 15 HP, 3 MP",
+      "statline": "T12; 15 HP, 3 MP; +2 Power",
       "alignment": "evil",
       "environments": [
         "most"
@@ -1957,11 +1977,12 @@
       ],
       "pp": 4,
       "attributes": {
-        "intellect": 3
+        "intellect": 3,
+        "reflex": 1
       },
       "damage": 0,
       "casterLevel": 4,
-      "statline": "T10; 15 HP, 9-12MP, 4 PP; +3 Intellect; level 4 caster",
+      "statline": "T10; 15 HP, 9-12 MP, 4 PP; +3 Intellect, +1 Reflex; level 4 caster",
       "alignment": "neutral",
       "environments": [
         "mountains"
@@ -2007,10 +2028,12 @@
       "hp": 20,
       "mp": null,
       "pp": 4,
-      "attributes": null,
+      "attributes": {
+        "power": 2
+      },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T11; 20 HP,4 PP",
+      "statline": "T11; 20 HP, 4 PP; +2 Power",
       "alignment": "neutral,evil",
       "environments": [
         "underground"
@@ -2149,11 +2172,12 @@
         10
       ],
       "attributes": {
-        "power": 2
+        "power": 2,
+        "reflex": 1
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T10; 15-20HP, 5-10PP; +2 Power",
+      "statline": "T10; 15-20 HP, 5-10 PP; +2 Power, +1 Reflex",
       "alignment": "neutral",
       "environments": [
         "jungle"
@@ -2244,14 +2268,15 @@
         6
       ],
       "attributes": {
-        "intellect": 2
+        "intellect": 2,
+        "reflex": 2
       },
       "damage": 0,
       "casterLevel": [
         2,
         3
       ],
-      "statline": "T9-10; 10-14 HP, 6-8 MP, 4-6 PP; +2 Intellector Power; level 2-3 caster",
+      "statline": "T9-10; 10-14 HP, 6-8 MP, 4-6 PP; +2 Intellect or Power, +2 Reflex; level 2-3 caster",
       "alignment": "neutral/evil",
       "environments": [
         "most"
@@ -2353,11 +2378,12 @@
       "mp": null,
       "pp": 5,
       "attributes": {
-        "power": 2
+        "power": 2,
+        "reflex": 2
       },
       "damage": 1,
       "casterLevel": null,
-      "statline": "T8-10; 9-11 HP, 5PP, +2 Power; +1 damage",
+      "statline": "T8-10; 9-11 HP, 5 PP; +2 Power, +2 Reflex; +1 damage",
       "alignment": "neutral,evil",
       "environments": [
         "forest"
@@ -2655,11 +2681,12 @@
       "pp": 2,
       "attributes": {
         "intellect": 3,
-        "power": 2
+        "power": 2,
+        "reflex": 1
       },
       "damage": 0,
       "casterLevel": null,
-      "statline": "T12; 15-20 HP, 3 MP, 2 PP; +3 Intellect, +2 Power",
+      "statline": "T12; 15-20 HP, 3 MP, 2 PP; +3 Intellect, +2 Power, +1 Reflex",
       "alignment": "good",
       "environments": [
         "mountains"
