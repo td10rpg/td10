@@ -660,7 +660,10 @@
       "bands": [
         "moderate"
       ],
-      "hp": 5,
+      "hp": [
+        6,
+        10
+      ],
       "mp": null,
       "pp": 4,
       "attributes": {
@@ -979,7 +982,10 @@
       "bands": [
         "simple"
       ],
-      "hp": 5,
+      "hp": [
+        1,
+        5
+      ],
       "mp": null,
       "pp": 2,
       "attributes": null,
@@ -1189,7 +1195,10 @@
       "bands": [
         "moderate"
       ],
-      "hp": 5,
+      "hp": [
+        11,
+        15
+      ],
       "mp": [
         6,
         9

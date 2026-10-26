@@ -24,6 +24,9 @@ const VAULT =
 const BOOK2 = join(VAULT, "Fantasy Core - Book 2 - Fantasy Monsters.md");
 const SEED = join(VAULT, "Working", "Fantasy Core - Encounter Data (seed).md");
 const OUT = join(REPO, "content", "files", "data", "monsters.json");
+// The Fantasy Monsters booklet is the maintained copy of every name and stat line (all
+// rules changes since the Book 2 draft land there), so its stats override the draft's.
+const BOOKLET = "C:/Users/aaron/OneDrive/Documents/Tiny d10/Zines/Monsters Reference/src/monsters.html";
 
 // --- Name normalization -----------------------------------------------------
 // Body names, Appendix names, and seed names use three different conventions.
@@ -108,10 +111,23 @@ function parseStatline(inner) {
   const dmg = s.match(/([+-]\d+)\s*damage/i);
   const caster = s.match(/level\s*(\d+)(?:\s*-\s*(\d+))?\s*caster/i);
 
+  // HP may be rolled: "1d5 HP", "5 + 1d5 HP", "1d10 + 5 HP" -> the [min, max] of the sum.
+  const hpExpr = s.match(/([\dd+\s]+?)\s*HP/i);
+  let hp = num(/(\d+)(?:\s*-\s*(\d+))?\s*HP/i);
+  if (hpExpr && /\dd\d/i.test(hpExpr[1])) {
+    let lo = 0, hi = 0;
+    for (const term of hpExpr[1].split("+").map((x) => x.trim()).filter(Boolean)) {
+      const dice = term.match(/^(\d+)d(\d+)$/i);
+      if (dice) { lo += Number(dice[1]); hi += Number(dice[1]) * Number(dice[2]); }
+      else { lo += Number(term); hi += Number(term); }
+    }
+    hp = [lo, hi];
+  }
+
   return {
     toughness: tLo === tHi ? tLo : [tLo, tHi],
     bands: tLo != null ? bandsFor(tLo, tHi) : ["simple"],
-    hp: num(/(\d+)(?:\s*-\s*(\d+))?\s*HP/i),
+    hp,
     mp: num(/(\d+)(?:\s*-\s*(\d+))?\s*MP/i),
     pp: num(/(\d+)(?:\s*-\s*(\d+))?\s*PP/i),
     attributes: Object.keys(attributes).length ? attributes : null,
@@ -215,6 +231,17 @@ function findMatch(name, list) {
 
 function build() {
   const body = parseBody(readFileSync(BOOK2, "utf8"));
+  // Booklet layer: names and stat lines from the Fantasy Monsters booklet replace the draft's.
+  const unescape = (s) => s.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&ndash;|–|&minus;|−/g, "-").trim();
+  const booklet = new Map();
+  for (const m of readFileSync(BOOKLET, "utf8").matchAll(/<div class="mon" id="[^"]+"><h3>([\s\S]*?)<\/h3><p class="st">([\s\S]*?)<\/p>/g))
+    booklet.set(unescape(m[1]).toLowerCase().replace(/[^a-z0-9]/g, ""), { name: unescape(m[1]), statline: unescape(m[2]) });
+  for (const b of body) {
+    const bk = booklet.get(b.name.toLowerCase().replace(/[^a-z0-9]/g, ""));
+    if (!bk) { console.warn(`not in booklet: ${b.name}`); continue; }
+    b.bookletName = bk.name;
+    b.stats = parseStatline(bk.statline);
+  }
   const appendix = parseAppendix(readFileSync(BOOK2, "utf8"));
   const seed = parseSeed(readFileSync(SEED, "utf8"));
 
@@ -235,8 +262,8 @@ function build() {
     if (!numberAppearing) report.noNumberAppearing.push(b.name);
 
     monsters.push({
-      name: b.name,
-      displayName: displayName(b.name),
+      name: b.bookletName || b.name,
+      displayName: b.bookletName || displayName(b.name),
       role: deriveRole(b.name),
       ...(b.stats || { toughness: null, bands: [], hp: null, mp: null, pp: null, attributes: null, damage: 0, casterLevel: null, statline: null }),
       alignment,
