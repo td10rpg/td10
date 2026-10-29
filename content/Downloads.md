@@ -5,13 +5,16 @@ A small selection of Tiny d10 content is available for download in PDF format he
 
 If you're new to the system, it's recommended that you begin with Fantasy Core—and once you've familiarized yourself with the flagship game, come back and check out the zines!
 ## Fantasy
-***[[td10fc.pdf|Fantasy Core]]*** – the complete Tiny d10 tabletop role-playing game system, styled in the fantasy tradition and consisting of three books: *Fantasy Core Rules*, *Fantasy Monsters*, and the one-shot adventure, *The Broken Light*!
+***[[td10fc.pdf|Fantasy Core]]*** – the complete Tiny d10 tabletop role-playing game system, styled in the fantasy tradition and consisting of three books: *Fantasy Core Rules*, *Fantasy Monsters*, and the one-shot adventure, *The Broken Light*! Each book is also available as a print-at-home zine:
+- *[[td10fc-rules-zine.pdf|Fantasy Core Rules]]* (28 pages)
+- *[[td10fc-monsters-zine.pdf|Fantasy Monsters]]* (48 pages)
+- *[[td10fc-tbl-zine.pdf|The Broken Light]]* (20 pages)
 
->**Note:** The print edition of *Fantasy Core* can be found for sale (at cost) [here](https://www.lulu.com/shop/aaron-carlson/tiny-d10-fantasy-core/paperback/product-vwmmgk.html)!
+>**Note:** The first-edition print of *Fantasy Core* can be found for sale (at cost) [here](https://www.lulu.com/shop/aaron-carlson/tiny-d10-fantasy-core/paperback/product-vwmmgk.html)!
 ### Zines
 ***The Little Book of Primal Magics*** – a 20-page ([[td10pm-zine.pdf|print-at-home]] or [[td10pm.pdf|electronic PDF]]) zine that introduces two new classes, eight new races, additional rules, and more!
 
-***The Worldwide Adventure Generator*** – a 22-page ([[td10wag-zine.pdf|print-at-home]] or [[td10wag.pdf|electronic PDF]]) zine that presents a collection of genre- and system-agnostic procedures and tables for powering adventures across the [6-Mile Hex Atlas of Earth](https://idraluna-archives.itch.io/6-mile-hex-atlas-of-earth) on the fly! An [[Adventure Generator|interactive Tiny d10 version]] is also available on the site.
+***The Worldwide Adventure Generator*** – a 32-page ([[td10wag-zine.pdf|print-at-home]] or [[td10wag.pdf|electronic PDF]]) zine that presents a collection of genre- and system-agnostic procedures and tables for powering adventures across the [6-Mile Hex Atlas of Earth](https://idraluna-archives.itch.io/6-mile-hex-atlas-of-earth) on the fly! An [[Adventure Generator|interactive Tiny d10 version]] is also available on the site.
 ## Ranges
 ***[[td10-range-cauldron.pdf|The Cauldron]]*** – a two-page, 19-hex range: a bowl of black mountains ringing a country lost in time, with six points of interest and three factions to contend with! The range can also be explored [[The Cauldron|in ATLAS]].
 ## Miscellaneous
