@@ -28,7 +28,7 @@ Every epigraph in the Tiny d10 books, with links to public domain editions of th
 ### The Little Book of Primal Magics
 > _Then suddenly the Mole felt a great Awe fall upon him, an awe that turned his muscles to water, bowed his head, and rooted his feet to the ground. It was no panic terror—indeed he felt wonderfully at peace and happy—but it was an awe that smote and held him and, without seeing, he knew it could only mean that some august Presence was very, very near._
 >
-> – Kenneth Grahame, [_The Wind in the Willows_](https://www.gutenberg.org/ebooks/289) (1908), "The Piper at the Gates of Dawn"
+> – Kenneth Grahame, [_The Wind in the Willows_](https://www.gutenberg.org/ebooks/289) (1908)
 
 > _Great revelations of nature, of course, never fail to impress in one way or another… mountains overawe and oceans terrify, while the mystery of great forests exercises a spell peculiarly its own. But all these, at one point or another, somewhat link on intimately with human life and human experience. They stir comprehensible, even if alarming, emotions. They tend on the whole to exalt._
 >
