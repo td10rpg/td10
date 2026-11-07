@@ -2,12 +2,13 @@
 permalink: additional/resources/epigraphs
 title: Epigraphs
 ---
-Every epigraph in the Tiny d10 books, with links to free editions of the works they come from.
+Every epigraph in the Tiny d10 books, with links to public domain editions of the works they come from.
 ## Fantasy Core
 ### Fantasy Core Rules
 > _Adventures come to the adventurous, and mysterious things fall in the way of those who, with wonder and imagination, are on the watch for them; but the majority of people go past the doors that are half ajar, thinking them closed, and fail to notice the faint stirrings of the great curtain that hangs ever in the form of appearances between them and the world of causes behind._
 >
-> – Algernon Blackwood, "The Insanity of Jones" (1907), in [_Four Weird Tales_](https://www.gutenberg.org/ebooks/16726)### Fantasy Monsters
+> – Algernon Blackwood, "The Insanity of Jones" (1907), in [_Four Weird Tales_](https://www.gutenberg.org/ebooks/16726)
+### Fantasy Monsters
 > _The constant battle of wits and senses against the many deadly foes that lurk by day and by night along the pathway of the wary and the unwary appeals to the spirit of adventure which breathes strong in the heart of every red-blooded son of primordial Adam._
 >
 > – Edgar Rice Burroughs, [_The Son of Tarzan_](https://www.gutenberg.org/ebooks/90) (1917), Chapter VII
