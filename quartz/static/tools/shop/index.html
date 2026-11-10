@@ -103,7 +103,8 @@
     paypalClientId: "",   // public Client ID (Sandbox first). Leave empty to use the stand-in button.
   };
   // GitHub Pages lets browsers cache files for 10 minutes. When product images change,
-  // bump this (and the ?v= on the iframe in content/Shop.md when this page changes).
+  // bump this (and the ?v= on the iframe in content/Shop.md when this page changes;
+  // that address must stay absolute, since Quartz strips the "?" from relative ones).
   var IMAGES_V = "2026-11-10";
   // local testing only: ?api=http://localhost:8787 points the page at `npm run dev`
   if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
