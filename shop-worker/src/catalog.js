@@ -19,13 +19,13 @@ export const PRODUCTS = [
   // listed but not for sale yet: set a price and drop comingSoon to release
   zine('fort', 'The Fort in the Hinterlands', 'Gold, glory, and older secrets wait on the frozen frontier of Glacia...', null, { comingSoon: true }),
   zine('companion', 'The Hinterlands Companion', 'Travel, survival, conflict, and the Frontier Game for long campaigns in the Hinterlands!', null, { comingSoon: true }),
-  { id: 'stickers', group: 'Stickers', name: 'Sticker Bundle', detail: 'All six Tiny d10 stickers', price: 2500, image: 'stickers.webp' },
   sticker('dragon', 'Friedrich the Dragon', 'Sticker'),   // after the dragon's artist, Friedrich Bertuch
   sticker('dragon-holo', 'Friedrich the Dragon (Holographic)', 'Holographic sticker'),
   sticker('helm', 'Helm Full of Dice', 'Sticker'),
   sticker('heroes', 'Heroes Never Die', 'Sticker'),
   sticker('d10', 'Tiny d10 Logo', 'Sticker'),
   sticker('d10-glitter', 'Tiny d10 Logo (Glitter)', 'Glitter sticker'),
+  { id: 'stickers', group: 'Stickers', name: 'Sticker Bundle', detail: 'All six Tiny d10 stickers', price: 2500, image: 'stickers.webp' },
 ];
 
 // Each item marked freeSticker (the Fantasy Core set) comes with one free
