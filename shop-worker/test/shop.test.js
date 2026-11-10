@@ -1,4 +1,4 @@
-import { test } from 'node:test';
+﻿import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../src/index.js';
 
@@ -58,10 +58,10 @@ test('a free sticker comes with each Fantasy Core set, and nothing else', async 
     const { id } = await (await call('POST', '/orders', body)).json();
     return (await getOrder(env, id)).purchase_units[0].description;
   };
-  assert.equal(await desc({ items: [{ id: 'fc-set', qty: 2 }, { id: 'wag', qty: 1 }], stickers: ['Heroes Never Die', 'Heroes Never Die', 'D10 Dragon'] }),
+  assert.equal(await desc({ items: [{ id: 'fc-set', qty: 2 }, { id: 'wag', qty: 1 }], stickers: ['Heroes Never Die', 'Heroes Never Die', 'Friedrich the Dragon'] }),
     'Free stickers: 2x Heroes Never Die');
   assert.equal(await desc({ items: [{ id: 'fc-set', qty: 1 }], stickers: ['Not a sticker'] }), 'Free sticker: Surprise me');
-  assert.equal(await desc({ items: [{ id: 'wag', qty: 1 }, { id: 'rules', qty: 1 }, { id: 'stickers', qty: 1 }], stickers: ['D10 Dragon'] }), undefined);
+  assert.equal(await desc({ items: [{ id: 'wag', qty: 1 }, { id: 'rules', qty: 1 }, { id: 'stickers', qty: 1 }], stickers: ['Friedrich the Dragon'] }), undefined);
   assert.equal(await desc({ items: [{ id: 'pm', qty: 1 }], note: 'hello' }), 'Note: hello');
 });
 

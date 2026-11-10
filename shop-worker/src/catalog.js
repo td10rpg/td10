@@ -10,19 +10,19 @@ const zine = (id, name, detail, price, extra) => ({ id, group: 'Zines', name, de
 const sticker = (id, name, detail) => ({ id: `st-${id}`, group: 'Stickers', name, detail, price: 500, image: `st-${id}.webp` });
 
 export const PRODUCTS = [
-  zine('rules', 'Fantasy Core Rules', 'A 28-page zine', 500),
+  zine('rules', 'Fantasy Rules', 'A 28-page zine', 500),
   zine('monsters', 'Fantasy Monsters', 'A 48-page zine', 500),
   zine('tbl', 'The Broken Light', 'A 20-page one-shot adventure', 500),
   zine('fc-set', 'Fantasy Core', 'All three Fantasy Core zines: Rules, Monsters, and The Broken Light—comes with a free sticker!', 1500, { image: 'fc.webp', freeSticker: true }),
   zine('wag', 'The Worldwide Adventure Generator', 'A 32-page zine', 500),
   zine('pm', 'The Little Book of Primal Magics', 'A 20-page zine', 500),
   { id: 'stickers', group: 'Stickers', name: 'Sticker Bundle', detail: 'All six Tiny d10 stickers', price: 2000, image: 'stickers.webp' },
-  sticker('dragon', 'D10 Dragon', 'Sticker'),
-  sticker('dragon-holo', 'Holographic D10 Dragon', 'Holographic sticker'),
+  sticker('dragon', 'Friedrich the Dragon', 'Sticker'),   // after the dragon's artist, Friedrich Bertuch
+  sticker('dragon-holo', 'Friedrich the Dragon (Holographic)', 'Holographic sticker'),
   sticker('helm', 'Helm Full of Dice', 'Sticker'),
   sticker('heroes', 'Heroes Never Die', 'Sticker'),
-  sticker('d10', 'D10', 'Sticker'),
-  sticker('d10-glitter', 'Glitter D10', 'Glitter sticker'),
+  sticker('d10', 'Tiny d10 Logo', 'Sticker'),
+  sticker('d10-glitter', 'Tiny d10 Logo (Glitter)', 'Glitter sticker'),
 ];
 
 // Each item marked freeSticker (the Fantasy Core set) comes with one free

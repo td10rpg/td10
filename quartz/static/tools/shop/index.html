@@ -148,21 +148,21 @@
     currency: "USD", maxQty: 10, shipTo: ["US"],
     // a copy of shop-worker/src/catalog.js, used only until SHOP.api is set
     products: [
-      { id: "rules", group: "Zines", name: "Fantasy Core Rules", detail: "A 28-page zine", price: 500, image: "rules.webp" },
+      { id: "rules", group: "Zines", name: "Fantasy Rules", detail: "A 28-page zine", price: 500, image: "rules.webp" },
       { id: "monsters", group: "Zines", name: "Fantasy Monsters", detail: "A 48-page zine", price: 500, image: "monsters.webp" },
       { id: "tbl", group: "Zines", name: "The Broken Light", detail: "A 20-page one-shot adventure", price: 500, image: "tbl.webp" },
       { id: "fc-set", group: "Zines", name: "Fantasy Core", detail: "All three Fantasy Core zines: Rules, Monsters, and The Broken Light—comes with a free sticker!", price: 1500, image: "fc.webp", freeSticker: true },
       { id: "wag", group: "Zines", name: "The Worldwide Adventure Generator", detail: "A 32-page zine", price: 500, image: "wag.webp" },
       { id: "pm", group: "Zines", name: "The Little Book of Primal Magics", detail: "A 20-page zine", price: 500, image: "pm.webp" },
       { id: "stickers", group: "Stickers", name: "Sticker Bundle", detail: "All six Tiny d10 stickers", price: 2000, image: "stickers.webp" },
-      { id: "st-dragon", group: "Stickers", name: "D10 Dragon", detail: "Sticker", price: 500, image: "st-dragon.webp" },
-      { id: "st-dragon-holo", group: "Stickers", name: "Holographic D10 Dragon", detail: "Holographic sticker", price: 500, image: "st-dragon-holo.webp" },
+      { id: "st-dragon", group: "Stickers", name: "Friedrich the Dragon", detail: "Sticker", price: 500, image: "st-dragon.webp" },
+      { id: "st-dragon-holo", group: "Stickers", name: "Friedrich the Dragon (Holographic)", detail: "Holographic sticker", price: 500, image: "st-dragon-holo.webp" },
       { id: "st-helm", group: "Stickers", name: "Helm Full of Dice", detail: "Sticker", price: 500, image: "st-helm.webp" },
       { id: "st-heroes", group: "Stickers", name: "Heroes Never Die", detail: "Sticker", price: 500, image: "st-heroes.webp" },
-      { id: "st-d10", group: "Stickers", name: "D10", detail: "Sticker", price: 500, image: "st-d10.webp" },
-      { id: "st-d10-glitter", group: "Stickers", name: "Glitter D10", detail: "Glitter sticker", price: 500, image: "st-d10-glitter.webp" }
+      { id: "st-d10", group: "Stickers", name: "Tiny d10 Logo", detail: "Sticker", price: 500, image: "st-d10.webp" },
+      { id: "st-d10-glitter", group: "Stickers", name: "Tiny d10 Logo (Glitter)", detail: "Glitter sticker", price: 500, image: "st-d10-glitter.webp" }
     ],
-    stickers: ["D10 Dragon", "Holographic D10 Dragon", "Helm Full of Dice", "Heroes Never Die", "D10", "Glitter D10", "Surprise me"]
+    stickers: ["Friedrich the Dragon", "Friedrich the Dragon (Holographic)", "Helm Full of Dice", "Heroes Never Die", "Tiny d10 Logo", "Tiny d10 Logo (Glitter)", "Surprise me"]
   };
 
   function post(path, body) {
@@ -260,8 +260,9 @@
     var html = '<h2>Your Order</h2>' +
       (mode === "preview" ? '<p class="msg">Online checkout is coming soon. Feel free to fill a cart, but nothing will be ordered or charged yet.</p>' :
        mode === "worker-mock" ? '<p class="msg">Test mode. Checkout is simulated, and nothing is charged.</p>' : "");
-    if (!ls.length) {
-      el.innerHTML = html + '<p class="empty">Nothing here yet. Add a book or two.</p>' + NOTE;
+    if (!ls.length) {   // the button still shows, greyed out until there's something to pay for
+      el.innerHTML = html + '<p class="empty">Nothing here yet. Add a book or two.</p>' + NOTE +
+        '<div id="pay"><button type="button" class="mockpay" disabled>' + PAYPAL_LABEL + '</button></div>';
       return;
     }
     html += '<ul class="lines">' + ls.map(function (l) {
@@ -290,11 +291,12 @@
   }
   function fail(e) { busy = false; msg = { err: true, text: (e && e.message) || "Payment didn't go through. Nothing was charged." }; renderOrder(); }
 
+  var PAYPAL_LABEL = 'Pay with <span class="pp"><span class="p1">Pay</span><span class="p2">Pal</span></span>';
   function renderPay() {
     var box = $("pay");
     if (mode !== "paypal") {
       box.innerHTML = '<button type="button" class="mockpay" id="mockpay"' + (busy ? " disabled" : "") + '>' +
-        (busy ? "Processing…" : 'Pay with <span class="pp"><span class="p1">Pay</span><span class="p2">Pal</span></span>') + '</button>';
+        (busy ? "Processing…" : PAYPAL_LABEL) + '</button>';
       return;
     }
     if (!window.paypal) return;
