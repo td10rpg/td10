@@ -10,15 +10,15 @@ const zine = (id, name, detail, price, extra) => ({ id, group: 'Zines', name, de
 const sticker = (id, name, detail) => ({ id: `st-${id}`, group: 'Stickers', name, detail, price: 500, image: `st-${id}.webp` });
 
 export const PRODUCTS = [
-  zine('rules', 'Fantasy Rules', 'A 28-page zine', 500),
-  zine('monsters', 'Fantasy Monsters', 'A 48-page zine', 500),
-  zine('tbl', 'The Broken Light', 'A 20-page one-shot adventure', 500),
-  zine('fc-set', 'Fantasy Core', 'All three Fantasy Core zines: Rules, Monsters, and The Broken Light—comes with a free sticker!', 1500, { image: 'fc.webp', freeSticker: true }),
-  zine('wag', 'The Worldwide Adventure Generator', 'A 32-page zine', 500),
-  zine('pm', 'The Little Book of Primal Magics', 'A 20-page zine', 500),
+  zine('rules', 'Fantasy Rules', 'Everything you need to play Tiny d10 in the fantasy tradition! (28 pages)', 500),
+  zine('monsters', 'Fantasy Monsters', 'A collection of fantasy fiends, friends, and appendices! (48 pages)', 500),
+  zine('tbl', 'The Broken Light', 'A one-shot adventure on a lonely island, where something stirs in the caverns below... (20 pages)', 500),
+  zine('fc-set', 'Fantasy Core', 'All three Fantasy zines: Rules, Monsters, The Broken Light, and a free sticker!', 1500, { image: 'fc.webp', freeSticker: true }),
+  zine('wag', 'The Worldwide Adventure Generator', 'Procedures and tables for building overland adventures on the fly—weather, encounters, treasure, and more—for any hex map, system, or genre. A 32-page zine.', 500),
+  zine('pm', 'The Little Book of Primal Magics', 'Two new classes and eight new races, all touched by the wild and dangerous Primal Domain of Magic. A 20-page supplement.', 500),
   // listed but not for sale yet: set a price and drop comingSoon to release
-  zine('fort', 'The Fort in the Hinterlands', 'An adventure in the Land of Glacia for 4–6 players of levels 2–5', null, { comingSoon: true }),
-  zine('companion', 'The Hinterlands Companion', 'A companion to The Fort in the Hinterlands', null, { comingSoon: true }),
+  zine('fort', 'The Fort in the Hinterlands', 'Gold, glory, and older secrets wait on the frozen frontier of Glacia...', null, { comingSoon: true }),
+  zine('companion', 'The Hinterlands Companion', 'Rules for travel, survival, conflict, and the Frontier Game, for running a long campaign in the Hinterlands.', null, { comingSoon: true }),
   { id: 'stickers', group: 'Stickers', name: 'Sticker Bundle', detail: 'All six Tiny d10 stickers', price: 2500, image: 'stickers.webp' },
   sticker('dragon', 'Friedrich the Dragon', 'Sticker'),   // after the dragon's artist, Friedrich Bertuch
   sticker('dragon-holo', 'Friedrich the Dragon (Holographic)', 'Holographic sticker'),
