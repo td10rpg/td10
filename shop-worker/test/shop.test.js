@@ -18,7 +18,7 @@ test('catalog lists the products with prices', async () => {
   const price = Object.fromEntries(c.products.map((p) => [p.id, p.price]));
   assert.equal(price['fc-set'], 1500);
   for (const id of ['rules', 'monsters', 'tbl', 'wag', 'pm']) assert.equal(price[id], 500, id);
-  assert.equal(price.stickers, 2000);
+  assert.equal(price.stickers, 2500);
   const singles = c.products.filter((p) => p.id.startsWith('st-'));
   assert.equal(singles.length, 6);
   assert.ok(singles.every((p) => p.price === 500));
@@ -63,6 +63,20 @@ test('a free sticker comes with each Fantasy Core set, and nothing else', async 
   assert.equal(await desc({ items: [{ id: 'fc-set', qty: 1 }], stickers: ['Not a sticker'] }), 'Free sticker: Surprise me');
   assert.equal(await desc({ items: [{ id: 'wag', qty: 1 }, { id: 'rules', qty: 1 }, { id: 'stickers', qty: 1 }], stickers: ['Friedrich the Dragon'] }), undefined);
   assert.equal(await desc({ items: [{ id: 'pm', qty: 1 }], note: 'hello' }), 'Note: hello');
+});
+
+test('the full collection ($50) earns a +1 Gift, one per complete set', async () => {
+  const { getOrder } = await import('../src/paypal.js');
+  const order = async (items) => {
+    const { id } = await (await call('POST', '/orders', { items, stickers: ['Heroes Never Die', 'Heroes Never Die'] })).json();
+    return (await getOrder(env, id)).purchase_units[0];
+  };
+  const all = [{ id: 'fc-set', qty: 1 }, { id: 'wag', qty: 1 }, { id: 'pm', qty: 1 }, { id: 'stickers', qty: 1 }];
+  const one = await order(all);
+  assert.equal(one.amount.value, '50.00');
+  assert.equal(one.description, '+1 Gift | Free sticker: Heroes Never Die');
+  assert.match((await order(all.map((i) => ({ ...i, qty: 2 })))).description, /^2x \+1 Gift \|/);
+  assert.doesNotMatch((await order(all.slice(0, 3))).description, /Gift/);
 });
 
 test('prices sent by the browser are ignored', async () => {

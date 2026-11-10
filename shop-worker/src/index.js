@@ -42,7 +42,7 @@ const json = (data, status, headers) => new Response(JSON.stringify(data), { sta
 
 async function create(req, env) {
   const body = await req.json().catch(() => null);
-  const { lines, total, freeStickers } = priceCart(body?.items);
+  const { lines, total, freeStickers, extras } = priceCart(body?.items);
   const note = clean(body?.note, 200);
   const cart = packCart(lines);
 
@@ -54,7 +54,7 @@ async function create(req, env) {
     tally.set(s, (tally.get(s) || 0) + 1);
   }
   const stickerText = [...tally].map(([s, n]) => (n > 1 ? `${n}x ${s}` : s)).join(', ');
-  const parts = [stickerText && `Free sticker${freeStickers > 1 ? 's' : ''}: ${stickerText}`, note && `Note: ${note}`].filter(Boolean);
+  const parts = [...extras.map((x) => (x.qty > 1 ? `${x.qty}x ${x.name}` : x.name)), stickerText &&`Free sticker${freeStickers > 1 ? 's' : ''}: ${stickerText}`, note && `Note: ${note}`].filter(Boolean);
 
   const order = await createOrder(env, {
     intent: 'CAPTURE',

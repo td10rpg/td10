@@ -16,7 +16,7 @@ export const PRODUCTS = [
   zine('fc-set', 'Fantasy Core', 'All three Fantasy Core zines: Rules, Monsters, and The Broken Light—comes with a free sticker!', 1500, { image: 'fc.webp', freeSticker: true }),
   zine('wag', 'The Worldwide Adventure Generator', 'A 32-page zine', 500),
   zine('pm', 'The Little Book of Primal Magics', 'A 20-page zine', 500),
-  { id: 'stickers', group: 'Stickers', name: 'Sticker Bundle', detail: 'All six Tiny d10 stickers', price: 2000, image: 'stickers.webp' },
+  { id: 'stickers', group: 'Stickers', name: 'Sticker Bundle', detail: 'All six Tiny d10 stickers', price: 2500, image: 'stickers.webp' },
   sticker('dragon', 'Friedrich the Dragon', 'Sticker'),   // after the dragon's artist, Friedrich Bertuch
   sticker('dragon-holo', 'Friedrich the Dragon (Holographic)', 'Holographic sticker'),
   sticker('helm', 'Helm Full of Dice', 'Sticker'),
@@ -32,7 +32,12 @@ export const STICKERS = [
   'Surprise me',
 ];
 
-export const catalog = () => ({ currency: CURRENCY, maxQty: MAX_QTY, shipTo: SHIP_TO, products: PRODUCTS, stickers: STICKERS });
+// A full set of these items earns a free extra: one per complete set in the cart.
+export const COMBOS = [
+  { id: 'gift', name: '+1 Gift', detail: 'For taking the whole collection', items: ['fc-set', 'wag', 'pm', 'stickers'] },
+];
+
+export const catalog = () => ({ currency: CURRENCY, maxQty: MAX_QTY, shipTo: SHIP_TO, products: PRODUCTS, stickers: STICKERS, combos: COMBOS });
 
 const byId = new Map(PRODUCTS.map((p) => [p.id, p]));
 
@@ -52,7 +57,9 @@ export function priceCart(items) {
   }
   const total = lines.reduce((s, l) => s + l.price * l.qty, 0);
   const freeStickers = lines.reduce((s, l) => s + (l.freeSticker ? l.qty : 0), 0);
-  return { lines, total, freeStickers };
+  const qty = (id) => lines.find((l) => l.id === id)?.qty || 0;
+  const extras = COMBOS.map((c) => ({ ...c, qty: Math.min(...c.items.map(qty)) })).filter((c) => c.qty > 0);
+  return { lines, total, freeStickers, extras };
 }
 
 export const cents = (n) => (n / 100).toFixed(2);

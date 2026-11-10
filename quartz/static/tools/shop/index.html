@@ -61,6 +61,8 @@
   .line .a { color:var(--dark); text-align:right; font-variant-numeric:tabular-nums; }
   .line .ctl { display:flex; align-items:center; gap:.7rem; }
   .line .rm { font-size:.85rem; }
+  .line.gift em, .line.gift .a { color:var(--tertiary); }
+  .line.gift .why { grid-column:1 / -1; font-size:.85rem; font-style:italic; }
   .total { display:flex; justify-content:space-between; color:var(--dark); font-weight:700; font-size:1.12rem; margin:.6rem 0 0; }
   .empty { font-style:italic; margin-top:0; }
   .field { margin-top:.9rem; }
@@ -154,7 +156,7 @@
       { id: "fc-set", group: "Zines", name: "Fantasy Core", detail: "All three Fantasy Core zines: Rules, Monsters, and The Broken Light—comes with a free sticker!", price: 1500, image: "fc.webp", freeSticker: true },
       { id: "wag", group: "Zines", name: "The Worldwide Adventure Generator", detail: "A 32-page zine", price: 500, image: "wag.webp" },
       { id: "pm", group: "Zines", name: "The Little Book of Primal Magics", detail: "A 20-page zine", price: 500, image: "pm.webp" },
-      { id: "stickers", group: "Stickers", name: "Sticker Bundle", detail: "All six Tiny d10 stickers", price: 2000, image: "stickers.webp" },
+      { id: "stickers", group: "Stickers", name: "Sticker Bundle", detail: "All six Tiny d10 stickers", price: 2500, image: "stickers.webp" },
       { id: "st-dragon", group: "Stickers", name: "Friedrich the Dragon", detail: "Sticker", price: 500, image: "st-dragon.webp" },
       { id: "st-dragon-holo", group: "Stickers", name: "Friedrich the Dragon (Holographic)", detail: "Holographic sticker", price: 500, image: "st-dragon-holo.webp" },
       { id: "st-helm", group: "Stickers", name: "Helm Full of Dice", detail: "Sticker", price: 500, image: "st-helm.webp" },
@@ -162,7 +164,8 @@
       { id: "st-d10", group: "Stickers", name: "Tiny d10 Logo", detail: "Sticker", price: 500, image: "st-d10.webp" },
       { id: "st-d10-glitter", group: "Stickers", name: "Tiny d10 Logo (Glitter)", detail: "Glitter sticker", price: 500, image: "st-d10-glitter.webp" }
     ],
-    stickers: ["Friedrich the Dragon", "Friedrich the Dragon (Holographic)", "Helm Full of Dice", "Heroes Never Die", "Tiny d10 Logo", "Tiny d10 Logo (Glitter)", "Surprise me"]
+    stickers: ["Friedrich the Dragon", "Friedrich the Dragon (Holographic)", "Helm Full of Dice", "Heroes Never Die", "Tiny d10 Logo", "Tiny d10 Logo (Glitter)", "Surprise me"],
+    combos: [{ id: "gift", name: "+1 Gift", detail: "For taking the whole collection", items: ["fc-set", "wag", "pm", "stickers"] }]
   };
 
   function post(path, body) {
@@ -193,6 +196,12 @@
   function product(id) { return cat.products.filter(function (p) { return p.id === id; })[0]; }
   function lines() { return cat.products.filter(function (p) { return cart[p.id] > 0; }).map(function (p) { return { p: p, qty: cart[p.id] }; }); }
   function totalOf() { return lines().reduce(function (s, l) { return s + l.p.price * l.qty; }, 0); }
+  // combos the cart completes (the full collection earns a +1 Gift), one per complete set
+  function extras() {
+    return (cat.combos || []).map(function (c) {
+      return { name: c.name, detail: c.detail, qty: Math.min.apply(null, c.items.map(function (id) { return cart[id] || 0; })) };
+    }).filter(function (x) { return x.qty > 0; });
+  }
   function freeCount() { return lines().reduce(function (s, l) { return s + (l.p.freeSticker ? l.qty : 0); }, 0); }
 
   function setQty(id, q) {
@@ -268,6 +277,9 @@
     html += '<ul class="lines">' + ls.map(function (l) {
       return '<li class="line"><em>' + esc(l.p.name) + '</em><span class="a">' + money(l.p.price * l.qty) + '</span>' +
         '<span class="ctl">' + stepper(l.p.id, l.qty, l.p.name) + '<button type="button" class="plain rm" data-remove="' + l.p.id + '">Remove</button></span></li>';
+    }).join("") + extras().map(function (x) {
+      return '<li class="line gift"><em>' + esc(x.qty > 1 ? x.qty + " × " + x.name : x.name) + '</em><span class="a">Free</span>' +
+        '<span class="why">' + esc(x.detail) + '</span></li>';
     }).join("") + '</ul>' +
       '<div class="total"><span>Total</span><span>' + money(totalOf()) + '</span></div>' +
       stickerFields(freeCount()) +
