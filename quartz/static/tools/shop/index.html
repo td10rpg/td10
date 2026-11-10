@@ -102,6 +102,9 @@
     api: "",              // the td10-shop Worker URL, e.g. "https://td10-shop.<account>.workers.dev"
     paypalClientId: "",   // public Client ID (Sandbox first). Leave empty to use the stand-in button.
   };
+  // GitHub Pages lets browsers cache files for 10 minutes. When product images change,
+  // bump this (and the ?v= on the iframe in content/Shop.md when this page changes).
+  var IMAGES_V = "2026-11-10";
   // local testing only: ?api=http://localhost:8787 points the page at `npm run dev`
   if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
     var testApi = new URLSearchParams(location.search).get("api");
@@ -236,7 +239,7 @@
   function card(p) {
     var q = cart[p.id] || 0;
     return '<article class="product' + (p.comingSoon ? ' soon-item' : '') + '">' +
-      '<img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" width="520" height="' + (p.group === "Stickers" ? 520 : 680) + '">' +
+      '<img src="' + esc(p.image) + '?v=' + IMAGES_V + '" alt="' + esc(p.name) + '" width="520" height="' + (p.group === "Stickers" ? 520 : 680) + '">' +
       '<div class="t">' + esc(p.name) + '</div><p class="d">' + esc(p.detail) + '</p>' +
       (p.comingSoon ? '<div class="buy"><span class="soon">Coming soon</span></div>' :
         '<div class="buy"><span class="price">' + money(p.price) + '</span>' +
