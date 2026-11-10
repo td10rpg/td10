@@ -21,5 +21,8 @@ desktop.ini
 *~
 
 
-# ATLAS is fetched from td10rpg/atlas at build time
-quartz/static/tools/atlas/
+# Don't list quartz/static/tools/atlas/ here, even though ATLAS is fetched from
+# td10rpg/atlas at build time: Quartz skips gitignored files when it copies
+# quartz/static, so the deployed site would have no ATLAS (it broke Oct 24-Nov 9,
+# 2026). The local copy is hidden through .git/info/exclude instead, which Quartz
+# doesn't read.
