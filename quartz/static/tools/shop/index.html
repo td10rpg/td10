@@ -305,7 +305,7 @@
     }
     var ls = lines();
     var html = '<h2>Your Order</h2>' +
-      (mode === "preview" ? '<p class="msg">Online ordering coming soon!</p>' :
+      (mode === "preview" ? '<p class="msg">Online ordering—coming soon!</p>' :
        mode === "worker-mock" ? '<p class="msg">Test mode. Checkout is simulated, and nothing is charged.</p>' : "");
     if (!ls.length) {   // the button still shows, greyed out until there's something to pay for
       el.innerHTML = html + '<p class="empty">Nothing here yet. Add a book or two.</p>' + NOTE +
