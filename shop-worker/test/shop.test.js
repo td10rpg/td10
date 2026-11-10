@@ -27,12 +27,13 @@ test('catalog lists the products with prices', async () => {
 
 test('a cart of everything, ten of each, fits in PayPal and captures', async () => {
   const cat = await (await call('GET', '/catalog')).json();
-  const items = cat.products.map((p) => ({ id: p.id, qty: 10 }));
+  const forSale = cat.products.filter((p) => !p.comingSoon);
+  const items = forSale.map((p) => ({ id: p.id, qty: 10 }));
   const { id } = await (await call('POST', '/orders', { items })).json();
   const { getOrder } = await import('../src/paypal.js');
   assert.ok((await getOrder(env, id)).purchase_units[0].custom_id.length <= 127);
   const out = await (await call('POST', `/orders/${id}/capture`)).json();
-  assert.equal(out.total, cat.products.reduce((s, p) => s + p.price * 10, 0));
+  assert.equal(out.total, forSale.reduce((s, p) => s + p.price * 10, 0));
 });
 
 test('other sites get no CORS header', async () => {
@@ -93,6 +94,7 @@ for (const [label, items] of [
   ['fractional quantity', [{ id: 'wag', qty: 1.5 }]],
   ['too many', [{ id: 'wag', qty: 11 }]],
   ['duplicate lines', [{ id: 'wag', qty: 1 }, { id: 'wag', qty: 1 }]],
+  ['a coming-soon book', [{ id: 'fort', qty: 1 }]],
 ]) {
   test(`rejects ${label}`, async () => {
     const r = await call('POST', '/orders', { items });

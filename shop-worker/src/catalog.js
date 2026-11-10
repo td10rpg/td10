@@ -16,6 +16,9 @@ export const PRODUCTS = [
   zine('fc-set', 'Fantasy Core', 'All three Fantasy Core zines: Rules, Monsters, and The Broken Light—comes with a free sticker!', 1500, { image: 'fc.webp', freeSticker: true }),
   zine('wag', 'The Worldwide Adventure Generator', 'A 32-page zine', 500),
   zine('pm', 'The Little Book of Primal Magics', 'A 20-page zine', 500),
+  // listed but not for sale yet: set a price and drop comingSoon to release
+  zine('fort', 'The Fort in the Hinterlands', 'An adventure in the Land of Glacia for 4–6 players of levels 2–5', null, { comingSoon: true }),
+  zine('companion', 'The Hinterlands Companion', 'A companion to The Fort in the Hinterlands', null, { comingSoon: true }),
   { id: 'stickers', group: 'Stickers', name: 'Sticker Bundle', detail: 'All six Tiny d10 stickers', price: 2500, image: 'stickers.webp' },
   sticker('dragon', 'Friedrich the Dragon', 'Sticker'),   // after the dragon's artist, Friedrich Bertuch
   sticker('dragon-holo', 'Friedrich the Dragon (Holographic)', 'Holographic sticker'),
@@ -49,6 +52,7 @@ export function priceCart(items) {
   for (const it of items) {
     const p = byId.get(it?.id);
     if (!p) throw new Error(`Unknown item: ${String(it?.id).slice(0, 40)}`);
+    if (p.comingSoon) throw new Error(`${p.name} isn't for sale yet.`);
     if (seen.has(p.id)) throw new Error(`Duplicate item: ${p.id}`);
     seen.add(p.id);
     const qty = Number(it.qty);

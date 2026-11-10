@@ -45,6 +45,8 @@
   .product .d { font-size:.92rem; line-height:1.4; margin:0 0 .4rem; flex:1; }
   .product .buy { display:flex; align-items:center; justify-content:space-between; gap:.4rem; flex-wrap:wrap; }
   .price { color:var(--dark); font-weight:700; }
+  .soon { color:var(--tertiary); font-weight:600; font-style:italic; line-height:1.6; padding:.05rem 0; }
+  .product.soon-item img { opacity:.85; }
 
   .stepper { display:inline-flex; align-items:center; border:1px solid var(--lightgray); border-radius:5px; }
   .stepper button { font:inherit; font-size:1.05rem; line-height:1; color:var(--secondary); background:none; border:0; padding:.2rem .5rem; cursor:pointer; }
@@ -156,6 +158,8 @@
       { id: "fc-set", group: "Zines", name: "Fantasy Core", detail: "All three Fantasy Core zines: Rules, Monsters, and The Broken Light—comes with a free sticker!", price: 1500, image: "fc.webp", freeSticker: true },
       { id: "wag", group: "Zines", name: "The Worldwide Adventure Generator", detail: "A 32-page zine", price: 500, image: "wag.webp" },
       { id: "pm", group: "Zines", name: "The Little Book of Primal Magics", detail: "A 20-page zine", price: 500, image: "pm.webp" },
+      { id: "fort", group: "Zines", name: "The Fort in the Hinterlands", detail: "An adventure in the Land of Glacia for 4–6 players of levels 2–5", price: null, image: "fort.webp", comingSoon: true },
+      { id: "companion", group: "Zines", name: "The Hinterlands Companion", detail: "A companion to The Fort in the Hinterlands", price: null, image: "companion.webp", comingSoon: true },
       { id: "stickers", group: "Stickers", name: "Sticker Bundle", detail: "All six Tiny d10 stickers", price: 2500, image: "stickers.webp" },
       { id: "st-dragon", group: "Stickers", name: "Friedrich the Dragon", detail: "Sticker", price: 500, image: "st-dragon.webp" },
       { id: "st-dragon-holo", group: "Stickers", name: "Friedrich the Dragon (Holographic)", detail: "Holographic sticker", price: 500, image: "st-dragon-holo.webp" },
@@ -231,12 +235,13 @@
   }
   function card(p) {
     var q = cart[p.id] || 0;
-    return '<article class="product">' +
+    return '<article class="product' + (p.comingSoon ? ' soon-item' : '') + '">' +
       '<img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" width="520" height="' + (p.group === "Stickers" ? 520 : 680) + '">' +
       '<div class="t">' + esc(p.name) + '</div><p class="d">' + esc(p.detail) + '</p>' +
-      '<div class="buy"><span class="price">' + money(p.price) + '</span>' +
-      (q ? stepper(p.id, q, p.name) : '<button type="button" class="btn" data-add="' + p.id + '">Add to cart</button>') +
-      '</div></article>';
+      (p.comingSoon ? '<div class="buy"><span class="soon">Coming soon</span></div>' :
+        '<div class="buy"><span class="price">' + money(p.price) + '</span>' +
+        (q ? stepper(p.id, q, p.name) : '<button type="button" class="btn" data-add="' + p.id + '">Add to cart</button>') + '</div>') +
+      '</article>';
   }
 
   var NOTE = '<div class="note"><b>Note:</b> US shipping is included. Outside the US? Message me on ' +
@@ -354,7 +359,7 @@
   /* ---------- start ---------- */
   api.catalog().then(function (c) {
     cat = c;
-    Object.keys(cart).forEach(function (id) { if (!product(id)) delete cart[id]; });
+    Object.keys(cart).forEach(function (id) { var p = product(id); if (!p || p.comingSoon) delete cart[id]; });
     render();
     if (mode === "paypal") loadPayPal();
   }, function () {
