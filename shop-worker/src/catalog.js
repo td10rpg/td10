@@ -14,11 +14,11 @@ export const PRODUCTS = [
   zine('monsters', 'Fantasy Monsters', 'A collection of fantasy fiends, friends, and appendices! (48 pages)', 500),
   zine('tbl', 'The Broken Light', 'A one-shot adventure on a lonely island, where something stirs in the caverns below... (20 pages)', 500),
   zine('fc-set', 'Fantasy Core', 'All three Fantasy zines: Rules, Monsters, The Broken Light, and a free sticker!', 1500, { image: 'fc.webp', freeSticker: true }),
-  zine('wag', 'The Worldwide Adventure Generator', 'Procedures and tables for building overland adventures on the fly—weather, encounters, treasure, and more—for any hex map, system, or genre. A 32-page zine.', 500),
-  zine('pm', 'The Little Book of Primal Magics', 'Two new classes and eight new races, all touched by the wild and dangerous Primal Domain of Magic. A 20-page supplement.', 500),
+  zine('wag', 'The Worldwide Adventure Generator', 'Overland adventures on the fly, for any hex map, system, or genre! (32 pages)', 500),
+  zine('pm', 'The Little Book of Primal Magics', 'Two new classes and eight new races, touched by the wild Primal Domain of Magic! (20 pages)', 500),
   // listed but not for sale yet: set a price and drop comingSoon to release
   zine('fort', 'The Fort in the Hinterlands', 'Gold, glory, and older secrets wait on the frozen frontier of Glacia...', null, { comingSoon: true }),
-  zine('companion', 'The Hinterlands Companion', 'Rules for travel, survival, conflict, and the Frontier Game, for running a long campaign in the Hinterlands.', null, { comingSoon: true }),
+  zine('companion', 'The Hinterlands Companion', 'Travel, survival, conflict, and the Frontier Game for long campaigns in the Hinterlands!', null, { comingSoon: true }),
   { id: 'stickers', group: 'Stickers', name: 'Sticker Bundle', detail: 'All six Tiny d10 stickers', price: 2500, image: 'stickers.webp' },
   sticker('dragon', 'Friedrich the Dragon', 'Sticker'),   // after the dragon's artist, Friedrich Bertuch
   sticker('dragon-holo', 'Friedrich the Dragon (Holographic)', 'Holographic sticker'),
