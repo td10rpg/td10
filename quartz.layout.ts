@@ -23,6 +23,17 @@ const hideUnlisted = (node: any) => {
   return !(slug.startsWith("atlas/") && slug !== "atlas/index")
 }
 
+// Nav map: a folder whose pages are all hidden by hideUnlisted (Atlas, whose range
+// pages live at atlas/<slug>) shows as a plain page link instead of a folder with
+// nothing in it. Runs after the filter. Must stay self-contained — Quartz
+// serializes it via .toString().
+const foldersWithNothingShownAsPages = (node: any) => {
+  if (node.isFolder && node.children.length === 0 && node.data) {
+    node.isFolder = false
+    node.slugSegments = [...node.slugSegments, "index"] // keep the link at <folder>/index
+  }
+}
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
@@ -60,7 +71,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({ sortFn: filesBeforeFolders, filterFn: hideUnlisted }),
+    Component.Explorer({ sortFn: filesBeforeFolders, filterFn: hideUnlisted, mapFn: foldersWithNothingShownAsPages }),
   ],
   right: [
     Component.Graph(),
@@ -84,7 +95,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({ sortFn: filesBeforeFolders, filterFn: hideUnlisted }),
+    Component.Explorer({ sortFn: filesBeforeFolders, filterFn: hideUnlisted, mapFn: foldersWithNothingShownAsPages }),
   ],
   right: [],
 }
