@@ -10,12 +10,12 @@ const zine = (id, name, detail, price, extra) => ({ id, group: 'Zines', name, de
 const sticker = (id, name, detail) => ({ id: `st-${id}`, group: 'Stickers', name, detail, price: 500, image: `st-${id}.webp` });
 
 export const PRODUCTS = [
-  zine('rules', 'Fantasy Rules', 'Everything you need to play Tiny d10 in the fantasy tradition! (28 pages)', 500),
-  zine('monsters', 'Fantasy Monsters', 'A collection of fantasy fiends, friends, and appendices! (48 pages)', 500),
-  zine('tbl', 'The Broken Light', 'A one-shot adventure on a lonely island, where something stirs in the caverns below... (20 pages)', 500),
+  zine('rules', 'Fantasy Rules', 'Everything you need to play Tiny d10 in the fantasy tradition!', 500, { pages: 28 }),
+  zine('monsters', 'Fantasy Monsters', 'A collection of fantasy fiends, friends, and appendices!', 500, { pages: 48 }),
+  zine('tbl', 'The Broken Light', 'A one-shot adventure on a lonely island, where something stirs in the caverns below...', 500, { pages: 20 }),
   zine('fc-set', 'Fantasy Core', 'All three Fantasy zines: Rules, Monsters, The Broken Light, and a free sticker!', 1500, { image: 'fc.webp', freeSticker: true }),
-  zine('wag', 'The Worldwide Adventure Generator', 'Overland adventures on the fly, for any hex map, system, or genre! (32 pages)', 500),
-  zine('pm', 'The Little Book of Primal Magics', 'Two new classes and eight new races, touched by the wild Primal Domain of Magic! (20 pages)', 500),
+  zine('wag', 'The Worldwide Adventure Generator', 'Overland adventures on the fly, for any hex map, system, or genre!', 500, { pages: 32 }),
+  zine('pm', 'The Little Book of Primal Magics', 'Two new classes and eight new races, touched by the wild Primal Domain of Magic!', 500, { pages: 20 }),
   // listed but not for sale yet: set a price and drop comingSoon to release
   zine('fort', 'The Fort in the Hinterlands', 'Gold, glory, and older secrets wait on the frozen frontier of Glacia...', null, { comingSoon: true }),
   zine('companion', 'The Hinterlands Companion', 'Travel, survival, conflict, and the Frontier Game for long campaigns in the Hinterlands!', null, { comingSoon: true }),

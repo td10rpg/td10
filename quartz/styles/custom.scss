@@ -61,6 +61,17 @@ body[data-slug="downloads"] article li a {
   container-type: inline-size;
 }
 
+// Shop: the free-sticker note under the intro, in the site's sage accent
+blockquote.shop-note {
+  border-left-color: var(--tertiary);
+
+  & p {
+    color: var(--tertiary);
+    font-style: italic;
+    font-weight: 600;
+  }
+}
+
 .shop-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 15.5rem;
