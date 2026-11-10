@@ -1,0 +1,14 @@
+name = "td10-shop"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# "sandbox" while testing, "live" to take real money. Local dev uses "mock" (see .dev.vars.example).
+PAYPAL_ENV = "sandbox"
+# Public, so it lives here. Paste the Sandbox Client ID from developer.paypal.com.
+PAYPAL_CLIENT_ID = ""
+ALLOWED_ORIGINS = "https://td10.org,http://localhost:8080"
+
+# Secrets, set with `npx wrangler secret put <NAME>` (never committed):
+#   PAYPAL_CLIENT_SECRET   required
+#   DISCORD_WEBHOOK_URL    optional: posts each paid order to a Discord channel

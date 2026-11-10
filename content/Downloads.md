@@ -4,6 +4,8 @@ permalink: downloads
 A small selection of Tiny d10 content is available for download in PDF format here. Check back frequently, as new material is always being added!
 
 If you're new to the system, it's recommended that you begin with Fantasy Core—and once you've familiarized yourself with the flagship game, come back and check out the zines!
+
+Prefer paper? Printed copies of the zines are available in the [[Shop|shop]].
 ## Fantasy
 ***[[td10fc.pdf|Fantasy Core]]*** – the complete Tiny d10 tabletop role-playing game system, styled in the fantasy tradition and consisting of three books: *Fantasy Core Rules*, *Fantasy Monsters*, and the one-shot adventure, *The Broken Light*! Each book is also available as a print-at-home zine:
 - *[[td10fc-rules-zine.pdf|Fantasy Core Rules]]* (28 pages)

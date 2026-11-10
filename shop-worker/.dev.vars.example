@@ -1,0 +1,4 @@
+# Copy to .dev.vars for `npm run dev`. With PAYPAL_ENV=mock nothing talks to
+# PayPal: orders approve themselves with a test address and nothing is charged.
+PAYPAL_ENV=mock
+PAYPAL_CLIENT_SECRET=local-dev-only

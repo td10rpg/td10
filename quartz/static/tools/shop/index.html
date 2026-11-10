@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shop – Tiny d10</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+  /* The site's own palette (quartz.config.ts), so the shop reads as part of the page. */
+  :root {
+    --light:#faf8f8; --lightgray:#e5e5e5; --gray:#b8b8b8; --darkgray:#4e4e4e; --dark:#2b2b2b;
+    --secondary:#284b63; --tertiary:#84a59d; --highlight:rgba(143,159,169,.15);
+  }
+  :root[data-theme="dark"] {
+    --light:#161618; --lightgray:#393639; --gray:#646464; --darkgray:#d4d4d4; --dark:#ebebec;
+    --secondary:#7b97aa; --tertiary:#84a59d; --highlight:rgba(143,159,169,.15);
+  }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--light); }
+  body { font-family:"EB Garamond",Garamond,"Times New Roman",serif; color:var(--darkgray);
+    font-size:16px; line-height:1.6; padding:0 0 .5rem; -webkit-font-smoothing:antialiased; }
+  h2 { color:var(--dark); font-size:1.4rem; font-weight:700; line-height:1.3; margin:0 0 .5rem; }
+  p { margin:.6rem 0; }
+  a { color:var(--secondary); font-weight:600; text-decoration:none; }
+  a:hover { color:var(--tertiary); }
+  em { color:var(--dark); }
+
+  /* links-as-buttons: the same pill the site uses for internal links */
+  .btn { font:inherit; font-weight:600; color:var(--secondary); background:var(--highlight);
+    border:0; border-radius:5px; padding:.05rem .5rem; cursor:pointer; line-height:1.6; }
+  .btn:hover { color:var(--tertiary); }
+  .plain { font:inherit; color:var(--darkgray); background:none; border:0; padding:0; cursor:pointer; text-decoration:underline; text-decoration-color:var(--gray); }
+  .plain:hover { color:var(--secondary); }
+  button:focus-visible, select:focus-visible, textarea:focus-visible { outline:2px solid var(--secondary); outline-offset:2px; }
+
+  /* products on the left, the order beside them; stacked on narrow screens */
+  .shop { display:grid; grid-template-columns:minmax(0,1fr) 15.5rem; gap:1.75rem; align-items:start; }
+  @media (max-width:620px) { .shop { grid-template-columns:minmax(0,1fr); gap:0; } }
+
+  .products .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.5rem 1.1rem; }
+  .products h2 + .grid { margin-bottom:2.25rem; }
+  .product { display:flex; flex-direction:column; }
+  .product img { display:block; width:100%; height:auto; }
+  .product .t { color:var(--dark); font-weight:700; font-style:italic; line-height:1.3; margin:.35rem 0 .15rem; }
+  .product .d { font-size:.92rem; line-height:1.4; margin:0 0 .4rem; flex:1; }
+  .product .d i { display:block; color:var(--tertiary); }
+  .product .buy { display:flex; align-items:center; justify-content:space-between; gap:.4rem; flex-wrap:wrap; }
+  .price { color:var(--dark); font-weight:700; }
+
+  .stepper { display:inline-flex; align-items:center; border:1px solid var(--lightgray); border-radius:5px; }
+  .stepper button { font:inherit; font-size:1.05rem; line-height:1; color:var(--secondary); background:none; border:0; padding:.2rem .5rem; cursor:pointer; }
+  .stepper button:hover { background:var(--highlight); }
+  .stepper button:disabled { color:var(--gray); cursor:default; background:none; }
+  .stepper span { min-width:1.5rem; text-align:center; color:var(--dark); font-variant-numeric:tabular-nums; }
+
+  /* order panel: a ruled column, like a sidebar, not a box */
+  .order { border-left:1px solid var(--lightgray); padding-left:1.25rem; will-change:transform; }
+  @media (max-width:620px) { .order { border-left:0; padding-left:0; border-top:1px solid var(--lightgray); margin-top:2rem; padding-top:1.25rem; } }
+  .lines { list-style:none; margin:0; padding:0; }
+  .line { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.2rem .5rem; padding:.5rem 0; border-bottom:1px solid var(--lightgray); }
+  .line em { font-weight:600; line-height:1.3; }
+  .line .a { color:var(--dark); text-align:right; font-variant-numeric:tabular-nums; }
+  .line .ctl { display:flex; align-items:center; gap:.7rem; }
+  .line .rm { font-size:.85rem; }
+  .total { display:flex; justify-content:space-between; color:var(--dark); font-weight:700; font-size:1.12rem; margin:.6rem 0 0; }
+  .empty { font-style:italic; margin-top:0; }
+  .field { margin-top:.9rem; }
+  label { display:block; color:var(--dark); font-weight:700; margin-bottom:.2rem; }
+  label span { font-weight:400; }
+  select, textarea { font:inherit; color:var(--darkgray); background:var(--light); width:100%;
+    border:1px solid var(--lightgray); border-radius:5px; padding:.25rem .45rem; }
+  select + select { margin-top:.4rem; }
+  textarea { resize:vertical; min-height:2.4rem; height:3.6rem; }
+  .note { border-left:3px solid var(--secondary); padding-left:.8rem; margin:1rem 0; font-size:.95rem; line-height:1.5; }
+  .note b { color:var(--dark); }
+  #pay { min-height:48px; margin-top:1rem; }
+  .mockpay { width:100%; font:inherit; font-size:1.05rem; cursor:pointer; color:#111;
+    background:#fff; border:1px solid #b8b8b8; border-radius:24px; padding:.5rem; }
+  :root[data-theme="dark"] .mockpay { background:#000; color:#fff; border-color:#000; }
+  .mockpay:disabled { opacity:.55; cursor:default; }
+  .mockpay .pp { font-family:Verdana,Arial,sans-serif; font-weight:700; font-style:italic; }
+  .mockpay .p1 { color:#003087; } .mockpay .p2 { color:#0070e0; }
+  :root[data-theme="dark"] .mockpay .p1, :root[data-theme="dark"] .mockpay .p2 { color:#fff; }
+  .msg { font-style:italic; font-size:.95rem; }
+  .msg.err { color:#b5462f; }
+  :root[data-theme="dark"] .msg.err { color:#e0937f; }
+</style>
+</head>
+<body>
+<div class="shop">
+  <section class="products" id="products" aria-label="Products"></section>
+  <aside class="order" id="order" aria-live="polite"></aside>
+</div>
+
+<script>
+(function () {
+  /* ---------- settings: fill these in to go live ---------- */
+  var SHOP = {
+    api: "",              // the td10-shop Worker URL, e.g. "https://td10-shop.<account>.workers.dev"
+    paypalClientId: "",   // public Client ID (Sandbox first). Leave empty to use the stand-in button.
+  };
+  // local testing only: ?api=http://localhost:8787 points the page at `npm run dev`
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+    var testApi = new URLSearchParams(location.search).get("api");
+    if (testApi) SHOP.api = testApi;
+  }
+
+  /* ---------- theme sync (same as the other tools) ---------- */
+  function theme() { return document.documentElement.getAttribute("data-theme"); }
+  function syncTheme(){
+    var t = null, was = theme();
+    try { t = localStorage.getItem("theme")
+      || (window.parent!==window ? window.parent.document.documentElement.getAttribute("saved-theme") : null); } catch(e){}
+    document.documentElement.setAttribute("data-theme", t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark":"light"));
+    if (was && was !== theme() && mode === "paypal" && cat) renderOrder();   // PayPal's button picks its color at render
+  }
+  window.addEventListener("storage", syncTheme);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncTheme);
+
+  /* ---------- fit the iframe to the shop, and keep the order panel in view ----------
+     The site page does the scrolling, so the frame grows to fit, and the panel
+     slides down inside the frame to follow the reader past the products. */
+  var frame = null, host = null;
+  try { frame = window.frameElement; host = frame && window.parent; } catch (e) {}
+  function fit() {
+    if (frame) frame.style.height = Math.ceil(document.body.getBoundingClientRect().height) + "px";
+    follow();
+  }
+  function follow() {
+    var aside = document.getElementById("order");
+    if (!frame || !aside) return;
+    if (!frame.isConnected) { host.removeEventListener("scroll", follow); return; }
+    var side = getComputedStyle(document.querySelector(".shop")).gridTemplateColumns.split(" ").length > 1;
+    var room = document.querySelector(".shop").offsetHeight - aside.offsetHeight;
+    var off = side ? Math.max(0, Math.min(16 - frame.getBoundingClientRect().top, room)) : 0;
+    aside.style.transform = off ? "translateY(" + Math.round(off) + "px)" : "";
+  }
+  if (frame) {
+    document.documentElement.style.overflow = "hidden";   // sized to fit, so never scroll inside
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(document.body);
+    try { host.addEventListener("scroll", follow, { passive: true }); host.addEventListener("resize", follow); } catch (e) {}
+  }
+  window.addEventListener("load", fit);
+
+  /* ---------- backend ----------
+     With SHOP.api set, everything goes to the Worker, which owns the prices.
+     Without it, a preview stand-in answers in the page so the shop can be reviewed. */
+  var PREVIEW_CATALOG = {
+    currency: "USD", maxQty: 10, shipTo: ["US"],
+    // a copy of shop-worker/src/catalog.js, used only until SHOP.api is set
+    products: [
+      { id: "fc-set", group: "Zines", name: "Fantasy Core", detail: "All three Fantasy Core zines: Rules, Monsters, and The Broken Light", price: 1500, image: "fc.webp", freeSticker: true },
+      { id: "rules", group: "Zines", name: "Fantasy Core Rules", detail: "A 28-page zine", price: 500, image: "rules.webp" },
+      { id: "monsters", group: "Zines", name: "Fantasy Monsters", detail: "A 48-page zine", price: 500, image: "monsters.webp" },
+      { id: "tbl", group: "Zines", name: "The Broken Light", detail: "A 20-page one-shot adventure", price: 500, image: "tbl.webp" },
+      { id: "wag", group: "Zines", name: "The Worldwide Adventure Generator", detail: "A 32-page zine", price: 500, image: "wag.webp" },
+      { id: "pm", group: "Zines", name: "The Little Book of Primal Magics", detail: "A 20-page zine", price: 500, image: "pm.webp" },
+      { id: "stickers", group: "Stickers", name: "Sticker Bundle", detail: "All six Tiny d10 stickers", price: 2000, image: "stickers.webp" },
+      { id: "st-dragon", group: "Stickers", name: "D10 Dragon", detail: "Sticker", price: 500, image: "st-dragon.webp" },
+      { id: "st-dragon-holo", group: "Stickers", name: "Holographic D10 Dragon", detail: "Holographic sticker", price: 500, image: "st-dragon-holo.webp" },
+      { id: "st-helm", group: "Stickers", name: "Helm Full of Dice", detail: "Sticker", price: 500, image: "st-helm.webp" },
+      { id: "st-heroes", group: "Stickers", name: "Heroes Never Die", detail: "Sticker", price: 500, image: "st-heroes.webp" },
+      { id: "st-d10", group: "Stickers", name: "D10", detail: "Sticker", price: 500, image: "st-d10.webp" },
+      { id: "st-d10-glitter", group: "Stickers", name: "Glitter D10", detail: "Glitter sticker", price: 500, image: "st-d10-glitter.webp" }
+    ],
+    stickers: ["D10 Dragon", "Holographic D10 Dragon", "Helm Full of Dice", "Heroes Never Die", "D10", "Glitter D10", "Surprise me"]
+  };
+
+  function post(path, body) {
+    return fetch(SHOP.api + path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body || {}) })
+      .then(function (r) { return r.json().then(function (d) { if (!r.ok) throw new Error(d.error || "Something went wrong."); return d; }); });
+  }
+  var api = SHOP.api ? {
+    catalog: function () { return fetch(SHOP.api + "/catalog").then(function (r) { if (!r.ok) throw new Error(); return r.json(); }); },
+    create: function (order) { return post("/orders", order).then(function (d) { return d.id; }); },
+    capture: function (id) { return post("/orders/" + encodeURIComponent(id) + "/capture"); }
+  } : {
+    catalog: function () { return Promise.resolve(PREVIEW_CATALOG); },
+    create: function () { return wait(500).then(function () { return "PREVIEW"; }); },
+    capture: function () { return wait(700).then(function () { return { ok: true, total: totalOf(), name: "A. Fellow Adventurer" }; }); }
+  };
+  var mode = !SHOP.api ? "preview" : SHOP.paypalClientId ? "paypal" : "worker-mock";
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  /* ---------- state ---------- */
+  var cat = null, cart = {}, picks = [], note = "", busy = false, msg = null, done = null;
+  try { var saved = JSON.parse(localStorage.getItem("td10-cart") || "{}"); cart = saved.cart || {}; picks = saved.picks || []; note = saved.note || ""; } catch (e) {}
+  function save() { try { localStorage.setItem("td10-cart", JSON.stringify({ cart: cart, picks: picks, note: note })); } catch (e) {} }
+  syncTheme();
+
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (c) { return "$" + (c / 100).toFixed(c % 100 ? 2 : 0); };
+  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return "&#" + c.charCodeAt(0) + ";"; }); };
+  function product(id) { return cat.products.filter(function (p) { return p.id === id; })[0]; }
+  function lines() { return cat.products.filter(function (p) { return cart[p.id] > 0; }).map(function (p) { return { p: p, qty: cart[p.id] }; }); }
+  function totalOf() { return lines().reduce(function (s, l) { return s + l.p.price * l.qty; }, 0); }
+  function freeCount() { return lines().reduce(function (s, l) { return s + (l.p.freeSticker ? l.qty : 0); }, 0); }
+
+  function setQty(id, q) {
+    q = Math.max(0, Math.min(cat.maxQty, q));
+    if (q) cart[id] = q; else delete cart[id];
+    msg = null; save(); render();
+  }
+
+  function stepper(id, q, label) {
+    return '<span class="stepper" role="group" aria-label="' + esc(label) + ' quantity">' +
+      '<button type="button" data-step="' + id + '" data-d="-1" aria-label="One fewer">−</button>' +
+      '<span>' + q + '</span>' +
+      '<button type="button" data-step="' + id + '" data-d="1" aria-label="One more"' + (q >= cat.maxQty ? " disabled" : "") + '>+</button></span>';
+  }
+
+  /* ---------- render ---------- */
+  function renderProducts() {
+    var groups = [];
+    cat.products.forEach(function (p) {
+      var g = groups.filter(function (x) { return x.name === (p.group || ""); })[0];
+      if (!g) groups.push(g = { name: p.group || "", items: [] });
+      g.items.push(p);
+    });
+    $("products").innerHTML = groups.map(function (g) {
+      return (g.name ? '<h2>' + esc(g.name) + '</h2>' : '') + '<div class="grid">' + g.items.map(card).join("") + '</div>';
+    }).join("");
+  }
+  function card(p) {
+    var q = cart[p.id] || 0;
+    return '<article class="product">' +
+      '<img src="' + esc(p.image) + '" alt="' + esc(p.name) + '" width="520" height="' + (p.group === "Stickers" ? 520 : 680) + '">' +
+      '<div class="t">' + esc(p.name) + '</div><p class="d">' + esc(p.detail) +
+      (p.freeSticker ? '<i>Comes with a free sticker</i>' : '') + '</p>' +
+      '<div class="buy"><span class="price">' + money(p.price) + '</span>' +
+      (q ? stepper(p.id, q, p.name) : '<button type="button" class="btn" data-add="' + p.id + '">Add to cart</button>') +
+      '</div></article>';
+  }
+
+  var NOTE = '<div class="note"><b>Note:</b> US shipping is included. Outside the US? Message me on ' +
+    '<a href="https://x.com/td10rpg" target="_blank" rel="noopener">X.com</a> for a shipping quote.</div>';
+
+  function stickerFields(n) {
+    if (!n) return "";
+    var opts = function (cur) { return cat.stickers.map(function (s) { return '<option' + (s === cur ? " selected" : "") + '>' + esc(s) + '</option>'; }).join(""); };
+    var html = '<div class="field"><label for="pick0">Free sticker' + (n > 1 ? 's <span>(one per set)</span>' : '') + '</label>';
+    for (var i = 0; i < n; i++) {
+      if (cat.stickers.indexOf(picks[i]) < 0) picks[i] = cat.stickers[0];
+      html += '<select id="pick' + i + '" data-pick="' + i + '" aria-label="Free sticker ' + (i + 1) + '">' + opts(picks[i]) + '</select>';
+    }
+    return html + '</div>';
+  }
+
+  function renderOrder() {
+    var el = $("order");
+    if (done) {
+      el.innerHTML = mode === "preview"
+        ? '<h2>Coming Soon</h2><p>That was a trial run: no order was placed, and nothing was charged. ' +
+          'Online checkout opens soon. Until then, message me on <a href="https://x.com/td10rpg" target="_blank" rel="noopener">X.com</a> to order.</p>' +
+          '<p><button type="button" id="again" class="btn">Back to the shop</button></p>'
+        : '<h2>Thank you' + (done.name ? ", " + esc(done.name.split(" ")[0]) : "") + '!</h2>' +
+          '<p>Your order for ' + money(done.total) + ' is paid. PayPal will email you a receipt, and I\'ll get your books in the mail soon.</p>' +
+          '<p><button type="button" id="again" class="btn">Start a new order</button></p>';
+      return;
+    }
+    var ls = lines();
+    var html = '<h2>Your Order</h2>' +
+      (mode === "preview" ? '<p class="msg">Online checkout is coming soon. Feel free to fill a cart, but nothing will be ordered or charged yet.</p>' :
+       mode === "worker-mock" ? '<p class="msg">Test mode. Checkout is simulated, and nothing is charged.</p>' : "");
+    if (!ls.length) {
+      el.innerHTML = html + '<p class="empty">Nothing here yet. Add a book or two.</p>' + NOTE;
+      return;
+    }
+    html += '<ul class="lines">' + ls.map(function (l) {
+      return '<li class="line"><em>' + esc(l.p.name) + '</em><span class="a">' + money(l.p.price * l.qty) + '</span>' +
+        '<span class="ctl">' + stepper(l.p.id, l.qty, l.p.name) + '<button type="button" class="plain rm" data-remove="' + l.p.id + '">Remove</button></span></li>';
+    }).join("") + '</ul>' +
+      '<div class="total"><span>Total</span><span>' + money(totalOf()) + '</span></div>' +
+      stickerFields(freeCount()) +
+      '<div class="field"><label for="note">Note <span>(optional)</span></label><textarea id="note" maxlength="200" placeholder="Anything I should know?">' + esc(note) + '</textarea></div>' +
+      NOTE + '<div id="pay"></div>' +
+      (msg ? '<p class="msg' + (msg.err ? " err" : "") + '" role="status">' + esc(msg.text) + '</p>' : "");
+    el.innerHTML = html;
+    renderPay();
+  }
+
+  function render() { renderProducts(); renderOrder(); fit(); }
+
+  /* ---------- checkout ---------- */
+  function orderBody() {
+    return { items: lines().map(function (l) { return { id: l.p.id, qty: l.qty }; }), stickers: picks.slice(0, freeCount()), note: note };
+  }
+  function finish(res) {
+    done = { total: res.total, name: res.name };
+    if (mode !== "preview") { cart = {}; picks = []; note = ""; save(); }   // a trial run keeps the cart
+    render();
+  }
+  function fail(e) { busy = false; msg = { err: true, text: (e && e.message) || "Payment didn't go through. Nothing was charged." }; renderOrder(); }
+
+  function renderPay() {
+    var box = $("pay");
+    if (mode !== "paypal") {
+      box.innerHTML = '<button type="button" class="mockpay" id="mockpay"' + (busy ? " disabled" : "") + '>' +
+        (busy ? "Processing…" : 'Pay with <span class="pp"><span class="p1">Pay</span><span class="p2">Pal</span></span>') + '</button>';
+      return;
+    }
+    if (!window.paypal) return;
+    window.paypal.Buttons({
+      style: { layout: "vertical", shape: "pill", label: "pay", height: 45, color: theme() === "dark" ? "black" : "white" },
+      createOrder: function () { msg = null; return api.create(orderBody()); },
+      onShippingAddressChange: function (data, actions) {
+        if (cat.shipTo.indexOf(data.shippingAddress && data.shippingAddress.countryCode) < 0)
+          return actions.reject(data.errors && data.errors.COUNTRY_ERROR);
+      },
+      onApprove: function (data) { return api.capture(data.orderID).then(finish, fail); },
+      onCancel: function () { msg = { text: "Checkout cancelled. Your cart is still here." }; renderOrder(); },
+      onError: fail
+    }).render(box);
+  }
+
+  function mockCheckout() {
+    busy = true; msg = null; renderOrder();
+    api.create(orderBody()).then(api.capture).then(function (res) { busy = false; finish(res); }, fail);
+  }
+
+  function loadPayPal() {
+    var s = document.createElement("script");
+    s.src = "https://www.paypal.com/sdk/js?client-id=" + encodeURIComponent(SHOP.paypalClientId) +
+      "&currency=USD&intent=capture&components=buttons&disable-funding=paylater";
+    s.onload = renderOrder;
+    s.onerror = function () { msg = { err: true, text: "PayPal didn't load. Check your connection, or try again in a minute." }; renderOrder(); };
+    document.head.appendChild(s);
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("button"); if (!t) return;
+    if (t.dataset.add) setQty(t.dataset.add, 1);
+    else if (t.dataset.step) setQty(t.dataset.step, (cart[t.dataset.step] || 0) + Number(t.dataset.d));
+    else if (t.dataset.remove) setQty(t.dataset.remove, 0);
+    else if (t.id === "mockpay") mockCheckout();
+    else if (t.id === "again") { done = null; render(); }
+  });
+  document.addEventListener("change", function (e) { if (e.target.dataset.pick) { picks[Number(e.target.dataset.pick)] = e.target.value; save(); } });
+  document.addEventListener("input", function (e) { if (e.target.id === "note") { note = e.target.value; save(); } });
+
+  /* ---------- start ---------- */
+  api.catalog().then(function (c) {
+    cat = c;
+    Object.keys(cart).forEach(function (id) { if (!product(id)) delete cart[id]; });
+    render();
+    if (mode === "paypal") loadPayPal();
+  }, function () {
+    $("order").innerHTML = '<p class="msg err">The shop is having trouble loading. Please try again in a few minutes, or message me on <a href="https://x.com/td10rpg">X.com</a>.</p>';
+    fit();
+  });
+})();
+</script>
+</body>
+</html>
