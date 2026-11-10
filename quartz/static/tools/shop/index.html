@@ -29,13 +29,19 @@
   .btn { font:inherit; font-weight:600; color:var(--secondary); background:var(--highlight);
     border:0; border-radius:5px; padding:.05rem .5rem; cursor:pointer; line-height:1.6; }
   .btn:hover { color:var(--tertiary); }
-  .plain { font:inherit; color:var(--darkgray); background:none; border:0; padding:0; cursor:pointer; text-decoration:underline; text-decoration-color:var(--gray); }
-  .plain:hover { color:var(--secondary); }
-  button:focus-visible, select:focus-visible, textarea:focus-visible { outline:2px solid var(--secondary); outline-offset:2px; }
+  button:focus-visible { outline:2px solid var(--secondary); outline-offset:2px; }
 
-  /* products on the left, the order beside them; stacked on narrow screens */
+  /* Products on the left, the order beside them; stacked on narrow screens. On td10.org
+     the order panel lives in the site page instead (see "order-css" below), so the
+     frame holds the products alone. */
   .shop { display:grid; grid-template-columns:minmax(0,1fr) 15.5rem; gap:1.75rem; align-items:start; }
-  @media (max-width:620px) { .shop { grid-template-columns:minmax(0,1fr); gap:0; } }
+  .shop > .order { position:sticky; top:1rem; border-left:1px solid var(--lightgray); padding-left:1.25rem; }
+  @media (max-width:620px) {
+    .shop { grid-template-columns:minmax(0,1fr); gap:0; }
+    .shop > .order { position:static; border-left:0; padding-left:0; border-top:1px solid var(--lightgray); margin-top:2rem; padding-top:1.25rem; }
+  }
+  body.hosted .shop { grid-template-columns:minmax(0,1fr); }
+  body.hosted .shop > .order { display:none; }
 
   .products .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.5rem 1.1rem; }
   .products h2 + .grid { margin-bottom:2.25rem; }
@@ -54,39 +60,58 @@
   .stepper button:disabled { color:var(--gray); cursor:default; background:none; }
   .stepper span { min-width:1.5rem; text-align:center; color:var(--dark); font-variant-numeric:tabular-nums; }
 
-  /* order panel: a ruled column, like a sidebar, not a box */
-  .order { border-left:1px solid var(--lightgray); padding-left:1.25rem; will-change:transform; }
-  @media (max-width:620px) { .order { border-left:0; padding-left:0; border-top:1px solid var(--lightgray); margin-top:2rem; padding-top:1.25rem; } }
-  .lines { list-style:none; margin:0; padding:0; }
-  .line { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.2rem .5rem; padding:.5rem 0; border-bottom:1px solid var(--lightgray); }
-  .line em { font-weight:600; line-height:1.3; }
-  .line .a { color:var(--dark); text-align:right; font-variant-numeric:tabular-nums; }
-  .line .ctl { display:flex; align-items:center; gap:.7rem; }
-  .line .rm { font-size:.85rem; }
-  .line.gift em, .line.gift .a { color:var(--tertiary); }
-  .line.gift .why { grid-column:1 / -1; font-size:.85rem; font-style:italic; }
-  .total { display:flex; justify-content:space-between; color:var(--dark); font-weight:700; font-size:1.12rem; margin:.6rem 0 0; }
-  .empty { font-style:italic; margin-top:0; }
-  .field { margin-top:.9rem; }
-  label { display:block; color:var(--dark); font-weight:700; margin-bottom:.2rem; }
-  label span { font-weight:400; }
-  select, textarea { font:inherit; color:var(--darkgray); background:var(--light); width:100%;
+</style>
+<style id="order-css">
+  /* The order panel. Everything is scoped to .order, because on td10.org this block is
+     copied into the site page, which supplies the same color variables. Dark mode is
+     data-theme here and saved-theme on the site. */
+  .order { font-size:16px; line-height:1.6; color:var(--darkgray); }
+  .order h2 { color:var(--dark); font-size:1.4rem; font-weight:700; line-height:1.3; margin:0 0 .5rem; }
+  .order p { margin:.6rem 0; text-align:left; }
+  .order a { color:var(--secondary); font-weight:600; text-decoration:none; background:none; }
+  .order a:hover { color:var(--tertiary); }
+  .order em { color:var(--dark); }
+  .order .btn { font:inherit; font-weight:600; color:var(--secondary); background:var(--highlight);
+    border:0; border-radius:5px; padding:.05rem .5rem; cursor:pointer; line-height:1.6; }
+  .order .btn:hover { color:var(--tertiary); }
+  .order .plain { font:inherit; color:var(--darkgray); background:none; border:0; padding:0; cursor:pointer; text-decoration:underline; text-decoration-color:var(--gray); }
+  .order .plain:hover { color:var(--secondary); }
+  .order button:focus-visible, .order select:focus-visible, .order textarea:focus-visible { outline:2px solid var(--secondary); outline-offset:2px; }
+  .order .stepper { display:inline-flex; align-items:center; border:1px solid var(--lightgray); border-radius:5px; }
+  .order .stepper button { font:inherit; font-size:1.05rem; line-height:1; color:var(--secondary); background:none; border:0; padding:.2rem .5rem; cursor:pointer; }
+  .order .stepper button:hover { background:var(--highlight); }
+  .order .stepper button:disabled { color:var(--gray); cursor:default; background:none; }
+  .order .stepper span { min-width:1.5rem; text-align:center; color:var(--dark); font-variant-numeric:tabular-nums; }
+  .order ul.lines { list-style:none; margin:0; padding:0; }
+  .order .line { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:.2rem .5rem; padding:.5rem 0; margin:0; border-bottom:1px solid var(--lightgray); }
+  .order .line em { font-weight:600; line-height:1.3; }
+  .order .line .a { color:var(--dark); text-align:right; font-variant-numeric:tabular-nums; }
+  .order .line .ctl { display:flex; align-items:center; gap:.7rem; }
+  .order .line .rm { font-size:.85rem; }
+  .order .line.gift em, .order .line.gift .a { color:var(--tertiary); }
+  .order .line.gift .why { grid-column:1 / -1; font-size:.85rem; font-style:italic; }
+  .order .total { display:flex; justify-content:space-between; color:var(--dark); font-weight:700; font-size:1.12rem; margin:.6rem 0 0; }
+  .order .empty { font-style:italic; margin-top:0; }
+  .order .field { margin-top:.9rem; }
+  .order label { display:block; color:var(--dark); font-weight:700; margin-bottom:.2rem; }
+  .order label span { font-weight:400; }
+  .order select, .order textarea { font:inherit; color:var(--darkgray); background:var(--light); width:100%; box-sizing:border-box;
     border:1px solid var(--lightgray); border-radius:5px; padding:.25rem .45rem; }
-  select + select { margin-top:.4rem; }
-  textarea { resize:vertical; min-height:2.4rem; height:3.6rem; }
-  .note { border-left:3px solid var(--secondary); padding-left:.8rem; margin:1rem 0; font-size:.95rem; line-height:1.5; }
-  .note b { color:var(--dark); }
-  #pay { min-height:48px; margin-top:1rem; }
-  .mockpay { width:100%; font:inherit; font-size:1.05rem; cursor:pointer; color:#111;
+  .order select + select { margin-top:.4rem; }
+  .order textarea { resize:vertical; min-height:2.4rem; height:3.6rem; }
+  .order .note { border-left:3px solid var(--secondary); padding-left:.8rem; margin:1rem 0; font-size:.95rem; line-height:1.5; }
+  .order .note b { color:var(--dark); }
+  .order .pay { min-height:48px; margin-top:1rem; }
+  .order .mockpay { width:100%; font:inherit; font-size:1.05rem; cursor:pointer; color:#111;
     background:#fff; border:1px solid #b8b8b8; border-radius:24px; padding:.5rem; }
-  :root[data-theme="dark"] .mockpay { background:#000; color:#fff; border-color:#000; }
-  .mockpay:disabled { opacity:.55; cursor:default; }
-  .mockpay .pp { font-family:Verdana,Arial,sans-serif; font-weight:700; font-style:italic; }
-  .mockpay .p1 { color:#003087; } .mockpay .p2 { color:#0070e0; }
-  :root[data-theme="dark"] .mockpay .p1, :root[data-theme="dark"] .mockpay .p2 { color:#fff; }
-  .msg { font-style:italic; font-size:.95rem; }
-  .msg.err { color:#b5462f; }
-  :root[data-theme="dark"] .msg.err { color:#e0937f; }
+  :root[data-theme="dark"] .order .mockpay, :root[saved-theme="dark"] .order .mockpay { background:#000; color:#fff; border-color:#000; }
+  .order .mockpay:disabled { opacity:.55; cursor:default; }
+  .order .mockpay .pp { font-family:Verdana,Arial,sans-serif; font-weight:700; font-style:italic; }
+  .order .mockpay .p1 { color:#003087; } .order .mockpay .p2 { color:#0070e0; }
+  :root[data-theme="dark"] .order .mockpay .pp span, :root[saved-theme="dark"] .order .mockpay .pp span { color:#fff; }
+  .order .msg { font-style:italic; font-size:.95rem; }
+  .order .msg.err { color:#b5462f; }
+  :root[data-theme="dark"] .order .msg.err, :root[saved-theme="dark"] .order .msg.err { color:#e0937f; }
 </style>
 </head>
 <body>
@@ -124,28 +149,30 @@
   window.addEventListener("storage", syncTheme);
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", syncTheme);
 
-  /* ---------- fit the iframe to the shop, and keep the order panel in view ----------
-     The site page does the scrolling, so the frame grows to fit, and the panel
-     slides down inside the frame to follow the reader past the products. */
-  var frame = null, host = null;
-  try { frame = window.frameElement; host = frame && window.parent; } catch (e) {}
+  /* ---------- where things live ----------
+     The site page does the scrolling, so the frame grows to fit the products. When the
+     page has a #shop-order panel (td10.org/shop), the order is drawn there, beside the
+     frame, where CSS keeps it in view; otherwise it's drawn in this page's own aside. */
+  var frame = null, orderEl = document.getElementById("order");
+  try {
+    frame = window.frameElement;
+    var outside = frame && window.parent.document.getElementById("shop-order");
+    if (outside) {
+      orderEl = outside;
+      var css = window.parent.document.getElementById("td10-shop-order-css") || window.parent.document.createElement("style");
+      css.id = "td10-shop-order-css";
+      css.textContent = document.getElementById("order-css").textContent;
+      window.parent.document.head.appendChild(css);
+      document.body.classList.add("hosted");
+    }
+  } catch (e) {}
+  var orderWin = orderEl.ownerDocument.defaultView;   // where PayPal's button has to load
   function fit() {
     if (frame) frame.style.height = Math.ceil(document.body.getBoundingClientRect().height) + "px";
-    follow();
-  }
-  function follow() {
-    var aside = document.getElementById("order");
-    if (!frame || !aside) return;
-    if (!frame.isConnected) { host.removeEventListener("scroll", follow); return; }
-    var side = getComputedStyle(document.querySelector(".shop")).gridTemplateColumns.split(" ").length > 1;
-    var room = document.querySelector(".shop").offsetHeight - aside.offsetHeight;
-    var off = side ? Math.max(0, Math.min(16 - frame.getBoundingClientRect().top, room)) : 0;
-    aside.style.transform = off ? "translateY(" + Math.round(off) + "px)" : "";
   }
   if (frame) {
     document.documentElement.style.overflow = "hidden";   // sized to fit, so never scroll inside
     if (window.ResizeObserver) new ResizeObserver(fit).observe(document.body);
-    try { host.addEventListener("scroll", follow, { passive: true }); host.addEventListener("resize", follow); } catch (e) {}
   }
   window.addEventListener("load", fit);
 
@@ -254,24 +281,24 @@
   function stickerFields(n) {
     if (!n) return "";
     var opts = function (cur) { return cat.stickers.map(function (s) { return '<option' + (s === cur ? " selected" : "") + '>' + esc(s) + '</option>'; }).join(""); };
-    var html = '<div class="field"><label for="pick0">Free sticker' + (n > 1 ? 's <span>(one per set)</span>' : '') + '</label>';
+    var html = '<div class="field"><label for="shop-pick0">Free sticker' + (n > 1 ? 's <span>(one per set)</span>' : '') + '</label>';
     for (var i = 0; i < n; i++) {
       if (cat.stickers.indexOf(picks[i]) < 0) picks[i] = cat.stickers[0];
-      html += '<select id="pick' + i + '" data-pick="' + i + '" aria-label="Free sticker ' + (i + 1) + '">' + opts(picks[i]) + '</select>';
+      html += '<select id="shop-pick' + i + '" data-pick="' + i + '" aria-label="Free sticker ' + (i + 1) + '">' + opts(picks[i]) + '</select>';
     }
     return html + '</div>';
   }
 
   function renderOrder() {
-    var el = $("order");
+    var el = orderEl;
     if (done) {
       el.innerHTML = mode === "preview"
         ? '<h2>Coming Soon</h2><p>That was a trial run: no order was placed, and nothing was charged. ' +
           'Online checkout opens soon. Until then, message me on <a href="https://x.com/td10rpg" target="_blank" rel="noopener">X.com</a> to order.</p>' +
-          '<p><button type="button" id="again" class="btn">Back to the shop</button></p>'
+          '<p><button type="button" id="shop-again" class="btn">Back to the shop</button></p>'
         : '<h2>Thank you' + (done.name ? ", " + esc(done.name.split(" ")[0]) : "") + '!</h2>' +
           '<p>Your order for ' + money(done.total) + ' is paid. PayPal will email you a receipt, and I\'ll get your books in the mail soon.</p>' +
-          '<p><button type="button" id="again" class="btn">Start a new order</button></p>';
+          '<p><button type="button" id="shop-again" class="btn">Start a new order</button></p>';
       return;
     }
     var ls = lines();
@@ -280,7 +307,7 @@
        mode === "worker-mock" ? '<p class="msg">Test mode. Checkout is simulated, and nothing is charged.</p>' : "");
     if (!ls.length) {   // the button still shows, greyed out until there's something to pay for
       el.innerHTML = html + '<p class="empty">Nothing here yet. Add a book or two.</p>' + NOTE +
-        '<div id="pay"><button type="button" class="mockpay" disabled>' + PAYPAL_LABEL + '</button></div>';
+        '<div class="pay"><button type="button" class="mockpay" disabled>' + PAYPAL_LABEL + '</button></div>';
       return;
     }
     html += '<ul class="lines">' + ls.map(function (l) {
@@ -292,8 +319,8 @@
     }).join("") + '</ul>' +
       '<div class="total"><span>Total</span><span>' + money(totalOf()) + '</span></div>' +
       stickerFields(freeCount()) +
-      '<div class="field"><label for="note">Note <span>(optional)</span></label><textarea id="note" maxlength="200" placeholder="Anything I should know?">' + esc(note) + '</textarea></div>' +
-      NOTE + '<div id="pay"></div>' +
+      '<div class="field"><label for="shop-note">Note <span>(optional)</span></label><textarea id="shop-note" maxlength="200" placeholder="Anything I should know?">' + esc(note) + '</textarea></div>' +
+      NOTE + '<div class="pay"></div>' +
       (msg ? '<p class="msg' + (msg.err ? " err" : "") + '" role="status">' + esc(msg.text) + '</p>' : "");
     el.innerHTML = html;
     renderPay();
@@ -314,14 +341,14 @@
 
   var PAYPAL_LABEL = 'Pay with <span class="pp"><span class="p1">Pay</span><span class="p2">Pal</span></span>';
   function renderPay() {
-    var box = $("pay");
+    var box = orderEl.querySelector(".pay");
     if (mode !== "paypal") {
-      box.innerHTML = '<button type="button" class="mockpay" id="mockpay"' + (busy ? " disabled" : "") + '>' +
+      box.innerHTML = '<button type="button" class="mockpay" data-pay="1"' + (busy ? " disabled" : "") + '>' +
         (busy ? "Processing…" : PAYPAL_LABEL) + '</button>';
       return;
     }
-    if (!window.paypal) return;
-    window.paypal.Buttons({
+    if (!orderWin.paypal) return;
+    orderWin.paypal.Buttons({
       style: { layout: "vertical", shape: "pill", label: "pay", height: 45, color: theme() === "dark" ? "black" : "white" },
       createOrder: function () { msg = null; return api.create(orderBody()); },
       onShippingAddressChange: function (data, actions) {
@@ -340,25 +367,28 @@
   }
 
   function loadPayPal() {
-    var s = document.createElement("script");
+    var s = orderWin.document.createElement("script");
     s.src = "https://www.paypal.com/sdk/js?client-id=" + encodeURIComponent(SHOP.paypalClientId) +
       "&currency=USD&intent=capture&components=buttons&disable-funding=paylater";
     s.onload = renderOrder;
     s.onerror = function () { msg = { err: true, text: "PayPal didn't load. Check your connection, or try again in a minute." }; renderOrder(); };
-    document.head.appendChild(s);
+    orderWin.document.head.appendChild(s);
   }
 
-  /* ---------- events ---------- */
-  document.addEventListener("click", function (e) {
-    var t = e.target.closest("button"); if (!t) return;
-    if (t.dataset.add) setQty(t.dataset.add, 1);
-    else if (t.dataset.step) setQty(t.dataset.step, (cart[t.dataset.step] || 0) + Number(t.dataset.d));
-    else if (t.dataset.remove) setQty(t.dataset.remove, 0);
-    else if (t.id === "mockpay") mockCheckout();
-    else if (t.id === "again") { done = null; render(); }
+  /* ---------- events ----------
+     Listened for here and, when the panel lives in the site page, on the panel too. */
+  [document].concat(orderEl.ownerDocument !== document ? [orderEl] : []).forEach(function (root) {
+    root.addEventListener("click", function (e) {
+      var t = e.target.closest("button"); if (!t) return;
+      if (t.dataset.add) setQty(t.dataset.add, 1);
+      else if (t.dataset.step) setQty(t.dataset.step, (cart[t.dataset.step] || 0) + Number(t.dataset.d));
+      else if (t.dataset.remove) setQty(t.dataset.remove, 0);
+      else if (t.dataset.pay) mockCheckout();
+      else if (t.id === "shop-again") { done = null; render(); }
+    });
+    root.addEventListener("change", function (e) { if (e.target.dataset.pick) { picks[Number(e.target.dataset.pick)] = e.target.value; save(); } });
+    root.addEventListener("input", function (e) { if (e.target.id === "shop-note") { note = e.target.value; save(); } });
   });
-  document.addEventListener("change", function (e) { if (e.target.dataset.pick) { picks[Number(e.target.dataset.pick)] = e.target.value; save(); } });
-  document.addEventListener("input", function (e) { if (e.target.id === "note") { note = e.target.value; save(); } });
 
   /* ---------- start ---------- */
   api.catalog().then(function (c) {
@@ -367,7 +397,7 @@
     render();
     if (mode === "paypal") loadPayPal();
   }, function () {
-    $("order").innerHTML = '<p class="msg err">The shop is having trouble loading. Please try again in a few minutes, or message me on <a href="https://x.com/td10rpg">X.com</a>.</p>';
+    orderEl.innerHTML = '<p class="msg err">The shop is having trouble loading. Please try again in a few minutes, or message me on <a href="https://x.com/td10rpg">X.com</a>.</p>';
     fit();
   });
 })();

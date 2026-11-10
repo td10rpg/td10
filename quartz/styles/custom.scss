@@ -53,6 +53,48 @@ body[data-slug="downloads"] article li a {
   font-weight: normal;
 }
 
+// Shop: the products are an iframe (static/tools/shop/), and the order panel sits
+// beside it in the page itself, so it can stay put with plain CSS while you scroll
+// past the products. The shop page renders the panel and injects its look; this is
+// only the layout. Stacks below the products when the column is narrow.
+.shop-wrap {
+  container-type: inline-size;
+}
+
+.shop-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 15.5rem;
+  gap: 1.75rem;
+  align-items: start;
+
+  & > .order {
+    position: sticky;
+    top: 1.5rem;
+    // a long order scrolls inside the panel, so the pay button stays reachable
+    max-height: calc(100vh - 3rem);
+    overflow-y: auto;
+    border-left: 1px solid var(--lightgray);
+    padding-left: 1.25rem;
+  }
+}
+
+@container (max-width: 620px) {
+  .shop-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+
+    & > .order {
+      position: static;
+      max-height: none;
+      border-left: 0;
+      padding-left: 0;
+      border-top: 1px solid var(--lightgray);
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+    }
+  }
+}
+
 // Table of Contents: on long pages (e.g. The Fort in the Hinterlands) Quartz's
 // flex sizing lets the TOC's scroll area spill past the bottom of the sticky
 // right sidebar, so its last entries sit below the viewport and can't be
