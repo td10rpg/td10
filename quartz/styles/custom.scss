@@ -81,11 +81,16 @@ blockquote.shop-note {
   & > .order {
     position: sticky;
     top: 1.5rem;
-    // a long order scrolls inside the panel, so the pay button stays reachable
+    // a long order scrolls inside the panel, so the pay button stays reachable;
+    // the scrollbar is thin and gets its own lane, clear of the prices
     max-height: calc(100vh - 3rem);
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--lightgray) transparent;
+    scrollbar-gutter: stable;
     border-left: 1px solid var(--lightgray);
     padding-left: 1.25rem;
+    padding-right: 0.6rem;
   }
 }
 
@@ -97,6 +102,8 @@ blockquote.shop-note {
     & > .order {
       position: static;
       max-height: none;
+      padding-right: 0;
+      scrollbar-gutter: auto;
       border-left: 0;
       padding-left: 0;
       border-top: 1px solid var(--lightgray);
