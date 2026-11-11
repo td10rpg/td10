@@ -2,7 +2,7 @@
 permalink: shop
 title: Shop
 ---
-Print copies of the Tiny d10 zines, made by hand with love and premium paper, mailed to your door.
+Don’t want to print it yourself, or just want to support the game? Order print copies of the Tiny d10 zines, made by hand with love and mailed to your door—and there are stickers too!
 
 <blockquote class="shop-note"><p>Every Fantasy Core set comes with a free sticker of your choice!</p></blockquote>
 
