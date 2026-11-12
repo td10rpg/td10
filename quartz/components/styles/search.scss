@@ -50,6 +50,8 @@
     top: 0;
     width: 100vw;
     height: 100vh;
+    // dvh excludes mobile browser toolbars, which 100vh sits underneath
+    height: 100dvh;
     overflow-y: auto;
     display: none;
     backdrop-filter: blur(4px);
@@ -143,6 +145,13 @@
             width: 100%;
             height: auto;
             flex: 0 0 100%;
+          }
+
+          // keep the results a scrolling panel that ends above the bottom of the
+          // screen (top margin + search bar + gaps), instead of running off it
+          & > .results-container {
+            max-height: calc(100vh - 12vh - 8rem);
+            max-height: calc(100dvh - 12vh - 8rem);
           }
         }
 
