@@ -16,11 +16,15 @@ interface Item {
 type SearchType = "basic" | "tags"
 let searchType: SearchType = "basic"
 let currentSearchTerm: string = ""
+const htmlEntity = /&(?:amp|lt|gt|quot|#0?39);/g
+const wordChar = /[\p{L}\p{N}]/u
+const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 const encoder = (str: string): string[] => {
   const tokens: string[] = []
   let bufferStart = -1
   let bufferEnd = -1
-  const lower = str.toLowerCase()
+  // page text arrives HTML-escaped; drop the entities so `&quot;gold` indexes as `gold`
+  const lower = str.toLowerCase().replace(htmlEntity, " ")
 
   let i = 0
   for (const char of lower) {
@@ -33,7 +37,8 @@ const encoder = (str: string): string[] => {
       (code >= 0xac00 && code <= 0xd7af) ||
       (code >= 0x20000 && code <= 0x2a6df)
 
-    const isWhitespace = code === 32 || code === 9 || code === 10 || code === 13
+    // split on punctuation as well as whitespace, so “gold” and (wolf) index as words
+    const isSeparator = !wordChar.test(char)
 
     if (isCJK) {
       if (bufferStart !== -1) {
@@ -41,7 +46,7 @@ const encoder = (str: string): string[] => {
         bufferStart = -1
       }
       tokens.push(char)
-    } else if (isWhitespace) {
+    } else if (isSeparator) {
       if (bufferStart !== -1) {
         tokens.push(lower.slice(bufferStart, bufferEnd))
         bufferStart = -1
@@ -85,8 +90,12 @@ let index = new FlexSearch.Document<Item>({
 
 const p = new DOMParser()
 const fetchContentCache: Map<FullSlug, Element[]> = new Map()
-const contextWindowWords = 30
-const numSearchResults = 8
+// the site is small enough to list every matching page; the results list scrolls
+const numSearchResults = 100
+// each result card shows up to this many excerpts, one per cluster of matches
+const maxSnippets = 3
+const snippetWordsBefore = 8
+const snippetWordsAfter = 16
 const numTagResults = 5
 
 const tokenizeTerm = (term: string) => {
@@ -103,47 +112,63 @@ const tokenizeTerm = (term: string) => {
 
 function highlight(searchTerm: string, text: string, trim?: boolean) {
   const tokenizedTerms = tokenizeTerm(searchTerm)
-  let tokenizedText = text.split(/\s+/).filter((t) => t !== "")
+  const tokenizedText = text.split(/\s+/).filter((t) => t !== "")
 
-  let startIndex = 0
-  let endIndex = tokenizedText.length - 1
-  if (trim) {
-    const includesCheck = (tok: string) =>
-      tokenizedTerms.some((term) => tok.toLowerCase().startsWith(term.toLowerCase()))
-    const occurrencesIndices = tokenizedText.map(includesCheck)
-
-    let bestSum = 0
-    let bestIndex = 0
-    for (let i = 0; i < Math.max(tokenizedText.length - contextWindowWords, 0); i++) {
-      const window = occurrencesIndices.slice(i, i + contextWindowWords)
-      const windowSum = window.reduce((total, cur) => total + (cur ? 1 : 0), 0)
-      if (windowSum >= bestSum) {
-        bestSum = windowSum
-        bestIndex = i
+  const mark = (tok: string) => {
+    for (const searchTok of tokenizedTerms) {
+      if (tok.toLowerCase().includes(searchTok.toLowerCase())) {
+        const regex = new RegExp(escapeRegex(searchTok), "gi")
+        return tok.replace(regex, `<span class="highlight">$&</span>`)
       }
     }
-
-    startIndex = Math.max(bestIndex - contextWindowWords, 0)
-    endIndex = Math.min(startIndex + 2 * contextWindowWords, tokenizedText.length - 1)
-    tokenizedText = tokenizedText.slice(startIndex, endIndex)
+    return tok
   }
 
-  const slice = tokenizedText
-    .map((tok) => {
-      // see if this tok is prefixed by any search terms
-      for (const searchTok of tokenizedTerms) {
-        if (tok.toLowerCase().includes(searchTok.toLowerCase())) {
-          const regex = new RegExp(searchTok.toLowerCase(), "gi")
-          return tok.replace(regex, `<span class="highlight">$&</span>`)
-        }
-      }
-      return tok
-    })
-    .join(" ")
+  if (!trim) return tokenizedText.map(mark).join(" ")
 
-  return `${startIndex === 0 ? "" : "..."}${slice}${
-    endIndex === tokenizedText.length - 1 ? "" : "..."
-  }`
+  // a word matches when a search term starts it or follows punctuation inside it,
+  // mirroring how the index splits words (“gold”, (wolf), 1d10/wolf)
+  const termStarts = tokenizedTerms.map(
+    (term) => new RegExp(`(^|[^\\p{L}\\p{N}])${escapeRegex(term)}`, "iu"),
+  )
+  const hits = tokenizedText.flatMap((tok, i) =>
+    termStarts.some((re) => re.test(tok.replace(htmlEntity, " "))) ? [i] : [],
+  )
+
+  // title-only match: show the opening of the page
+  if (hits.length === 0) {
+    const end = Math.min(snippetWordsBefore + snippetWordsAfter, tokenizedText.length)
+    return (
+      tokenizedText.slice(0, end).map(mark).join(" ") + (end < tokenizedText.length ? "..." : "")
+    )
+  }
+
+  // one excerpt per cluster of matches, in page order
+  const snippets: [number, number][] = []
+  let shownHits = 0
+  for (const i of hits) {
+    const last = snippets[snippets.length - 1]
+    if (last && i < last[1]) {
+      shownHits++
+      continue
+    }
+    if (snippets.length === maxSnippets) break
+    const start = Math.max(i - snippetWordsBefore, last ? last[1] : 0)
+    snippets.push([start, Math.min(i + snippetWordsAfter, tokenizedText.length)])
+    shownHits++
+  }
+
+  const excerpts = snippets.map(
+    ([start, end]) =>
+      `${start === 0 ? "" : "..."}${tokenizedText.slice(start, end).map(mark).join(" ")}${
+        end === tokenizedText.length ? "" : "..."
+      }`,
+  )
+  const more = hits.length - shownHits
+  if (more > 0) {
+    excerpts.push(`<em>+${more} more ${more === 1 ? "match" : "matches"} on this page</em>`)
+  }
+  return excerpts.join("<br>")
 }
 
 function highlightHTML(searchTerm: string, el: HTMLElement) {
@@ -161,7 +186,7 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
   const highlightTextNodes = (node: Node, term: string) => {
     if (node.nodeType === Node.TEXT_NODE) {
       const nodeText = node.nodeValue ?? ""
-      const regex = new RegExp(term.toLowerCase(), "gi")
+      const regex = new RegExp(escapeRegex(term), "gi")
       const matches = nodeText.match(regex)
       if (!matches || matches.length === 0) return
       const spanContainer = document.createElement("span")

@@ -1,5 +1,5 @@
 import { Root as HTMLRoot } from "hast"
-import { toString } from "hast-util-to-string"
+import { toText } from "hast-util-to-text"
 import { QuartzTransformerPlugin } from "../types"
 import { escapeHTML } from "../../util/escape"
 
@@ -29,7 +29,9 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
         () => {
           return async (tree: HTMLRoot, file) => {
             let frontMatterDescription = file.data.frontmatter?.description
-            let text = escapeHTML(toString(tree))
+            // toText (not toString) keeps whitespace between block elements and
+            // table cells, so "~44 | wolf" doesn't index as the single word "~44wolf"
+            let text = escapeHTML(toText(tree))
 
             if (opts.replaceExternalLinks) {
               frontMatterDescription = frontMatterDescription?.replace(

@@ -212,6 +212,14 @@
               }
             }
 
+            // touch screens can't hover a card to open the side preview, so
+            // show each card's own excerpts instead
+            @media (hover: none) {
+              & > p.card-description {
+                display: block;
+              }
+            }
+
             & > ul.tags {
               margin-top: 0.45rem;
               margin-bottom: 0;
