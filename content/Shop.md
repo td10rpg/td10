@@ -2,7 +2,7 @@
 permalink: shop
 title: Shop
 ---
-Don’t want to [[print it yourself|Downloads#Zines]], or just want to support the game? Zines are available for purchase here—made with love and mailed to your door. Also, stickers!
+Don’t want to [[Downloads#Zines|print it yourself]], or just want to support the game? Zines are available for purchase here—made with love and mailed to your door. Also, stickers!
 
 <blockquote class="shop-note"><p>Every Fantasy Core set comes with a free sticker of your choice!</p></blockquote>
 
