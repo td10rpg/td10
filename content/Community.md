@@ -37,4 +37,31 @@ Made something for Tiny d10 or know someone who did? I'd love to see it and shar
 
 To get featured, first post your contribution where people can find it: X, Substack, itch.io, your own blog, or anywhere else with a stable link. Then, share it with me on [X](https://x.com/td10rpg) or via [email](mailto:aaron@td10.org) so I can add it to the community!
 
->Note: Tiny d10 is licensed under [[About#License|CC BY-SA 4.0]], so published work built on it should credit the Tiny d10 Core system and be shared under the same license.
+>Note: Tiny d10 is licensed under [[About#License|CC BY-SA 4.0]], so published work built on it should credit the Tiny d10 Core system and be shared under the same license. To make that easy, see [[#Resources for Designers|Resources for Designers]] below.
+## Resources for Designers
+This section consists of all media and styles used across the Tiny d10 system, shared especially for use by game designers. You are encouraged to incorporate as many or as few of these elements into your own contributions, as you see fit.
+### Marks
+Made something for Tiny d10? Consider putting one of these on it! Use is encouraged, but of course not required.
+
+<div class="td10-marks">
+<a href="/files/images/made-for-tiny-d10-black.png"><img class="mark-light" src="/files/images/made-for-tiny-d10-black.png" alt="Made for Tiny d10"><img class="mark-dark" src="/files/images/made-for-tiny-d10-white.png" alt="Made for Tiny d10"></a>
+<a href="/files/images/compatible-with-tiny-d10-black.png"><img class="mark-light" src="/files/images/compatible-with-tiny-d10-black.png" alt="Compatible with Tiny d10"><img class="mark-dark" src="/files/images/compatible-with-tiny-d10-white.png" alt="Compatible with Tiny d10"></a>
+</div>
+
+- **Made for Tiny d10** in [[made-for-tiny-d10-black.png|black]] and [[made-for-tiny-d10-white.png|white]]
+- **Compatible with Tiny d10** in [[compatible-with-tiny-d10-black.png|black]] and [[compatible-with-tiny-d10-white.png|white]]
+
+%% Aaron: add a line on when to use which mark. %%
+### Images
+- [[td10-logo-1024x1024.png|Tiny d10 - Logo (1024x1024).png]]
+- [[td10-fantasy.png|Tiny d10 - Fantasy Core - Cover (4448x2928).png]]
+- [The Dragon](https://commons.wikimedia.org/wiki/File:Friedrich-Johann-Justin-Bertuch_Mythical-Creature-Dragon_1806.jpg) – Friedrich Johann Justin Bertuch, 1806
+- [The Knight](https://archive.org/details/paullacroix/page/n122/mode/1up) – Albrecht Dürer, c. 1515
+### Fonts
+- [Garamond](https://learn.microsoft.com/en-us/typography/font-list/garamond) – the body text of every Tiny d10 book and zine: 10pt regular, with **bold** for terms and *italic* for epigraphs, examples, and titles. Running headers are set in small, letter-spaced italic.
+- [Trinigan FG](https://www.dafont.com/trinigan-fg.font) – titles and headings: the "Tiny d10" wordmark, cover titles, section heads, and the labels on character sheets and class references. Free from Fontgrube, including for web use.
+- [EB Garamond](https://fonts.google.com/specimen/EB+Garamond) – the dense rules text on the half-letter class reference sheets (8pt), with its small caps for labels and key terms. It is also the typeface of this website.
+### Formats
+- **Books** are US Letter (8.5" x 11").
+- **Zines** are half-letter (5.5" x 8.5"), printed two to a landscape letter page and folded into a booklet.
+- **Class reference sheets** are half-letter, one class per sheet.

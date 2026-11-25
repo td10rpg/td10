@@ -176,3 +176,38 @@ ul.toc-content.overflow {
     break-after: avoid;
   }
 }
+
+// "Made for / Compatible with Tiny d10" marks on the Community page: side by
+// side, black on the light theme and white on the dark one.
+article .td10-marks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+
+  a {
+    background: none;
+    padding: 0;
+  }
+
+  img {
+    width: 240px;
+    max-width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .mark-dark {
+    display: none;
+  }
+}
+
+:root[saved-theme="dark"] article .td10-marks {
+  .mark-light {
+    display: none;
+  }
+  .mark-dark {
+    display: block;
+  }
+}

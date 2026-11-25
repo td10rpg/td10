@@ -14,20 +14,7 @@ Additionally, AD&D enthusiast and prolific Dungeon Master Rump delivers—with u
 
 Finally, if you'd like to see what I'm up to these days—from zines to stickers to giveaways and more—find me on [X.com](https://x.com/td10rpg )! Or if you'd like a sneak peek at new content for Tiny d10, find me at [Substack](https://td10rpg.substack.com)!
 ## Resources for Designers
-This section consists of all media and styles used across the Tiny d10 system, shared especially for use by game designers. You are encouraged to incorporate as many or as few of these elements into your own contributions, as you see fit.
-## Images
-- [[td10-logo-1024x1024.png|Tiny d10 - Logo (1024x1024).png]]
-- [[td10-fantasy.png|Tiny d10 - Fantasy Core - Cover (4448x2928).png]]
-- [The Dragon](https://commons.wikimedia.org/wiki/File:Friedrich-Johann-Justin-Bertuch_Mythical-Creature-Dragon_1806.jpg) – Friedrich Johann Justin Bertuch, 1806
-- [The Knight](https://archive.org/details/paullacroix/page/n122/mode/1up) – Albrecht Durer, c. 1515
-## Fonts
-- [Garamond](https://learn.microsoft.com/en-us/typography/font-list/garamond) (Body: 10pt, Headings: Varied)
-## Marks
-Made something for Tiny d10? Put one of these on it.
-- **Compatible with Tiny d10** in [[compatible-with-tiny-d10-black.png|black]] and [[compatible-with-tiny-d10-white.png|white]]
-- **Made for Tiny d10** in [[made-for-tiny-d10-black.png|black]] and [[made-for-tiny-d10-white.png|white]]
-
-%% Aaron: add a line on when to use which mark. %%
+Making something for Tiny d10? The logos, marks, fonts, and images used across the system now live under [[Community#Resources for Designers|Resources for Designers]] on the Community page.
 ## License
 Tiny d10 is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Please note that when creating content for Tiny d10, all published work must meet two simple criteria:
 
