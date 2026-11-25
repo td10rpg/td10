@@ -22,6 +22,12 @@ This section consists of all media and styles used across the Tiny d10 system, s
 - [The Knight](https://archive.org/details/paullacroix/page/n122/mode/1up) – Albrecht Durer, c. 1515
 ## Fonts
 - [Garamond](https://learn.microsoft.com/en-us/typography/font-list/garamond) (Body: 10pt, Headings: Varied)
+## Marks
+Made something for Tiny d10? Put one of these on it.
+- **Compatible with Tiny d10** in [[compatible-with-tiny-d10-black.png|black]] and [[compatible-with-tiny-d10-white.png|white]]
+- **Made for Tiny d10** in [[made-for-tiny-d10-black.png|black]] and [[made-for-tiny-d10-white.png|white]]
+
+%% Aaron: add a line on when to use which mark. %%
 ## License
 Tiny d10 is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Please note that when creating content for Tiny d10, all published work must meet two simple criteria:
 
