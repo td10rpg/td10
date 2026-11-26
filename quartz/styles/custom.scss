@@ -219,3 +219,9 @@ article iframe.rumble {
   aspect-ratio: 16 / 9;
   border-radius: 5px;
 }
+
+// Creator names linked inside headings ("Corbzor's Bounty Boards"): drop the
+// external-link icon there, where it sat awkwardly before the "'s".
+article :is(h2, h3, h4) a.external .external-icon {
+  display: none;
+}
