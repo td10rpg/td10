@@ -59,9 +59,18 @@ Made something for Tiny d10? Consider putting one of these on it! Use is encoura
 - [The Knight](https://archive.org/details/paullacroix/page/n122/mode/1up) – Albrecht Dürer, c. 1515
 ### Fonts
 - [Garamond](https://learn.microsoft.com/en-us/typography/font-list/garamond) – the body text of every Tiny d10 book and zine: 10pt regular, with **bold** for terms and *italic* for epigraphs, examples, and titles. Running headers are set in small, letter-spaced italic.
-- [Trinigan FG](https://www.dafont.com/trinigan-fg.font) – titles and headings: the "Tiny d10" wordmark, cover titles, section heads, and the labels on character sheets and class references. Free from Fontgrube, including for web use.
+- [Trinigan FG](https://www.dafont.com/trinigan-fg.font) – titles and headings, at varying sizes: the "Tiny d10" wordmark, cover titles, section heads, and the labels on character sheets and class references. Free from Fontgrube, including for web use.
 - [EB Garamond](https://fonts.google.com/specimen/EB+Garamond) – the dense rules text on the half-letter class reference sheets (8pt), with its small caps for labels and key terms. It is also the typeface of this website.
 ### Formats
 - **Books** are US Letter (8.5" x 11").
 - **Zines** are half-letter (5.5" x 8.5"), printed two to a landscape letter page and folded into a booklet.
 - **Class reference sheets** are half-letter, one class per sheet.
+## Resources for Game Masters
+The contents of this section are constantly being expanded, pruned, and refined. Check back frequently!
+### Convention Kit
+For game masters running Tiny d10 at a convention, the following resources are recommended:
+- Six [[pregens.pdf|pre-generated characters]]
+- Blank [[files/con kit/td10cs.pdf|character sheets]]
+- Tiny d10 Logo (large) in [[td10_logo_lg.png|white]] and [[td10_logo_lg_black.png|black]]
+- A [[td10_qr_code.png|QR code]]
+- Additionally, consider purchasing [stickers](https://x.com/td10rpg/status/1983323634489012717) to share with your players!
