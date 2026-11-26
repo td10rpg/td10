@@ -26,7 +26,7 @@ Friend-made adventures & one-shots make Tiny d10 even more playable out of the b
 - [*Bounty: Gobblers*](https://www.drivethrurpg.com/en/product/595291/bounty-gobblers) – The Gobbler migration has come once again: join the hunt, gold paid on delivery. Can you take down Old Tom?
 
 ## Play Reports
-*The few, the proud—the players!* Play reports are exceedingly valuable: from demonstrating how the rules work at the table to illustrating their endless possibilities, play reports are a great way to see what a session of Tiny d10 actually looks like—and to pick up a few ideas before you run your own!
+*The few, the proud—the players!* Play reports are exceedingly valuable: from demonstrating how the rules work at the table to illustrating their limitless potential, play reports are a great way to see what a session of Tiny d10 actually looks like—and to pick up a few ideas before you run your own!
 ### [Rump](https://x.com/rumpdm)'s Solo Campaign
 - [*Tiny d10 Solo Report 1*](https://rumpdm.substack.com/p/tiny-d10-solo-report-1) – An earthquake cracks open a forgotten crypt beneath Bustletown, and a young battle priest rallies a band of adventurers to seal the evil inside. What they unleash instead sets the whole campaign in motion.
 - [*The Shrine in the Forest*](https://rumpdm.substack.com/p/the-shrine-in-the-forest) – Hunting the vampire they freed, the party stumbles onto a gang of murderous bandits holed up in an old Church shrine. Arrows fly, doors get barred, and the Church wants its property back!
