@@ -22,8 +22,8 @@ Friend-made adventures & one-shots make Tiny d10 even more playable out of the b
 - [*Bounty: Lepus*](https://www.drivethrurpg.com/en/product/563149) – Join a town's spring celebration and meet the Lepus: giant pastel rabbits that visit once a year to steal eggs and hide them.
 - [*Bounty: Midsummer*](https://www.drivethrurpg.com/en/product/572703/bounty-midsummer) – You find yourselves at The Fairy King's masquerade; if you can't escape the fairy realm before dawn, you'll be stuck until next year!
 - [*Bounty: Builders*](https://www.drivethrurpg.com/en/product/582015/bounty-builders) – The adventurers are tasked with restoring a monument, but unbeknownst to them, a hobgoblin warband is making camp there.
-- [*Bounty: Gobblers*](https://www.drivethrurpg.com/en/product/595291/bounty-gobblers) – The Gobbler migration has come once again: join the hunt, gold paid on delivery. Can you take down Old Tom?
 - [*Bounty: Jack-o'-mancer*](https://www.drivethrurpg.com/en/product/543116/bounty-jack-o-mancer) – Halloween brings the Jack-o'-mancer: a jack-o'-lantern necromancer with a horde of Pumpkin Zombies!
+- [*Bounty: Gobblers*](https://www.drivethrurpg.com/en/product/595291/bounty-gobblers) – The Gobbler migration has come once again: join the hunt, gold paid on delivery. Can you take down Old Tom?
 
 ## Play Reports
 *The few, the proud—the players!* Play reports are exceedingly valuable: from demonstrating how the rules work at the table to illustrating their endless possibilities, play reports are a great way to see what a session of Tiny d10 actually looks like—and to pick up a few ideas before you run your own!
