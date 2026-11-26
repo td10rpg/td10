@@ -32,6 +32,17 @@ Friend-made adventures & one-shots make Tiny d10 even more playable out of the b
 - [*The Shrine in the Forest*](https://rumpdm.substack.com/p/the-shrine-in-the-forest) – Hunting the vampire they freed, the party stumbles onto a gang of murderous bandits holed up in an old Church shrine. Arrows fly, doors get barred, and the Church wants its property back!
 - [*Scouting the Cairn*](https://rumpdm.substack.com/p/scouting-the-cairn) – Fog, a colorless sky, and flocks of bats all lead the party to a stone cairn deep in the woods, where strangers warn them off: "The Master broods and shall not be disturbed."
 - [*Tiny d10 in UMBROS: Dark Lagoon Boogaloo*](https://rumpdm.substack.com/p/tiny-d10-in-umbros-dark-lagoon-boogaloo) – The Skirmish Combat subsystem goes to war as the Mahar pour out of their tower to meet the Green Dragon's Vineling Horde. A 1d10 roll settles the battle below, while Queen Srrith takes on the dragon Ferigno himself in the skies above!
+## Videos
+Introductions, reviews, and actual plays: see Tiny d10 in motion!
+### [@NotJonMollison](https://x.com/NotJonMollison)'s *Tiny d10: An Introduction*
+The gentleman and wargaming scholar Mr. Jon Mollison walks through the system with an understanding of Tiny d10 like few have ever had.
+
+![](https://www.youtube.com/watch?v=BIO3szHee4I)
+### [@PaddyohCakes](https://x.com/PaddyohCakes)'s *Let's Play!: Tiny d10*
+Paddy takes Tiny d10 for a spin in this actual play on Rumble.
+
+<iframe class="external-embed rumble" src="https://rumble.com/embed/v6qh1kf/" width="600px" height="350px" frameborder="0" allowfullscreen></iframe>
+
 ## Get Featured
 Made something for Tiny d10 or know someone who did? I'd love to see it and share it here!
 

@@ -211,3 +211,11 @@ article .td10-marks {
     display: block;
   }
 }
+
+// Rumble embeds (Community > Videos): match the full-width 16:9 YouTube embeds.
+article iframe.rumble {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 5px;
+}
