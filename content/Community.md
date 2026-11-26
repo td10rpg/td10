@@ -36,10 +36,13 @@ Friend-made adventures & one-shots make Tiny d10 even more playable out of the b
 Made something for Tiny d10 or know someone who did? I'd love to see it and share it here!
 
 To get featured, first post your contribution where people can find it: X, Substack, itch.io, your own blog, or anywhere else with a stable link. Then, share it with me on [X](https://x.com/td10rpg) or via [email](mailto:aaron@td10.org) so I can add it to the community!
-
->Note: Tiny d10 is licensed under [[About#License|CC BY-SA 4.0]], so published work built on it should credit the Tiny d10 Core system and be shared under the same license. To make that easy, see [[#Resources for Designers|Resources for Designers]] below.
 ## Resources for Designers
 This section consists of all media and styles used across the Tiny d10 system, shared especially for use by game designers. You are encouraged to incorporate as many or as few of these elements into your own contributions, as you see fit.
+### License
+Tiny d10 is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Please note that when creating content for Tiny d10, all published work must meet two simple criteria:
+
+1. **Attribution** – indicate that your work is built on the Tiny d10 Core system;
+2. **ShareAlike** – distribute your work under the same CC BY-SA 4.0 license.
 ### Marks
 Made something for Tiny d10? Consider putting one of these on it! Use is encouraged, but of course not required.
 
@@ -59,8 +62,8 @@ Made something for Tiny d10? Consider putting one of these on it! Use is encoura
 - [The Knight](https://archive.org/details/paullacroix/page/n122/mode/1up) – Albrecht Dürer, c. 1515
 ### Fonts
 - [Garamond](https://learn.microsoft.com/en-us/typography/font-list/garamond) – the body text of every Tiny d10 book and zine: 10pt regular, with **bold** for terms and *italic* for epigraphs, examples, and titles. Running headers are set in small, letter-spaced italic.
-- [Trinigan FG](https://www.dafont.com/trinigan-fg.font) – titles and headings, at varying sizes: the "Tiny d10" wordmark, cover titles, section heads, and the labels on character sheets and class references. Free from Fontgrube, including for web use.
-- [EB Garamond](https://fonts.google.com/specimen/EB+Garamond) – the dense rules text on the half-letter class reference sheets (8pt), with its small caps for labels and key terms. It is also the typeface of this website.
+- [Trinigan FG](https://www.dafont.com/trinigan-fg.font) – titles and headings, at varying sizes: the "Tiny d10" wordmark, cover titles, section heads, and the labels on character sheets and class references.
+- [EB Garamond](https://fonts.google.com/specimen/EB+Garamond) – the dense rules text on the half-letter class reference sheets (8pt), with its small caps for labels and key terms; it is also the typeface of this website.
 ### Formats
 - **Books** are US Letter (8.5" x 11").
 - **Zines** are half-letter (5.5" x 8.5"), printed two to a landscape letter page and folded into a booklet.
