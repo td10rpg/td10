@@ -39,7 +39,7 @@ The gentleman and wargaming scholar Mr. Jon Mollison walks through the system wi
 
 ![](https://www.youtube.com/watch?v=BIO3szHee4I)
 ### [Paddy](https://x.com/PaddyohCakes)'s *Let's Play!: Tiny d10*
-Paddy takes Tiny d10 for a spin in this actual play on Rumble.
+Paddy and his crew take Tiny d10 for a spin in this actual play.
 
 <iframe class="external-embed rumble" src="https://rumble.com/embed/v6qh1kf/" width="600px" height="350px" frameborder="0" allowfullscreen></iframe>
 
