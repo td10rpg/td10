@@ -15,7 +15,7 @@ This very special kind of tool takes care of the only person who indisputably de
 - [*Tiny d10 Solo Play*](https://rumpdm.substack.com/p/tiny-d10-solo-play) by [@RumpDM](https://x.com/rumpdm) – a mechanical review of the system and a primer for playing it solo.
 ## Adventures & One-Shots
 Friend-made adventures & one-shots make Tiny d10 even more playable out of the box. These are highly prized contributions!
-### [@Corbzor](https://x.com/corbzor)'s Bounty Boards
+### Corbzor's Bounty Boards
 *Now hiring: Adventurers!* Each is a bounty poster with an adventure on the back: print it double-sided and pin it to the bulletin board at your local tavern, university, or game store!
 - [*Bounty: The Yule Cat*](https://www.drivethrurpg.com/en/product/550134/bounty-the-yule-cat) – Make deliveries to the houses in the valley while avoiding The Yule Cat.
 - [*Bounty: Feast of the Saint*](https://www.drivethrurpg.com/en/product/555929/bounty-feast-of-the-saint) – Escort the remains of The Saint from the monastery to a nearby city while fending off bandit attacks.
@@ -27,18 +27,18 @@ Friend-made adventures & one-shots make Tiny d10 even more playable out of the b
 
 ## Play Reports
 *The few, the proud—the players!* Play reports are exceedingly valuable: from demonstrating how the rules work at the table to illustrating their endless possibilities, play reports are a great way to see what a session of Tiny d10 actually looks like—and to pick up a few ideas before you run your own!
-### [@RumpDM](https://x.com/rumpdm)'s Solo Campaign
+### Rump's Solo Campaign
 - [*Tiny d10 Solo Report 1*](https://rumpdm.substack.com/p/tiny-d10-solo-report-1) – An earthquake cracks open a forgotten crypt beneath Bustletown, and a young battle priest rallies a band of adventurers to seal the evil inside. What they unleash instead sets the whole campaign in motion.
 - [*The Shrine in the Forest*](https://rumpdm.substack.com/p/the-shrine-in-the-forest) – Hunting the vampire they freed, the party stumbles onto a gang of murderous bandits holed up in an old Church shrine. Arrows fly, doors get barred, and the Church wants its property back!
 - [*Scouting the Cairn*](https://rumpdm.substack.com/p/scouting-the-cairn) – Fog, a colorless sky, and flocks of bats all lead the party to a stone cairn deep in the woods, where strangers warn them off: "The Master broods and shall not be disturbed."
 - [*Tiny d10 in UMBROS: Dark Lagoon Boogaloo*](https://rumpdm.substack.com/p/tiny-d10-in-umbros-dark-lagoon-boogaloo) – The Skirmish Combat subsystem goes to war as the Mahar pour out of their tower to meet the Green Dragon's Vineling Horde. A 1d10 roll settles the battle below, while Queen Srrith takes on the dragon Ferigno himself in the skies above!
 ## Videos
 Introductions, reviews, and actual plays: see Tiny d10 in motion!
-### [@NotJonMollison](https://x.com/NotJonMollison)'s *Tiny d10: An Introduction*
+### Jon Mollison's *Tiny d10: An Introduction*
 The gentleman and wargaming scholar Mr. Jon Mollison walks through the system with an understanding of Tiny d10 like few have ever had.
 
 ![](https://www.youtube.com/watch?v=BIO3szHee4I)
-### [@PaddyohCakes](https://x.com/PaddyohCakes)'s *Let's Play!: Tiny d10*
+### Paddy's *Let's Play!: Tiny d10*
 Paddy takes Tiny d10 for a spin in this actual play on Rumble.
 
 <iframe class="external-embed rumble" src="https://rumble.com/embed/v6qh1kf/" width="600px" height="350px" frameborder="0" allowfullscreen></iframe>
@@ -47,14 +47,15 @@ Paddy takes Tiny d10 for a spin in this actual play on Rumble.
 Made something for Tiny d10 or know someone who did? I'd love to see it and share it here!
 
 To get featured, first post your contribution where people can find it: X, Substack, itch.io, your own blog, or anywhere else with a stable link. Then, share it with me on [X](https://x.com/td10rpg) or via [email](mailto:aaron@td10.org) so I can add it to the community!
-## Resources for Designers
+## Resources
+### For Designers
 This section consists of all media and styles used across the Tiny d10 system, shared especially for use by game designers. You are encouraged to incorporate as many or as few of these elements into your own contributions, as you see fit.
-### License
+#### License
 Tiny d10 is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Please note that when creating content for Tiny d10, all published work must meet two simple criteria:
 
 1. **Attribution** – indicate that your work is built on the Tiny d10 Core system;
 2. **ShareAlike** – distribute your work under the same CC BY-SA 4.0 license.
-### Marks
+#### Marks
 Made something for Tiny d10? Consider putting one of these on it! Use is encouraged, but of course not required.
 
 <div class="td10-marks">
@@ -66,22 +67,22 @@ Made something for Tiny d10? Consider putting one of these on it! Use is encoura
 - **Compatible with Tiny d10** in [[compatible-with-tiny-d10-black.png|black]] and [[compatible-with-tiny-d10-white.png|white]]
 
 %% Aaron: add a line on when to use which mark. %%
-### Images
+#### Images
 - [[td10-logo-1024x1024.png|Tiny d10 - Logo (1024x1024).png]]
 - [[td10-fantasy.png|Tiny d10 - Fantasy Core - Cover (4448x2928).png]]
 - [The Dragon](https://commons.wikimedia.org/wiki/File:Friedrich-Johann-Justin-Bertuch_Mythical-Creature-Dragon_1806.jpg) – Friedrich Johann Justin Bertuch, 1806
 - [The Knight](https://archive.org/details/paullacroix/page/n122/mode/1up) – Albrecht Dürer, c. 1515
-### Fonts
+#### Fonts
 - [Garamond](https://learn.microsoft.com/en-us/typography/font-list/garamond) – the body text of every Tiny d10 book and zine: 10pt regular, with **bold** for terms and *italic* for epigraphs, examples, and titles. Running headers are set in small, letter-spaced italic.
 - [Trinigan FG](https://www.dafont.com/trinigan-fg.font) – titles and headings, at varying sizes: the "Tiny d10" wordmark, cover titles, section heads, and the labels on character sheets and class references.
 - [EB Garamond](https://fonts.google.com/specimen/EB+Garamond) – the dense rules text on the half-letter class reference sheets (8pt), with its small caps for labels and key terms; it is also the typeface of this website.
-### Formats
+#### Formats
 - **Books** are US Letter (8.5" x 11").
 - **Zines** are half-letter (5.5" x 8.5"), printed two to a landscape letter page and folded into a booklet.
 - **Class reference sheets** are half-letter, one class per sheet.
-## Resources for Game Masters
+### For Game Masters
 The contents of this section are constantly being expanded, pruned, and refined. Check back frequently!
-### Convention Kit
+#### Convention Kit
 For game masters running Tiny d10 at a convention, the following resources are recommended:
 - Six [[pregens.pdf|pre-generated characters]]
 - Blank [[files/con kit/td10cs.pdf|character sheets]]
